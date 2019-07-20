@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Popup from './Popup';
+import Panel from './Panel';
 import './index.css';
 
-render(<Popup />, window.document.querySelector('#app-container'));
+render(<Panel />, window.document.querySelector('#app-container'));
 
 if (module.hot) module.hot.accept();
