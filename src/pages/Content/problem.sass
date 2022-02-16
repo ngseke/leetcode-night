@@ -1,0 +1,53 @@
+$text-color: rgb(215, 217, 219)
+
+=btn
+  background-color: transparent !important
+  color: $text-color !important
+  box-shadow: inset 0px 0px 0px 1px rgba(63,67,71, 1) !important
+  [class*="handler-text"]
+    color: $text-color !important
+
+body, #initial-loading
+  background-color: rgb(24, 26, 31) !important
+
+[class*="navbar__"]
+  background-color: rgb(46,47,49) !important
+  border-color: transparent !important
+  [class*="nav-item__"]
+    color: $text-color !important
+
+[class*="TabHeaderContainer"]
+  background-color: rgb(40,42,46) !important
+  [data-cy="description"], [data-cy="solution"], [data-cy="discuss"], [data-cy="submissions"]
+    background-color: rgb(40,42,46) !important
+    color: rgb(215,217,219)!important
+    border-color: transparent !important
+    &::before
+      background: rgb(32, 35, 38) !important
+    &::after
+      display: none
+[class*="TabViewHeader"]
+  &::after
+    display: none
+
+[data-cy="description-content"]
+  background-color: rgb(34, 35, 37) !important
+
+  > div:first-child > div:first-child
+    border-color: rgb(40,42,46) !important
+
+  [data-cy="question-title"], [data-cy="question-title"] ~ div, p, ul
+    color: $text-color !important
+
+  pre, code
+    background-color: rgba(255, 255, 255, 0.1) !important
+    color: white !important
+
+// footer
+[class*="question-fast-picker-wrapper"]
+  background-color: rgb(32,35,38) !important
+  color: $text-color !important
+  button
+    +btn
+
+// editor

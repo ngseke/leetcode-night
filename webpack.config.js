@@ -57,7 +57,7 @@ var options = {
     rules: [
       {
         // look for .css or .scss files
-        test: /\.(css|scss)$/,
+        test: /\.(css|scss|sass)$/,
         // in the `src` directory
         use: [
           {
