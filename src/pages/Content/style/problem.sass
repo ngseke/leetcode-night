@@ -1,0 +1,29 @@
+@import 'variables'
+
+@import 'cat'
+@import 'loading'
+@import 'description'
+@import 'editor'
+@import 'result'
+@import 'submit-table'
+
+@import 'footer'
+@import 'navbar'
+
+body
+  background-color: rgb(24, 26, 31) !important
+
+[class*="TabHeaderContainer"]
+  background-color: rgb(40,42,46) !important
+  [data-cy="description"], [data-cy="solution"], [data-cy="discuss"], [data-cy="submissions"]
+    background-color: rgb(40,42,46) !important
+    color: $text-color!important
+    border-color: transparent !important
+    &::before
+      background: rgb(32, 35, 38) !important
+    &::after
+      display: none
+
+[class*="TabViewHeader"]
+  &::after
+    display: none
