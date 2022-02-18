@@ -25,3 +25,18 @@
     &:hover
       color: inherit !important
       opacity: .8
+
+// 選單
+[class*="description"]
+  [class*="header"]
+    border-color: rgb(40,42,46) !important
+    ~ [class*="css-"]
+      background: transparent
+      & > div:hover
+        color: $text-color !important
+      [class*="topic-tag"] > span
+        color: rgb(215,217,219)!important
+        background: rgba(255,255,255,0.1) !important
+
+      [class*="question"] [class*="title"]
+        color: rgb(177,180,186)!important
