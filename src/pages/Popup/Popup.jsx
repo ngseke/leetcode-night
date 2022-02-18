@@ -1,23 +1,26 @@
-import React from 'react';
-import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
+import React, {useState} from 'react';
 import './Popup.css';
+import capybaraImages from './images/capybara.png'
+import gitHubLogo from './images/GitHub-Logo.png'
+import './SwitchButton.css'
 
 const Popup = () => {
+  const [isLight,setIsLight] = useState(true)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Popup/Popup.jsx</code> and save to reload.
-        </p>
+        <img src={capybaraImages} className={`App-logo ${isLight && 'horizontal-flip'}`} alt="logo" />
+        <label  className="switch">
+          <input onClick={()=>setIsLight(state => !state)} type="checkbox" checked={isLight}/>
+          <span className="slider round"></span>
+        </label>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/ngseke/leetcode-dark-mode"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React!
+          <img src={gitHubLogo} alt="GitHub-Logo" />
         </a>
       </header>
     </div>
