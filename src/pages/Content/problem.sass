@@ -1,3 +1,5 @@
+@import 'cat'
+
 $text-color: rgb(215, 217, 219)
 
 =btn
@@ -9,6 +11,17 @@ $text-color: rgb(215, 217, 219)
 
 body, #initial-loading
   background-color: rgb(24, 26, 31) !important
+
+#initial-loading
+  &::after
+    content: ''
+    background-image: $cat
+    background-size: contain
+    position: fixed
+    width: 10rem
+    height: 10rem
+    right: 0
+    bottom: 0
 
 [class*="navbar__"]
   background-color: rgb(46,47,49) !important
