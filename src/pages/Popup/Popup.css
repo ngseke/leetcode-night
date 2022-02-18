@@ -13,12 +13,12 @@
 .App-logo {
   height: 30vmin;
   pointer-events: none;
+  transform: translate(-10px) scaleX(-1);
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.horizontal-flip {
+  transform: translate(10px) scaleX(1);
 }
 
 .App-header {
@@ -32,7 +32,13 @@
 }
 
 .App-link {
-  color: #61dafb;
+  position: absolute;
+  bottom: 10px;
+}
+
+.App-link img{
+  width: 7vmin;
+  height: 7vmin;
 }
 
 @keyframes App-logo-spin {
