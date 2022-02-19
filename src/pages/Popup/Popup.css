@@ -1,20 +1,9 @@
-.App {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  text-align: center;
-  height: 100%;
-  padding: 10px;
-  background-color: #282c34;
-}
-
-.App-logo {
+ .App-logo {
   height: 30vmin;
   pointer-events: none;
   transform: translate(-10px) scaleX(-1);
   margin-bottom: 10px;
+  z-index: 1;
 }
 
 .horizontal-flip {
@@ -27,25 +16,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  position: absolute;
-  bottom: 10px;
-}
-
-.App-link img{
-  width: 7vmin;
-  height: 7vmin;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

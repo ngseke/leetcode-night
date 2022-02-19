@@ -1,11 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import './Popup.css';
-import capybaraImages from './images/capybara.png'
-import gitHubLogo from './images/GitHub-Logo.png'
+import styled from 'styled-components'
+import 'normalize.css'
+import './Popup.css'
 import './SwitchButton.css'
 import { getIsEnabled } from '../../storage';
+import EnabledSwitch from './components/EnabledSwitch';
+import GithubLink from './components/GithubLink';
 
 const { ENABLED_STORAGE_KEY } = require('../../constants')
+
+const App = styled.div({
+  backgroundColor: 'rgb(40,42,46)',
+  color: 'rgb(215, 217, 219)',
+  height: '100%',
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  padding: 16,
+})
+
+const Col = styled.div({
+  display: 'flex',
+  height: '100%',
+})
+
+const Divider = styled.div({
+  flex: '0 0 auto',
+  width: 'auto',
+  borderLeft: 'solid rgba(255,255,255, .1) 1px',
+  margin: '0 20px',
+})
+
+const SideBar = styled.div({
+  flex: '0 0 auto',
+  width: 'auto',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+})
+
+const Main = styled.div({
+  flex: '1 0 0%',
+})
+
+const Title = styled.h1({
+  fontSize: 20
+})
+
 
 export default function Popup() {
   const [isReady, setIsReady] = useState(false)
@@ -24,22 +67,17 @@ export default function Popup() {
   }, [isEnabled, isReady])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={capybaraImages} className={`App-logo ${isEnabled && 'horizontal-flip'}`} alt="logo" />
-        <label className="switch">
-          <input onClick={() => setIsEnabled(state => !state)} type="checkbox" checked={isEnabled} />
-          <span className="slider round"></span>
-        </label>
-        <a
-          className="App-link"
-          href="https://github.com/ngseke/leetcode-dark-mode"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={gitHubLogo} alt="GitHub-Logo" />
-        </a>
-      </header>
-    </div>
+    <App>
+      <Col>
+        <SideBar>
+          <EnabledSwitch value={isEnabled} onChange={setIsEnabled} />
+          <GithubLink />
+        </SideBar>
+        <Divider />
+        <Main>
+          <Title>LeetCode Dark Mode</Title>
+        </Main>
+      </Col>
+    </App>
   );
 };
