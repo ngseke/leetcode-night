@@ -1,21 +1,25 @@
-import { getIsEnabled } from '../../storage'
+import { loadIsEnabled, loadOptions } from '../../storage'
 import './style/problem.sass'
+import { toggleEnabled } from './toggleEnabled'
+import { toggleInvertImageColor } from './toggleInvertImageColor'
 
-const { BODY_CLASS_NAME, ENABLED_STORAGE_KEY } = require('../../constants')
+const { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } = require('../../constants')
 
-const $body = document.querySelector('body')
-
-const enable = () => $body.classList.add(BODY_CLASS_NAME)
-const disable = () => $body.classList.remove(BODY_CLASS_NAME)
-const toggle = (value) => (value ? enable : disable)()
+const handleOptionsChange = (options) => {
+  toggleInvertImageColor(options?.invertImageColor ?? false)
+}
 
 async function init() {
-  toggle(await getIsEnabled())
+  toggleEnabled(await loadIsEnabled())
+  handleOptionsChange(await loadOptions())
 }
 
 init()
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace !== 'sync') return
-  toggle(changes[ENABLED_STORAGE_KEY].newValue)
+  const isEnabled = changes[ENABLED_STORAGE_KEY]?.newValue
+  if (isEnabled != null) toggleEnabled(isEnabled)
+
+  const options = changes[OPTIONS_STORAGE_KEY]?.newValue
+  if (options != null) handleOptionsChange(options)
 })

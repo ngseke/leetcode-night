@@ -39,3 +39,8 @@
 
         [class*="question"] [class*="title"]
           color: rgb(177,180,186)!important
+
+  &.#{$invert-image-color-class-name}
+    [data-cy="description-content"]
+      img
+        filter: invert(1)
