@@ -24,3 +24,10 @@
     2. Check `Developer mode`
     3. Click on `Load unpacked extension`
     4. Select the `build/` folder.
+
+## TODOs
+
+- [ ] 編輯器上方列的暗黑樣式
+- [ ] 暗黑模式功能（總開關）
+- [ ] 可開關的反轉圖片顏色（`filter: invert(1)`）功能
+- [ ] 載入畫面的吉祥物開關
