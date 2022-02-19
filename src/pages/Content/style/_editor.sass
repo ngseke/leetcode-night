@@ -1,3 +1,5 @@
+@import 'variables'
+
 .CodeMirror-gutters
   background-color: rgb(24, 26, 31) !important
 
@@ -5,3 +7,47 @@
 
 [class*="interactive-area"]
   background-color: rgb(40, 42, 46) !important
+
+[class*="code-area"]
+  // 收合
+  > [class*="result__"]
+    > [class*="panel__"]
+      > [class*="header__"]
+        background-color: #141414 !important
+        border-color: rgb(32,35,38) !important
+        color: $text-color !important
+        .reset-code-btn
+          color: rgb(132,136,142) !important
+
+        [data-key="custom-testcase-content"]
+          background-color: rgb(24, 26, 31) !important
+        // test case textarea
+        #testcase-editor
+          background-color: rgb(20,20,20) !important
+          color: $text-color !important
+          [class*='editor-container']
+            border-color: rgb(40,42,46) !important
+
+        [data-key="runcode-result-content"]
+          // skeleton screen
+          svg rect
+            fill: rgb(40,42,46) !important
+          [data-cy="run-code-finished"]
+            [class*='-ValueContainer']
+              background-color: rgb(24,26,31) !important
+              border-color: rgb(40,42,46) !important
+              color: white !important
+
+  // footer
+  > [class*="container__"]
+    border-color: #232e3a !important
+    background-color: rgb(32,35,38) !important
+    button
+      color: rgb(215,217,219)!important
+    button[data-cy="run-code-btn"]
+      &:hover, &:disabled
+        background-color: inherit !important
+        border-color: inherit !important
+        opacity: .8
+      &:disabled
+        opacity: .3
