@@ -12,3 +12,12 @@
 
   [class*='addl-success-info']
     color: $text-color
+
+[data-cy="submit-wrong-result"]
+  [class*="-Field"]
+    color: rgb(177,180,186) !important
+    & + div
+      border-color: rgb(40,42,46) !important
+      background-color: rgb(24,26,31) !important
+      [class*="-Value"]
+        color: rgb(177,180,186) !important
