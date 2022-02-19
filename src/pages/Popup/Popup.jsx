@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import 'normalize.css'
 import './Popup.css'
 import './SwitchButton.css'
-import { getIsEnabled } from '../../storage';
+import { loadIsEnabled, saveIsEnabled } from '../../storage';
 import EnabledSwitch from './components/EnabledSwitch';
 import GithubLink from './components/GithubLink';
+import Options from './components/Options';
 
-const { ENABLED_STORAGE_KEY } = require('../../constants')
 
 const App = styled.div({
   backgroundColor: 'rgb(40,42,46)',
@@ -55,7 +55,7 @@ export default function Popup() {
   const [isEnabled, setIsEnabled] = useState(false)
 
   useEffect(function init() {
-    getIsEnabled().then(isEnabled => {
+    loadIsEnabled().then(isEnabled => {
       setIsEnabled(isEnabled)
       setIsReady(true)
     })
@@ -63,7 +63,7 @@ export default function Popup() {
 
   useEffect(() => {
     if (!isReady) return
-    chrome.storage.sync.set({ [ENABLED_STORAGE_KEY]: isEnabled })
+    saveIsEnabled(isEnabled)
   }, [isEnabled, isReady])
 
   return (
@@ -76,6 +76,7 @@ export default function Popup() {
         <Divider />
         <Main>
           <Title>LeetCode Dark Mode</Title>
+          <Options />
         </Main>
       </Col>
     </App>
