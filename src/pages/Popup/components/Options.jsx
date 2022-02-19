@@ -8,13 +8,16 @@ const List = styled.ul({
   listStyle: 'none'
 })
 
-const Item = styled.li({
-  marginBottom: 8,
-  fontSize: 16,
-  display: 'flex',
-  alignItems: 'center',
-  userSelect: 'none'
-})
+const Item = styled.li(({ disabled }) => (
+  {
+    marginBottom: 8,
+    fontSize: 16,
+    display: 'flex',
+    alignItems: 'center',
+    userSelect: 'none',
+    opacity: disabled ? .5 : 1
+  }
+))
 
 const Checkbox = styled.input({
   marginRight: 8,
@@ -24,7 +27,7 @@ const options = [
   OPTIONS.INVERT_IMAGE_COLOR
 ]
 
-export default function Options({ value, onChange }) {
+export default function Options({ disabled }) {
   const [form, setForm] = useState(null)
 
   const handleChange = (key) =>
@@ -47,12 +50,13 @@ export default function Options({ value, onChange }) {
     <List>
       {
         options?.map(({ name, key }) => (
-          <Item key={key}>
+          <Item key={key} disabled={disabled}>
             <label>
               <Checkbox
                 type="checkbox"
                 checked={form?.[key] ?? false}
                 onChange={handleChange(key)}
+                disabled={disabled}
               />
               {name}
             </label>

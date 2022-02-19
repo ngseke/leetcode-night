@@ -76,7 +76,7 @@ export default function Popup() {
         <Divider />
         <Main>
           <Title>LeetCode Dark Mode</Title>
-          <Options />
+          <Options disabled={!isEnabled} />
         </Main>
       </Col>
     </App>
