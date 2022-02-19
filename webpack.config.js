@@ -1,4 +1,4 @@
-const { BODY_CLASS_NAME, INVERT_IMAGE_COLOR_CLASS_NAME } = require('./src/constants')
+const { BODY_CLASS_NAME, INVERT_IMAGE_COLOR_CLASS_NAME, MASCOT_CLASS_NAME} = require('./src/constants')
 
 var webpack = require('webpack'),
   path = require('path'),
@@ -73,6 +73,7 @@ var options = {
               additionalData: `
 $body-class-name: ${BODY_CLASS_NAME};
 $invert-image-color-class-name: ${INVERT_IMAGE_COLOR_CLASS_NAME};
+$mascot-class-name: ${MASCOT_CLASS_NAME};
               `
             },
           },

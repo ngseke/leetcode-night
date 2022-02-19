@@ -2,11 +2,13 @@ import { loadIsEnabled, loadOptions } from '../../storage'
 import './style/problem.sass'
 import { toggleEnabled } from './toggleEnabled'
 import { toggleInvertImageColor } from './toggleInvertImageColor'
+import { toggleEnabledMascot } from './toggleEnabledMascot'
 
 const { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } = require('../../constants')
 
 const handleOptionsChange = (options) => {
   toggleInvertImageColor(options?.invertImageColor ?? false)
+  toggleEnabledMascot(options?.mascot ?? false)
 }
 
 async function init() {
