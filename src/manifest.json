@@ -1,11 +1,8 @@
 {
   "manifest_version": 3,
   "name": "LeetCode Dark Mode",
-  "description": "值得您信賴的暗黑版 LeetCode 樣式",
+  "description": "🌑🐱👍",
   "options_page": "options.html",
-  "background": {
-    "service_worker": "background.bundle.js"
-  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
