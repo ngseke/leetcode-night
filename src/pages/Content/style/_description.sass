@@ -1,42 +1,41 @@
-@import 'variables'
++common
+  [data-cy="description-content"]
+    background-color: rgb(34, 35, 37) !important
+    [class*="question-content"]
+      color: $text-color !important
+      & ~ div > div:nth-child(2)
+        color: $text-color !important
 
-[data-cy="description-content"]
-  background-color: rgb(34, 35, 37) !important
-  [class*="question-content"]
-    color: $text-color !important
-    & ~ div > div:nth-child(2)
+    [class*="question-content"] + div > div > div > div:nth-child(2)
       color: $text-color !important
 
-  [class*="question-content"] + div > div > div > div:nth-child(2)
-    color: $text-color !important
+    [data-cy="question-title"], [data-cy="question-title"] ~ div
+      color: $text-color !important
 
-  [data-cy="question-title"], [data-cy="question-title"] ~ div
-    color: $text-color !important
+    [class*="css-"]
+      border-color: rgb(40,42,46) !important
 
-  [class*="css-"]
-    border-color: rgb(40,42,46) !important
+    pre, code
+      background-color: rgba(255, 255, 255, 0.1) !important
+      color: white !important
 
-  pre, code
-    background-color: rgba(255, 255, 255, 0.1) !important
-    color: white !important
+    button
+      transition: .2s all
+      &:hover
+        color: inherit !important
+        opacity: .8
 
-  button
-    transition: .2s all
-    &:hover
-      color: inherit !important
-      opacity: .8
+  // 選單
+  [class*="description"]
+    [class*="header"]
+      border-color: rgb(40,42,46) !important
+      ~ [class*="css-"]
+        background: transparent
+        & > div:hover
+          color: $text-color !important
+        [class*="topic-tag"] > span
+          color: rgb(215,217,219)!important
+          background: rgba(255,255,255,0.1) !important
 
-// 選單
-[class*="description"]
-  [class*="header"]
-    border-color: rgb(40,42,46) !important
-    ~ [class*="css-"]
-      background: transparent
-      & > div:hover
-        color: $text-color !important
-      [class*="topic-tag"] > span
-        color: rgb(215,217,219)!important
-        background: rgba(255,255,255,0.1) !important
-
-      [class*="question"] [class*="title"]
-        color: rgb(177,180,186)!important
+        [class*="question"] [class*="title"]
+          color: rgb(177,180,186)!important

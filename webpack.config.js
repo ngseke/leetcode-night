@@ -1,3 +1,5 @@
+const { BODY_CLASS_NAME } = require('./src/constants')
+
 var webpack = require('webpack'),
   path = require('path'),
   fileSystem = require('fs-extra'),
@@ -34,7 +36,7 @@ if (fileSystem.existsSync(secretsPath)) {
 }
 
 var options = {
-  mode: process.env.NODE_ENV || 'development',
+  mode: env.NODE_ENV || 'development',
   entry: {
     newtab: path.join(__dirname, 'src', 'pages', 'Newtab', 'index.jsx'),
     options: path.join(__dirname, 'src', 'pages', 'Options', 'index.jsx'),
@@ -70,6 +72,7 @@ var options = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+              additionalData: `$body-class-name: ${BODY_CLASS_NAME};`
             },
           },
         ],

@@ -1,15 +1,16 @@
 @import 'cat'
 
-#initial-loading
-  background-color: rgb(24, 26, 31) !important
-  &::after
-    $scale: .3
-    content: ''
-    background-image: $cat
-    background-size: contain
-    background-repeat: no-repeat
-    position: fixed
-    width: 480px * $scale
-    height: 454px * $scale
-    right: 0
-    bottom: 0
++common
+  #initial-loading
+    background-color: rgb(24, 26, 31) !important
+    &::after
+      $scale: .3
+      content: ''
+      background-image: $cat
+      background-size: contain
+      background-repeat: no-repeat
+      position: fixed
+      width: 480px * $scale
+      height: 454px * $scale
+      right: 0
+      bottom: 0

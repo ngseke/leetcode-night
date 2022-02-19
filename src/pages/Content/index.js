@@ -1,7 +1,6 @@
-import { printLine } from './modules/print';
 import './style/problem.sass'
 
-console.log('Content script works!');
-console.log('Must reload extension for modifications to take effect.');
+const { BODY_CLASS_NAME } = require('../../constants')
 
-printLine("Using the 'printLine' function from the Print Module");
+const $body = document.querySelector('body')
+$body.classList.add(BODY_CLASS_NAME)

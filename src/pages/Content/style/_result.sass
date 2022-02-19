@@ -1,23 +1,22 @@
-@import 'variables'
++common
+  [class*="result-container__"]
+    border-color: rgb(63,67,71) !important
+    [class*="container"], span
+      [class*="info__"], span
+        color: rgb(177,180,186) !important
+        span
+          color: rgb(177,180,186) !important
+    [class*="container__"] rect
+      fill: rgb(40,42,46) !important
 
-[class*="result-container__"]
-  border-color: rgb(63,67,71) !important
-  [class*="container"], span
-    [class*="info__"], span
+    [class*='addl-success-info']
+      color: $text-color
+
+  [class*="submissions"]
+    [class*="-Field"]
       color: rgb(177,180,186) !important
-      span
-        color: rgb(177,180,186) !important
-  [class*="container__"] rect
-    fill: rgb(40,42,46) !important
-
-  [class*='addl-success-info']
-    color: $text-color
-
-[class*="submissions"]
-  [class*="-Field"]
-    color: rgb(177,180,186) !important
-    & + div
-      border-color: rgb(40,42,46) !important
-      background-color: rgb(24,26,31) !important
-      [class*="-Value"]
-        color: rgb(177,180,186) !important
+      & + div
+        border-color: rgb(40,42,46) !important
+        background-color: rgb(24,26,31) !important
+        [class*="-Value"]
+          color: rgb(177,180,186) !important
