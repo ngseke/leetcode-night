@@ -7,3 +7,9 @@ export const CLASS_NAMES = {
   INVERT_IMAGE_COLOR: `${CLASS_NAME_PREFIX}-invert-image-color`,
   MASCOT: `${CLASS_NAME_PREFIX}-mascot`
 }
+
+export const sassAdditionalData = `
+$body-class-name: ${CLASS_NAMES.BODY};
+$invert-image-color-class-name: ${CLASS_NAMES.INVERT_IMAGE_COLOR};
+$mascot-class-name: ${CLASS_NAMES.MASCOT};
+`

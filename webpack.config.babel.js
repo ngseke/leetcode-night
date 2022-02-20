@@ -1,4 +1,4 @@
-import { CLASS_NAMES } from './src/constants'
+import { sassAdditionalData } from './src/constants'
 
 var webpack = require('webpack'),
   path = require('path'),
@@ -57,11 +57,7 @@ var options = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              additionalData: `
-$body-class-name: ${CLASS_NAMES.BODY};
-$invert-image-color-class-name: ${CLASS_NAMES.INVERT_IMAGE_COLOR};
-$mascot-class-name: ${CLASS_NAMES.MASCOT};
-              `
+              additionalData: sassAdditionalData
             },
           },
         ],
