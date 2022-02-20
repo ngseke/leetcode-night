@@ -1,4 +1,4 @@
-const { BODY_CLASS_NAME, INVERT_IMAGE_COLOR_CLASS_NAME, MASCOT_CLASS_NAME } = require('./src/constants')
+import { CLASS_NAMES } from './src/constants'
 
 var webpack = require('webpack'),
   path = require('path'),
@@ -18,18 +18,7 @@ var alias = {
 // load the secrets
 var secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js');
 
-var fileExtensions = [
-  'jpg',
-  'jpeg',
-  'png',
-  'gif',
-  'eot',
-  'otf',
-  'svg',
-  'ttf',
-  'woff',
-  'woff2',
-];
+var fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf', 'woff', 'woff2',];
 
 if (fileSystem.existsSync(secretsPath)) {
   alias['secrets'] = secretsPath;
@@ -69,9 +58,9 @@ var options = {
             options: {
               sourceMap: true,
               additionalData: `
-$body-class-name: ${BODY_CLASS_NAME};
-$invert-image-color-class-name: ${INVERT_IMAGE_COLOR_CLASS_NAME};
-$mascot-class-name: ${MASCOT_CLASS_NAME};
+$body-class-name: ${CLASS_NAMES.BODY};
+$invert-image-color-class-name: ${CLASS_NAMES.INVERT_IMAGE_COLOR};
+$mascot-class-name: ${CLASS_NAMES.MASCOT};
               `
             },
           },

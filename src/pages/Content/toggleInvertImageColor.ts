@@ -1,6 +1,6 @@
 import BodyClassToggler from './BodyClassToggler'
-const { INVERT_IMAGE_COLOR_CLASS_NAME } = require('../../constants')
+import { CLASS_NAMES } from '../../constants'
 
-const bodyClassToggler = new BodyClassToggler(INVERT_IMAGE_COLOR_CLASS_NAME)
+const bodyClassToggler = new BodyClassToggler(CLASS_NAMES.INVERT_IMAGE_COLOR)
 
 export const toggleInvertImageColor = (value: boolean) => bodyClassToggler.toggle(value)

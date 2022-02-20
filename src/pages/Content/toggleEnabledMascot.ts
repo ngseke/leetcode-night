@@ -1,6 +1,6 @@
 import BodyClassToggler from './BodyClassToggler'
-const { MASCOT_CLASS_NAME } = require('../../constants')
+import { CLASS_NAMES } from '../../constants'
 
-const bodyClassToggler = new BodyClassToggler(MASCOT_CLASS_NAME)
+const bodyClassToggler = new BodyClassToggler(CLASS_NAMES.MASCOT)
 
 export const toggleEnabledMascot = (value: boolean) => bodyClassToggler.toggle(value)

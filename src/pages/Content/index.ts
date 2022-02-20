@@ -4,8 +4,8 @@ import { toggleEnabled } from './toggleEnabled'
 import { toggleInvertImageColor } from './toggleInvertImageColor'
 import { toggleEnabledMascot } from './toggleEnabledMascot'
 import { Options } from '../../options'
+import { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } from '../../constants'
 
-const { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } = require('../../constants')
 
 const handleOptionsChange = (options: Options) => {
   toggleInvertImageColor(options?.invertImageColor ?? false)

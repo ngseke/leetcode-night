@@ -1,6 +1,6 @@
 import BodyClassToggler from './BodyClassToggler'
-const { BODY_CLASS_NAME } = require('../../constants')
+import { CLASS_NAMES } from '../../constants'
 
-const bodyClassToggler = new BodyClassToggler(BODY_CLASS_NAME)
+const bodyClassToggler = new BodyClassToggler(CLASS_NAMES.BODY)
 
 export const toggleEnabled = (value: boolean) => bodyClassToggler.toggle(value)

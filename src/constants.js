@@ -1,7 +1,9 @@
-module.exports = {
-  BODY_CLASS_NAME: 'leetcode-dark-mode-chrome-extension',
-  INVERT_IMAGE_COLOR_CLASS_NAME: 'leetcode-dark-mode-chrome-extension-invert-image-color',
-  MASCOT_CLASS_NAME: 'leetcode-dark-mode-chrome-extension-mascot',
-  ENABLED_STORAGE_KEY: 'enabled',
-  OPTIONS_STORAGE_KEY: 'options',
+export const ENABLED_STORAGE_KEY = 'enabled'
+export const OPTIONS_STORAGE_KEY = 'options'
+
+const CLASS_NAME_PREFIX = 'leetcode-dark-mode-chrome-extension'
+export const CLASS_NAMES = {
+  BODY: CLASS_NAME_PREFIX,
+  INVERT_IMAGE_COLOR: `${CLASS_NAME_PREFIX}-invert-image-color`,
+  MASCOT: `${CLASS_NAME_PREFIX}-mascot`
 }

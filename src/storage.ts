@@ -1,6 +1,5 @@
 import { DEFAULT_OPTIONS, Options } from './options'
-
-const { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } = require('./constants')
+import { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } from './constants'
 
 export const loadIsEnabled = (): Promise<boolean> => {
   const key = ENABLED_STORAGE_KEY
