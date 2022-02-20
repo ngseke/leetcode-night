@@ -1,4 +1,4 @@
-const { BODY_CLASS_NAME, INVERT_IMAGE_COLOR_CLASS_NAME, MASCOT_CLASS_NAME} = require('./src/constants')
+const { BODY_CLASS_NAME, INVERT_IMAGE_COLOR_CLASS_NAME, MASCOT_CLASS_NAME } = require('./src/constants')
 
 var webpack = require('webpack'),
   path = require('path'),
@@ -40,7 +40,7 @@ var options = {
   entry: {
     options: path.join(__dirname, 'src', 'pages', 'Options', 'index.jsx'),
     popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.jsx'),
-    contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
+    contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.ts'),
     devtools: path.join(__dirname, 'src', 'pages', 'Devtools', 'index.js'),
     panel: path.join(__dirname, 'src', 'pages', 'Panel', 'index.jsx'),
   },

@@ -3,13 +3,15 @@ export const OPTIONS = {
     name: 'Invert image color',
     key: 'invertImageColor',
   },
-  MASCOT:{
+  MASCOT: {
     name: 'Show Mascot',
     key: 'mascot'
   }
-}
+} as const
 
 export const DEFAULT_OPTIONS = {
   [OPTIONS.INVERT_IMAGE_COLOR.key]: true,
   [OPTIONS.MASCOT.key]: true
-}
+} as const
+
+export type Options = typeof DEFAULT_OPTIONS

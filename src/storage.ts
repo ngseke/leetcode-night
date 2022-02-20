@@ -1,22 +1,22 @@
-import { DEFAULT_OPTIONS } from './options'
+import { DEFAULT_OPTIONS, Options } from './options'
 
 const { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } = require('./constants')
 
-export const loadIsEnabled = () => {
+export const loadIsEnabled = (): Promise<boolean> => {
   const key = ENABLED_STORAGE_KEY
   return new Promise((resolve) => {
     chrome.storage.sync.get([key], (items) => {
-      const isEnabled = items[key] ?? true
+      const isEnabled = Boolean(items[key] ?? true)
       resolve(isEnabled)
     })
   })
 }
 
-export const saveIsEnabled = (isEnabled) => {
+export const saveIsEnabled = (isEnabled: boolean) => {
   chrome.storage.sync.set({ [ENABLED_STORAGE_KEY]: isEnabled })
 }
 
-export const loadOptions = () => {
+export const loadOptions = (): Promise<Options> => {
   const key = OPTIONS_STORAGE_KEY
   return new Promise((resolve) => {
     chrome.storage.sync.get([key], (items) => {
@@ -26,6 +26,6 @@ export const loadOptions = () => {
   })
 }
 
-export const saveOptions = (options) => {
+export const saveOptions = (options: Options) => {
   chrome.storage.sync.set({ [OPTIONS_STORAGE_KEY]: options })
 }
