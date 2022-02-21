@@ -5,11 +5,13 @@ import { toggleInvertImageColor } from './toggleInvertImageColor'
 import { toggleEnabledMascot } from './toggleEnabledMascot'
 import { OptionsForm } from '../../options'
 import { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } from '../../constants'
+import { toggleHideLogo } from './toggleHideLogo'
 
 
 const handleOptionsChange = (options: OptionsForm) => {
   toggleInvertImageColor(options?.invertImageColor ?? false)
   toggleEnabledMascot(options?.mascot ?? false)
+  toggleHideLogo(options?.hideLogo ?? false)
 }
 
 async function init() {
