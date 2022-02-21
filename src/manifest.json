@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "LeetCode Night",
-  "description": "🌕🐱👍",
+  "description": "🌕 A extension that enable dark mode on LeetCode 🐱👍",
   "options_page": "options.html",
   "action": {
     "default_popup": "popup.html",
