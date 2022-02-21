@@ -1,6 +1,7 @@
 <img src="src/assets/img/logo.png" width="128"/>
-
 # LeetCode Night
+
+<img src="src/assets/img/screenshot.png"  />
 
 ## 安裝
 
