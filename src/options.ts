@@ -5,7 +5,7 @@ export const OPTIONS = {
     default: true
   },
   MASCOT: {
-    name: 'Show Mascot',
+    name: 'Show mascot',
     key: 'mascot',
     default: true
   }
