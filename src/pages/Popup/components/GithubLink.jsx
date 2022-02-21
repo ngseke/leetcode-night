@@ -16,7 +16,7 @@ export default function GithubLink() {
   return (
     <>
       <Link
-        href="https://github.com/ngseke/leetcode-dark-mode"
+        href="https://github.com/ngseke/leetcode-night"
         target="_blank"
         rel="noopener noreferrer"
       >
