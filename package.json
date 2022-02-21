@@ -1,11 +1,11 @@
 {
-  "name": "leetcode-dark-mode",
+  "name": "leetcode-night",
   "version": "0.0.1",
   "description": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ngseke/leetcode-dark-mode"
+    "url": "https://github.com/ngseke/leetcode-night"
   },
   "scripts": {
     "build": "node utils/build.js",

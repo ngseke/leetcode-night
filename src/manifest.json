@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "LeetCode Dark Mode",
-  "description": "🌑🐱👍",
+  "name": "LeetCode Night",
+  "description": "🌕🐱👍",
   "options_page": "options.html",
   "action": {
     "default_popup": "popup.html",

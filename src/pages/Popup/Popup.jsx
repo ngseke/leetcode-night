@@ -75,7 +75,7 @@ export default function Popup() {
         </SideBar>
         <Divider />
         <Main>
-          <Title>LeetCode Dark Mode</Title>
+          <Title>LeetCode Night</Title>
           <Options disabled={!isEnabled} />
         </Main>
       </Col>

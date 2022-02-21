@@ -1,10 +1,10 @@
 <img src="src/assets/img/icon-128.png" width="64"/>
 
-# LeetCode Dark Mode
+# LeetCode Night
 
 ## 安裝
 
-1. 執行 `git clone https://github.com/ngseke/leetcode-dark-mode.git` 來克隆此專案
+1. 執行 `git clone https://github.com/ngseke/leetcode-night.git` 來克隆此專案
 1. 執行 `npm install` 來安裝相依套件
 1. 執行 `npm run build`（開發用則執行 `npm run start`）
 1. 按照下面步驟載入 Chrome 擴充功能
@@ -16,7 +16,7 @@
 
 ## Installation
 
-1. Clone this repo by running `git clone https://github.com/ngseke/leetcode-dark-mode.git`
+1. Clone this repo by running `git clone https://github.com/ngseke/leetcode-night.git`
 1. Run `npm install` to install the dependencies.
 1. Run `npm build`（or `npm run start` for development）
 1. Load your extension on Chrome following:
