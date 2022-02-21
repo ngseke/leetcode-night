@@ -8,7 +8,12 @@ export const OPTIONS = {
     name: 'Show mascot',
     key: 'mascot',
     default: true
-  }
+  },
+  HIDE_LOGO: {
+    name: 'Hide logo',
+    key: 'hideLogo',
+    default: false
+  },
 } as const
 
 export type OptionKey = typeof OPTIONS[keyof typeof OPTIONS]['key']

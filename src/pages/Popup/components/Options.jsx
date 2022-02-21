@@ -21,7 +21,11 @@ const Checkbox = styled.input({
   marginRight: 8,
 });
 
-const options = [OPTIONS.INVERT_IMAGE_COLOR, OPTIONS.MASCOT];
+const options = [
+  OPTIONS.INVERT_IMAGE_COLOR,
+  OPTIONS.MASCOT,
+  OPTIONS.HIDE_LOGO,
+]
 
 export default function Options({ disabled }) {
   const [form, setForm] = useState(null);
