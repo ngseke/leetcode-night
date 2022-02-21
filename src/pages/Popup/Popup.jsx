@@ -7,6 +7,7 @@ import { loadIsEnabled, saveIsEnabled } from '../../storage';
 import EnabledSwitch from './components/EnabledSwitch';
 import GithubLink from './components/GithubLink';
 import Options from './components/Options';
+import Title from './components/Title';
 
 
 const App = styled.div({
@@ -45,11 +46,6 @@ const Main = styled.div({
   flex: '1 0 0%',
 })
 
-const Title = styled.h1({
-  fontSize: 20
-})
-
-
 export default function Popup() {
   const [isReady, setIsReady] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
@@ -75,7 +71,7 @@ export default function Popup() {
         </SideBar>
         <Divider />
         <Main>
-          <Title>LeetCode Night</Title>
+          <Title />
           <Options disabled={!isEnabled} />
         </Main>
       </Col>
