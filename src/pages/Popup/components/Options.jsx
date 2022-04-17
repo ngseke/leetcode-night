@@ -1,25 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { OPTIONS } from '../../../options';
-import { loadOptions, saveOptions } from '../../../storage';
-
-const List = styled.ul({
-  padding: 0,
-  listStyle: 'none',
-});
-
-const Item = styled.li(({ disabled }) => ({
-  marginBottom: 8,
-  fontSize: 16,
-  display: 'flex',
-  alignItems: 'center',
-  userSelect: 'none',
-  opacity: disabled ? 0.5 : 1,
-}));
-
-const Checkbox = styled.input({
-  marginRight: 8,
-});
+import React, { useEffect, useState } from 'react'
+import { OPTIONS } from '../../../options'
+import { loadOptions, saveOptions } from '../../../storage'
+import OptionCheckbox from './OptionCheckbox'
 
 const options = [
   OPTIONS.INVERT_IMAGE_COLOR,
@@ -28,38 +10,35 @@ const options = [
 ]
 
 export default function Options({ disabled }) {
-  const [form, setForm] = useState(null);
+  const [form, setForm] = useState(null)
 
   const handleChange = (key) => (e) => {
     setForm((form) => ({
       ...form,
       [key]: e.target.checked,
-    }));
-  };
+    }))
+  }
 
   useEffect(() => {
-    loadOptions().then(setForm);
-  }, []);
+    loadOptions().then(setForm)
+  }, [])
 
   useEffect(() => {
-    saveOptions(form);
-  }, [form]);
+    saveOptions(form)
+  }, [form])
 
   return (
-    <List>
-      {options?.map(({ name, key }) => (
-        <Item key={key} disabled={disabled}>
-          <label>
-            <Checkbox
-              type="checkbox"
-              checked={form?.[key] ?? false}
-              onChange={handleChange(key)}
-              disabled={disabled}
-            />
-            {name}
-          </label>
-        </Item>
+    <div className='ts-wrap is-vertical is-compact'>
+      {options?.map(({ name, icon, key }) => (
+        <OptionCheckbox
+          key={key}
+          icon={icon}
+          title={name}
+          checked={form?.[key] ?? false}
+          onChange={handleChange(key)}
+          disabled={disabled}
+        />
       ))}
-    </List>
-  );
+    </div>
+  )
 }

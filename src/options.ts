@@ -2,16 +2,19 @@ export const OPTIONS = {
   INVERT_IMAGE_COLOR: {
     name: 'Invert image color',
     key: 'invertImageColor',
+    icon: 'image',
     default: true
   },
   MASCOT: {
     name: 'Show mascot',
     key: 'mascot',
+    icon: 'cat',
     default: true
   },
   HIDE_LOGO: {
     name: 'Hide logo',
     key: 'hideLogo',
+    icon: 'eye-slash',
     default: false
   },
 } as const

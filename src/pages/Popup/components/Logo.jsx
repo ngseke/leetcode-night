@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.h1({
-  margin: '.5rem 0 1rem',
-  userSelect: 'none',
+  margin: 0,
+  fontSize: 28,
 })
 
 const ColoredText = styled.span({
-  color: "#ffd019",
+  color: '#ffd019',
   fontWeight: 900
 })
 
