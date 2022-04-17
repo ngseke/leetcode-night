@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import useQuestions from '../hooks/useQuestions'
 import QuestionInfo from './QuestionInfo'
+import QuestionNumberInput from './QuestionNumberInput'
 
 const HiddenLink = styled.a({ display: 'none' })
 
@@ -25,18 +26,13 @@ export default function GoToQuestion () {
         <form className="ts-row" onSubmit={handleSubmit}>
           <div className="column is-fluid">
             <div className="ts-input is-fluid is-start-icon">
-              <span className={clsx(
-                'ts-icon',
-                isLoadingQuestions ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon')
-              }
+              <span
+                className={clsx(
+                  'ts-icon',
+                  isLoadingQuestions ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon')
+                }
               />
-              <input
-                type="tel"
-                placeholder="Enter Question Number..."
-                autoFocus
-                value={keyword}
-                onChange={e => setKeyword(e.target.value)}
-              />
+              <QuestionNumberInput value={keyword} onChange={setKeyword} />
             </div>
           </div>
           <div className="column">
