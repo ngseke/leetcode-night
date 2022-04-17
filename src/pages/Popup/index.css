@@ -10,4 +10,6 @@ body {
   position: relative;
   user-select: 'none';
   overflow: hidden;
+  font-size: 15px;
+  line-height: 1.75;
 }
