@@ -5,6 +5,10 @@ import Logo from './components/Logo'
 import Footer from './components/Footer'
 import Switch from './components/Switch'
 import GoToQuestion from './components/GoToQuestion'
+import Tabs from './components/Tabs'
+import styled from 'styled-components'
+
+const AppLayout = styled.div({ height: '100%' })
 
 export default function Popup() {
   const [isReady, setIsReady] = useState(false)
@@ -22,22 +26,38 @@ export default function Popup() {
     saveIsEnabled(isEnabled)
   }, [isEnabled, isReady])
 
+  const [tab, setTab] = useState(0)
+
   return (
-    <div>
-      <div className='ts-content is-tertiary'>
-        <Logo />
+    <AppLayout className="ts-app-layout is-vertical">
+      <div className="cell">
+        <div className='ts-content is-tertiary'>
+          <Logo />
+        </div>
+        <Tabs value={tab} onChange={setTab} />
       </div>
-      <main className='ts-content'>
-        <Switch
-          checked={isEnabled}
-          onChange={(e) => setIsEnabled(e.target.checked)}
-        >Enable Dark Theme</Switch>
-        <Options disabled={!isEnabled} />
-        <h2 className='ts-header'>Questions</h2>
-        <GoToQuestion />
-        <div className="ts-space" />
+
+      <div className="cell is-scrollable" style={{ flex: 1 }}>
+        <main className='ts-content'>
+          {tab === 0 && <>
+            <h2 className='ts-header'>Questions</h2>
+            <GoToQuestion />
+          </>}
+
+          {tab === 1 && <>
+            <Switch
+              checked={isEnabled}
+              onChange={(e) => setIsEnabled(e.target.checked)}
+            >Enable Dark Theme</Switch>
+            <Options disabled={!isEnabled} />
+          </>}
+
+          <div className="ts-space" />
+        </main>
+      </div>
+      <div className="cell">
         <Footer />
-      </main>
-    </div>
+      </div>
+    </AppLayout>
   )
 }

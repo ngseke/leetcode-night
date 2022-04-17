@@ -1,6 +1,6 @@
 body {
   width: 400px;
-  height: 200px;
+  min-height: 500px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
@@ -8,4 +8,8 @@ body {
   overflow: hidden;
   font-size: 15px;
   line-height: 1.75;
+}
+
+#app-container {
+  height: 100%;
 }
