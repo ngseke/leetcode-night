@@ -1,7 +1,7 @@
 import { render } from 'react-dom'
 import { SWRConfig } from 'swr'
-
 import App from './App'
+import 'tocas/dist/tocas.min.css'
 import './index.css'
 
 function localStorageProvider () {
