@@ -45,7 +45,7 @@ export default function GoToQuestion () {
               target="_blank"
               rel="noopener noreferrer"
               href={matchedQuestionUrl ?? ''}
-            >Go</HiddenLink>
+            />
           </div>
         </form>
       </div>

@@ -5,7 +5,7 @@ import Logo from './components/Logo'
 import Footer from './components/Footer'
 import Switch from './components/Switch'
 import GoToQuestion from './components/GoToQuestion'
-import Tabs from './components/Tabs'
+import Tabs, { useTabs } from './components/Tabs'
 import styled from 'styled-components'
 
 const AppLayout = styled.div({ height: '100%' })
@@ -26,7 +26,7 @@ export default function App () {
     saveIsEnabled(isEnabled)
   }, [isEnabled, isReady])
 
-  const [tab, setTab] = useState(0)
+  const { tab, setTab, isTabDarkTheme, isTabQuestions } = useTabs()
 
   return (
     <AppLayout className="ts-app-layout is-vertical">
@@ -39,12 +39,12 @@ export default function App () {
 
       <div className="cell is-scrollable" style={{ flex: 1 }}>
         <main className="ts-content">
-          {tab === 0 && <>
+          {isTabQuestions && <>
             <h2 className="ts-header">Questions</h2>
             <GoToQuestion />
           </>}
 
-          {tab === 1 && <>
+          {isTabDarkTheme && <>
             <Switch
               checked={isEnabled}
               onChange={(e) => setIsEnabled(e.target.checked)}
