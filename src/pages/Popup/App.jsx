@@ -10,7 +10,7 @@ import styled from 'styled-components'
 
 const AppLayout = styled.div({ height: '100%' })
 
-export default function Popup () {
+export default function App () {
   const [isReady, setIsReady] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
 

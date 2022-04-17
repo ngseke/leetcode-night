@@ -1,7 +1,7 @@
 import { render } from 'react-dom'
 import { SWRConfig } from 'swr'
 
-import Popup from './Popup'
+import App from './App'
 import './index.css'
 
 function localStorageProvider () {
@@ -15,7 +15,7 @@ function localStorageProvider () {
 
 render((
   <SWRConfig value={{ provider: localStorageProvider }}>
-    <Popup />
+    <App />
   </SWRConfig>
 ), window.document.querySelector('#app-container'))
 
