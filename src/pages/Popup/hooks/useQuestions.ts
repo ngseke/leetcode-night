@@ -1,24 +1,22 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
+import useSWR from 'swr'
 import Question, { Questions } from '../types/Question'
 
+const fetcher = (url: string) => fetch(url).then(res => res.json())
+
 export default function useQuestions (keyword: string) {
-  const [questions, setQuestions] = useState<Questions>()
+  const { data } = useSWR<{ stat_status_pairs: Question[] }>(
+    'https://leetcode.com/api/problems/algorithms/',
+    fetcher
+  )
+  const questions = useMemo(() => {
+    return data?.stat_status_pairs.reduce<Questions>((questions, item) => {
+      questions[item.stat.frontend_question_id] = item
+      return questions
+    }, {})
+  }, [data])
 
   const isLoadingQuestions = !questions
-
-  useEffect(() => {
-    fetch('https://leetcode.com/api/problems/algorithms/')
-      .then(res => res.json())
-      .then((data) => {
-        setQuestions(
-          (data.stat_status_pairs as Question[])
-            .reduce<Questions>((questions, item) => {
-            questions[item.stat.frontend_question_id] = item
-            return questions
-          }, {})
-        )
-      })
-  }, [])
 
   const matchedQuestion = useMemo(() => {
     return questions?.[+keyword]
