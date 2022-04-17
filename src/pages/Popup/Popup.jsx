@@ -4,6 +4,7 @@ import Options from './components/Options'
 import Logo from './components/Logo'
 import Footer from './components/Footer'
 import Switch from './components/Switch'
+import GoToQuestion from './components/GoToQuestion'
 
 export default function Popup() {
   const [isReady, setIsReady] = useState(false)
@@ -32,6 +33,8 @@ export default function Popup() {
           onChange={(e) => setIsEnabled(e.target.checked)}
         >Enable Dark Theme</Switch>
         <Options disabled={!isEnabled} />
+        <h2 className='ts-header'>Questions</h2>
+        <GoToQuestion />
         <div className="ts-space" />
         <Footer />
       </main>
