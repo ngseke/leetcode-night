@@ -1,24 +1,24 @@
 export default class BodyClassToggler {
   className: string
 
-  constructor(className: string) {
+  constructor (className: string) {
     this.className = className
   }
 
-  add() {
+  add () {
     this.$body?.classList.add(this.className)
   }
 
-  remove() {
+  remove () {
     this.$body?.classList.remove(this.className)
   }
 
-  toggle(boolean: boolean) {
+  toggle (boolean: boolean) {
     if (boolean) this.add()
     else this.remove()
   }
 
-  get $body() {
+  get $body () {
     return document.querySelector('body')
   }
 }

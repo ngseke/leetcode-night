@@ -6,7 +6,7 @@ import QuestionInfo from './QuestionInfo'
 
 const HiddenLink = styled.a({ display: 'none' })
 
-export default function GoToQuestion() {
+export default function GoToQuestion () {
   const [keyword, setKeyword] = useState('')
   const { isLoadingQuestions, matchedQuestion, matchedQuestionUrl } = useQuestions(keyword)
 
@@ -22,13 +22,14 @@ export default function GoToQuestion() {
   return (
     <div className="ts-wrap is-vertical">
       <div>
-        <form className='ts-row' onSubmit={handleSubmit}>
+        <form className="ts-row" onSubmit={handleSubmit}>
           <div className="column is-fluid">
             <div className="ts-input is-fluid is-start-icon">
               <span className={clsx(
-                "ts-icon",
+                'ts-icon',
                 isLoadingQuestions ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon')
-              } />
+              }
+              />
               <input
                 type="tel"
                 placeholder="Enter Question Number..."
@@ -40,13 +41,13 @@ export default function GoToQuestion() {
           </div>
           <div className="column">
             <button
-              className={clsx("ts-button", { 'is-disabled': isGoButtonDisabled })}
+              className={clsx('ts-button', { 'is-disabled': isGoButtonDisabled })}
               disabled={isGoButtonDisabled}
             >Go</button>
             <HiddenLink
               ref={questionLinkRef}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
               href={matchedQuestionUrl ?? ''}
             >Go</HiddenLink>
           </div>

@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import Question from '../types/Question'
 import QuestionDifficultyText from './QuestionDifficultyText'
 import QuestionStatusIcon from './QuestionStatusIcon'
@@ -15,7 +15,7 @@ const Chip: FC = ({ children }) => {
   )
 }
 
-export default function QuestionInfo({ question }: QuestionInfoProps) {
+export default function QuestionInfo ({ question }: QuestionInfoProps) {
   const title = useMemo(() => {
     if (!question) return null
     const { stat } = question

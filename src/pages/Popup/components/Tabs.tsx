@@ -1,9 +1,8 @@
 import clsx from 'clsx'
-import React from 'react'
 
 type TabsProps = {
   value: number,
-  onChange(value: number): void
+  onChange(value: number): void,
 }
 
 export const tabs = [
@@ -17,7 +16,7 @@ export const tabs = [
   },
 ]
 
-export default function Tabs({ value, onChange }: TabsProps) {
+export default function Tabs ({ value, onChange }: TabsProps) {
   return (
     <div className="ts-tab is-fluid">
       {
@@ -25,7 +24,7 @@ export default function Tabs({ value, onChange }: TabsProps) {
           <a
             key={index}
             className={clsx('item', { 'is-active': value === index })}
-            href='#a'
+            href="#a"
             onClick={() => onChange(index)}
           >
             <span className={clsx('ts-icon', `is-${icon}-icon`)} />

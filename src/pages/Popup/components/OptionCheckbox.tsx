@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import React from 'react'
 import styled from 'styled-components'
 
 const HiddenInput = styled.input({
@@ -11,9 +10,9 @@ type OptionCheckboxProps = Pick<JSX.IntrinsicElements['input'], 'checked' | 'dis
   icon: string,
 }
 
-export default function OptionCheckbox({ title, icon, disabled, checked, ...restProps }: OptionCheckboxProps) {
+export default function OptionCheckbox ({ title, icon, disabled, checked, ...restProps }: OptionCheckboxProps) {
   return (
-    <label className='ts-box'>
+    <label className="ts-box">
       <div
         className={clsx('ts-content is-interactive is-dense', {
           'is-active': checked,
@@ -21,7 +20,7 @@ export default function OptionCheckbox({ title, icon, disabled, checked, ...rest
         })}
       >
         <div className="ts-iconset is-outlined">
-          <span className={clsx('ts-icon', `is-${icon}-icon`)}></span>
+          <span className={clsx('ts-icon', `is-${icon}-icon`)} />
           <div className="content">
             <div className="title">{title}</div>
             <div className="ts-text is-tiny">

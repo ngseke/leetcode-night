@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { OPTIONS } from '../../../options'
 import { loadOptions, saveOptions } from '../../../storage'
 import OptionCheckbox from './OptionCheckbox'
@@ -9,7 +9,7 @@ const options = [
   OPTIONS.HIDE_LOGO,
 ]
 
-export default function Options({ disabled }) {
+export default function Options ({ disabled }) {
   const [form, setForm] = useState(null)
 
   const handleChange = (key) => (e) => {
@@ -28,7 +28,7 @@ export default function Options({ disabled }) {
   }, [form])
 
   return (
-    <div className='ts-wrap is-vertical is-compact'>
+    <div className="ts-wrap is-vertical is-compact">
       {options?.map(({ name, icon, key }) => (
         <OptionCheckbox
           key={key}

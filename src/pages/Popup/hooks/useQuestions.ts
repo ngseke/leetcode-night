@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import Question, { Questions } from '../types/Question'
 
-export default function useQuestions(keyword: string) {
+export default function useQuestions (keyword: string) {
   const [questions, setQuestions] = useState<Questions>()
 
   const isLoadingQuestions = !questions
@@ -13,9 +13,9 @@ export default function useQuestions(keyword: string) {
         setQuestions(
           (data.stat_status_pairs as Question[])
             .reduce<Questions>((questions, item) => {
-              questions[item.stat.frontend_question_id] = item
-              return questions
-            }, {})
+            questions[item.stat.frontend_question_id] = item
+            return questions
+          }, {})
         )
       })
   }, [])

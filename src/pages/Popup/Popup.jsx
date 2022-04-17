@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { loadIsEnabled, saveIsEnabled } from '../../storage'
 import Options from './components/Options'
 import Logo from './components/Logo'
@@ -10,11 +10,11 @@ import styled from 'styled-components'
 
 const AppLayout = styled.div({ height: '100%' })
 
-export default function Popup() {
+export default function Popup () {
   const [isReady, setIsReady] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
 
-  useEffect(function init() {
+  useEffect(function init () {
     loadIsEnabled().then(isEnabled => {
       setIsEnabled(isEnabled)
       setIsReady(true)
@@ -31,16 +31,16 @@ export default function Popup() {
   return (
     <AppLayout className="ts-app-layout is-vertical">
       <div className="cell">
-        <div className='ts-content is-tertiary'>
+        <div className="ts-content is-tertiary">
           <Logo />
         </div>
         <Tabs value={tab} onChange={setTab} />
       </div>
 
       <div className="cell is-scrollable" style={{ flex: 1 }}>
-        <main className='ts-content'>
+        <main className="ts-content">
           {tab === 0 && <>
-            <h2 className='ts-header'>Questions</h2>
+            <h2 className="ts-header">Questions</h2>
             <GoToQuestion />
           </>}
 

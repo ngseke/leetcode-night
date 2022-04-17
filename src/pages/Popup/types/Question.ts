@@ -10,7 +10,7 @@ export interface Stat {
 }
 
 export interface Difficulty {
-  level: 1 | 2 | 3
+  level: 1 | 2 | 3,
 }
 
 export default interface Question {

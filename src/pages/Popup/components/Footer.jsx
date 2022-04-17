@@ -1,5 +1,3 @@
-import React from 'react'
-
 const links = [
   {
     title: 'GitHub',
@@ -11,8 +9,7 @@ const links = [
   },
 ]
 
-
-export default function Footer() {
+export default function Footer () {
   return (
     <footer className="ts-content">
       <div className="ts-meta is-small is-secondary">
@@ -20,14 +17,14 @@ export default function Footer() {
           links.map(({ title, url }, key) => (
             <a
               key={key}
-              className='item'
-              target='_blank'
-              rel='noopener noreferrer'
+              className="item"
+              target="_blank"
+              rel="noopener noreferrer"
               href={url}
             > {title}</a>
           ))
         }
       </div>
-    </footer >
+    </footer>
   )
 }
