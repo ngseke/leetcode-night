@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { OPTIONS } from '../../../options'
+import { OptionKey, OPTIONS, OptionsForm } from '../../../options'
 import { loadOptions, saveOptions } from '../../../storage'
 import OptionCheckbox from './OptionCheckbox'
 
@@ -9,22 +9,27 @@ const options = [
   OPTIONS.HIDE_LOGO,
 ]
 
-export default function Options ({ disabled }) {
-  const [form, setForm] = useState(null)
+interface OptionsProps {
+  disabled: boolean,
+}
 
-  const handleChange = (key) => (e) => {
-    setForm((form) => ({
-      ...form,
-      [key]: e.target.checked,
-    }))
-  }
+export default function Options ({ disabled }: OptionsProps) {
+  const [form, setForm] = useState<OptionsForm>()
+
+  const handleChange = (key: OptionKey) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setForm((form) => {
+        if (!form) return form
+        return { ...form, [key]: e.target.checked }
+      })
+    }
 
   useEffect(() => {
     loadOptions().then(setForm)
   }, [])
 
   useEffect(() => {
-    saveOptions(form)
+    if (form) saveOptions(form)
   }, [form])
 
   return (
