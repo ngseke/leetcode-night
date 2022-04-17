@@ -22,6 +22,11 @@ module.exports = {
     '@typescript-eslint',
     'react-hooks',
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   rules: {
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', {
