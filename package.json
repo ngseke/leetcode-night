@@ -10,7 +10,9 @@
   "scripts": {
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
-    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
+    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx,js,jsx}",
+    "lint-fix": "eslint --fix src --ext .ts,.tsx,.js,.jsx"
   },
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.2",
