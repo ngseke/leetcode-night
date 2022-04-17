@@ -22,33 +22,31 @@ export default function GoToQuestion () {
 
   return (
     <div className="ts-wrap is-vertical">
-      <div>
-        <form className="ts-row" onSubmit={handleSubmit}>
-          <div className="column is-fluid">
-            <div className="ts-input is-fluid is-start-icon">
-              <span
-                className={clsx(
-                  'ts-icon',
-                  isLoadingQuestions ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon')
+      <form className="ts-row" onSubmit={handleSubmit}>
+        <div className="column is-fluid">
+          <div className="ts-input is-fluid is-start-icon">
+            <span
+              className={clsx(
+                'ts-icon',
+                isLoadingQuestions ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon')
                 }
-              />
-              <QuestionNumberInput value={keyword} onChange={setKeyword} />
-            </div>
-          </div>
-          <div className="column">
-            <button
-              className={clsx('ts-button', { 'is-disabled': isGoButtonDisabled })}
-              disabled={isGoButtonDisabled}
-            >Go</button>
-            <HiddenLink
-              ref={questionLinkRef}
-              target="_blank"
-              rel="noopener noreferrer"
-              href={matchedQuestionUrl ?? ''}
             />
+            <QuestionNumberInput value={keyword} onChange={setKeyword} />
           </div>
-        </form>
-      </div>
+        </div>
+        <div className="column">
+          <button
+            className={clsx('ts-button', { 'is-disabled': isGoButtonDisabled })}
+            disabled={isGoButtonDisabled}
+          >Go</button>
+          <HiddenLink
+            ref={questionLinkRef}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={matchedQuestionUrl ?? ''}
+          />
+        </div>
+      </form>
       {matchedQuestion && <QuestionInfo question={matchedQuestion} />}
     </div>
   )
