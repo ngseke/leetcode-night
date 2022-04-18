@@ -13,13 +13,15 @@ export interface Difficulty {
   level: 1 | 2 | 3,
 }
 
+export type QuestionStatus = null | 'ac' | 'notac'
+
 export default interface Question {
   difficulty: Difficulty,
   frequency: number,
   paid_only: boolean,
   progress: number,
   stat: Stat,
-  status: null | 'ac' | 'notac',
+  status: QuestionStatus,
 }
 
 export type Questions = Record<number, Question>
