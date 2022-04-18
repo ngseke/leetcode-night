@@ -7,6 +7,7 @@ import useEnableDarkTheme from './hooks/useEnableDarkTheme'
 import Layout from './components/Layout'
 import If from './components/If'
 import Header from './components/Header'
+import Link from './components/Link'
 
 export default function App () {
   const { tab, setTab, isTabDarkTheme, isTabQuestions } = useTabs()
@@ -20,7 +21,14 @@ export default function App () {
       </>}
       body={<>
         <If is={isTabQuestions}>
-          <h2 className="ts-header">Questions</h2>
+          <h2 className="ts-header">
+            <Link
+              className="ts-text is-undecorated"
+              href="https://leetcode.com/problemset/algorithms/"
+            >
+              Questions
+            </Link>
+          </h2>
           <GoToQuestion />
         </If>
 
