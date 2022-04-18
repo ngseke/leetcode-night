@@ -16,7 +16,7 @@
 
 1. Clone this repo by running `git clone https://github.com/ngseke/leetcode-night.git`
 1. Run `npm install` to install the dependencies.
-1. Run `npm build`（or `npm run start` for development）
+1. Run `npm run build`（or `npm run start` for development）
 1. Load your extension on Chrome following:
     1. Access [chrome://extensions/](chrome://extensions/)
     2. Check `Developer mode`
