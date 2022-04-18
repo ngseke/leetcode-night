@@ -24,15 +24,11 @@ export default function GoToQuestion () {
     <div className="ts-wrap is-vertical">
       <form className="ts-row" onSubmit={handleSubmit}>
         <div className="column is-fluid">
-          <div className="ts-input is-fluid is-start-icon">
-            <span
-              className={clsx(
-                'ts-icon',
-                isLoadingQuestions ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon')
-                }
-            />
-            <QuestionNumberInput value={keyword} onChange={setKeyword} />
-          </div>
+          <QuestionNumberInput
+            value={keyword}
+            onChange={setKeyword}
+            loading={isLoadingQuestions}
+          />
         </div>
         <div className="column">
           <button

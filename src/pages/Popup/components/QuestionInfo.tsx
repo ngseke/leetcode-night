@@ -32,7 +32,9 @@ export default function QuestionInfo ({ question }: QuestionInfoProps) {
     <div className="ts-conversation">
       <div className="content">
         <div className="bubble">
-          <div className="author">{title}</div>
+          <div className="author" style={{ userSelect: 'text' }}>
+            {title}
+          </div>
           <div className="text">
             <div className="ts-space is-small" />
             <Chip>
