@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import useDailyChallengeQuestion from '../hooks/useDailyChallengeQuestion'
@@ -37,27 +36,18 @@ export default function GoToQuestion () {
     ? dailyChallengeQuestionUrl
     : matchedQuestionUrl
 
-  const isGoButtonDisabled = !submitLink
-
   return (
     <div className="ts-wrap is-vertical">
-      <form className="ts-row" onSubmit={handleSubmit}>
-        <div className="column is-fluid">
-          <QuestionNumberInput
-            value={keyword}
-            onChange={setKeyword}
-            loading={isLoadingQuestions}
-            error={isNotMatched}
-          />
-        </div>
-        <div className="column">
-          <button
-            className={clsx('ts-button', { 'is-disabled': isGoButtonDisabled })}
-            disabled={isGoButtonDisabled}
-          >Go</button>
-          <HiddenLink ref={questionLinkRef} href={submitLink ?? ''} />
-        </div>
+      <form onSubmit={handleSubmit}>
+        <QuestionNumberInput
+          value={keyword}
+          onChange={setKeyword}
+          loading={isLoadingQuestions}
+          error={isNotMatched}
+        />
+        <HiddenLink ref={questionLinkRef} href={submitLink ?? ''} />
       </form>
+
       <div>
         {
           shouldDirectToDailyChallenge &&
