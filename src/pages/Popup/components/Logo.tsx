@@ -10,7 +10,7 @@ const ColoredText = styled.span({
   fontWeight: 900,
 })
 
-export default function Title () {
+export default function Logo () {
   return (
     <Wrapper>
       LeetCode <ColoredText>Night</ColoredText>

@@ -1,5 +1,4 @@
 import Options from './components/Options'
-import Logo from './components/Logo'
 import Footer from './components/Footer'
 import Switch from './components/Switch'
 import GoToQuestion from './components/GoToQuestion'
@@ -7,6 +6,7 @@ import Tabs, { useTabs } from './components/Tabs'
 import useEnableDarkTheme from './hooks/useEnableDarkTheme'
 import Layout from './components/Layout'
 import If from './components/If'
+import Header from './components/Header'
 
 export default function App () {
   const { tab, setTab, isTabDarkTheme, isTabQuestions } = useTabs()
@@ -15,9 +15,7 @@ export default function App () {
   return (
     <Layout
       header={<>
-        <div className="ts-content is-tertiary">
-          <Logo />
-        </div>
+        <Header />
         <Tabs value={tab} onChange={setTab} />
       </>}
       body={<>

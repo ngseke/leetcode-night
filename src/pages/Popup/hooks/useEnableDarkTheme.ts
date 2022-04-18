@@ -10,11 +10,16 @@ export default function useEnableDarkTheme () {
     saveIsEnabled(isDarkThemeEnabled)
   }, [isDarkThemeEnabled, isReady])
 
+  async function load () {
+    setIsDarkThemeEnabled(await loadIsEnabled())
+    setIsReady(true)
+  }
+
   useEffect(function init () {
-    loadIsEnabled().then(isEnabled => {
-      setIsDarkThemeEnabled(isEnabled)
-      setIsReady(true)
-    })
+    load()
+    const handler = () => load()
+    chrome.storage.onChanged.addListener(handler)
+    return () => chrome.storage.onChanged.removeListener(handler)
   }, [])
 
   return {
