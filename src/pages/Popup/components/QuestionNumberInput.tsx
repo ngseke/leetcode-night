@@ -4,13 +4,18 @@ interface QuestionNumberInputProps {
   value: string,
   onChange (value: string): void,
   loading: boolean,
+  error?: unknown,
 }
 
 export default function QuestionNumberInput (
-  { value, onChange, loading }: QuestionNumberInputProps
+  { value, onChange, loading, error }: QuestionNumberInputProps
 ) {
   return (
-    <div className={'ts-input is-fluid is-start-icon'}>
+    <div
+      className={clsx('ts-input is-fluid is-start-icon', {
+        'is-negative': error,
+      })}
+    >
       <span
         className={clsx(
           'ts-icon',

@@ -9,7 +9,12 @@ const HiddenLink = styled.a({ display: 'none' })
 
 export default function GoToQuestion () {
   const [keyword, setKeyword] = useState('')
-  const { isLoadingQuestions, matchedQuestion, matchedQuestionUrl } = useQuestions(keyword)
+  const {
+    isLoadingQuestions,
+    matchedQuestion,
+    matchedQuestionUrl,
+    isNotMatched,
+  } = useQuestions(keyword)
 
   const isGoButtonDisabled = !matchedQuestion
 
@@ -28,6 +33,7 @@ export default function GoToQuestion () {
             value={keyword}
             onChange={setKeyword}
             loading={isLoadingQuestions}
+            error={isNotMatched}
           />
         </div>
         <div className="column">

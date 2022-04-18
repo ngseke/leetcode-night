@@ -27,10 +27,13 @@ export default function useQuestions (keyword: string) {
     return `https://leetcode.com/problems/${matchedQuestion.stat.question__title_slug}`
   }, [matchedQuestion])
 
+  const isNotMatched = Boolean(keyword && questions && !matchedQuestion)
+
   return {
     questions,
     isLoadingQuestions,
     matchedQuestion,
     matchedQuestionUrl,
+    isNotMatched,
   }
 }
