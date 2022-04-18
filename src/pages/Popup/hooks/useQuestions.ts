@@ -19,7 +19,7 @@ export default function useQuestions (keyword: string) {
   const isLoadingQuestions = !questions
 
   const matchedQuestion = useMemo(() => {
-    return questions?.[+keyword]
+    return questions?.[parseInt(keyword)]
   }, [keyword, questions])
 
   const matchedQuestionUrl = useMemo(() => {
