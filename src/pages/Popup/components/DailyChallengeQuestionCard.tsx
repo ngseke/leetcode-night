@@ -6,12 +6,14 @@ import Chip from './Chip'
 import QuestionDateIcon from './QuestionDateIcon'
 import QuestionMetaChips from './QuestionMetaChips'
 
-interface QuestionInfoProps {
+interface DailyChallengeQuestionCardProps {
   question: DailyChallengeQuestion,
   link: Nullish<string>,
 }
 
-export default function DailyChallengeQuestionInfo ({ question, link }: QuestionInfoProps) {
+export default function DailyChallengeQuestionCard (
+  { question, link }: DailyChallengeQuestionCardProps
+) {
   const title = useMemo(() => {
     if (!question) return null
     return `${question.question.frontendQuestionId}. ${question.question.title}`

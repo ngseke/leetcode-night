@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import useDailyChallengeQuestion from '../hooks/useDailyChallengeQuestion'
 
 import useQuestions from '../hooks/useQuestions'
-import DailyChallengeQuestionInfo from './DailyChallengeQuestionInfo'
+import DailyChallengeQuestionCard from './DailyChallengeQuestionCard'
 import Link from './Link'
-import QuestionInfo from './QuestionInfo'
+import QuestionCard from './QuestionCard'
 import QuestionNumberInput from './QuestionNumberInput'
 
 const HiddenLink = styled(Link)({ display: 'none' })
@@ -61,14 +61,14 @@ export default function GoToQuestion () {
       <div>
         {
           shouldDirectToDailyChallenge &&
-            <DailyChallengeQuestionInfo
+            <DailyChallengeQuestionCard
               question={dailyChallengeQuestion}
               link={dailyChallengeQuestionUrl}
             />
         }
         {
           matchedQuestion &&
-            <QuestionInfo
+            <QuestionCard
               question={matchedQuestion}
               link={matchedQuestionUrl}
             />

@@ -4,12 +4,12 @@ import Question from '../types/Question'
 import BlockLink from './BlockLink'
 import QuestionMetaChips from './QuestionMetaChips'
 
-interface QuestionInfoProps {
+interface QuestionCardProps {
   question: Question,
   link: Nullish<string>,
 }
 
-export default function QuestionInfo ({ question, link }: QuestionInfoProps) {
+export default function QuestionCard ({ question, link }: QuestionCardProps) {
   const title = useMemo(() => {
     if (!question) return null
     const { stat } = question
