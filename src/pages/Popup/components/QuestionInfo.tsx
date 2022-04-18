@@ -1,18 +1,9 @@
-import { FC, useMemo } from 'react'
+import { useMemo } from 'react'
 import Question from '../types/Question'
-import QuestionDifficultyText from './QuestionDifficultyText'
-import QuestionStatusIcon from './QuestionStatusIcon'
+import QuestionMetaChips from './QuestionMetaChips'
 
 interface QuestionInfoProps {
   question: Question,
-}
-
-const Chip: FC = ({ children }) => {
-  return (
-    <div className="ts-chip is-outlined is-small is-end-spaced">
-      {children}
-    </div>
-  )
 }
 
 export default function QuestionInfo ({ question }: QuestionInfoProps) {
@@ -37,13 +28,11 @@ export default function QuestionInfo ({ question }: QuestionInfoProps) {
           </div>
           <div className="text">
             <div className="ts-space is-small" />
-            <Chip>
-              <QuestionStatusIcon status={question.status} />
-            </Chip>
-            <Chip>
-              <QuestionDifficultyText level={question.difficulty.level} />
-            </Chip>
-            <Chip>{acceptanceText}</Chip>
+            <QuestionMetaChips
+              status={question.status}
+              level={question.difficulty.level}
+              acceptance={acceptanceText}
+            />
           </div>
         </div>
       </div>

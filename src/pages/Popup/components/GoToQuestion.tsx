@@ -1,7 +1,10 @@
 import clsx from 'clsx'
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
+import useDailyChallengeQuestion from '../hooks/useDailyChallengeQuestion'
+
 import useQuestions from '../hooks/useQuestions'
+import DailyChallengeQuestionInfo from './DailyChallengeQuestionInfo'
 import QuestionInfo from './QuestionInfo'
 import QuestionNumberInput from './QuestionNumberInput'
 
@@ -16,14 +19,24 @@ export default function GoToQuestion () {
     isNotMatched,
   } = useQuestions(keyword)
 
-  const isGoButtonDisabled = !matchedQuestion
-
   const questionLinkRef = useRef<HTMLAnchorElement>(null)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     questionLinkRef.current?.click()
   }
+  const {
+    dailyChallengeQuestion,
+    dailyChallengeQuestionUrl,
+  } = useDailyChallengeQuestion()
+
+  const shouldDirectToDailyChallenge = (!keyword && dailyChallengeQuestion)
+
+  const submitLink = shouldDirectToDailyChallenge
+    ? dailyChallengeQuestionUrl
+    : matchedQuestionUrl
+
+  const isGoButtonDisabled = !submitLink
 
   return (
     <div className="ts-wrap is-vertical">
@@ -45,11 +58,20 @@ export default function GoToQuestion () {
             ref={questionLinkRef}
             target="_blank"
             rel="noopener noreferrer"
-            href={matchedQuestionUrl ?? ''}
+            href={submitLink ?? ''}
           />
         </div>
       </form>
-      {matchedQuestion && <QuestionInfo question={matchedQuestion} />}
+      <div>
+        {
+          shouldDirectToDailyChallenge &&
+            <DailyChallengeQuestionInfo
+              question={dailyChallengeQuestion}
+              link={dailyChallengeQuestionUrl}
+            />
+        }
+        {matchedQuestion && <QuestionInfo question={matchedQuestion} />}
+      </div>
     </div>
   )
 }
