@@ -1,3 +1,5 @@
+import Link from './Link'
+
 const links = [
   {
     title: 'GitHub',
@@ -15,13 +17,7 @@ export default function Footer () {
       <div className="ts-meta is-small is-secondary">
         {
           links.map(({ title, url }, key) => (
-            <a
-              key={key}
-              className="item"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={url}
-            > {title}</a>
+            <Link key={key} className="item" href={url}>{title}</Link>
           ))
         }
       </div>

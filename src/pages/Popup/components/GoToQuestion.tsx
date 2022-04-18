@@ -5,10 +5,11 @@ import useDailyChallengeQuestion from '../hooks/useDailyChallengeQuestion'
 
 import useQuestions from '../hooks/useQuestions'
 import DailyChallengeQuestionInfo from './DailyChallengeQuestionInfo'
+import Link from './Link'
 import QuestionInfo from './QuestionInfo'
 import QuestionNumberInput from './QuestionNumberInput'
 
-const HiddenLink = styled.a({ display: 'none' })
+const HiddenLink = styled(Link)({ display: 'none' })
 
 export default function GoToQuestion () {
   const [keyword, setKeyword] = useState('')
@@ -54,12 +55,7 @@ export default function GoToQuestion () {
             className={clsx('ts-button', { 'is-disabled': isGoButtonDisabled })}
             disabled={isGoButtonDisabled}
           >Go</button>
-          <HiddenLink
-            ref={questionLinkRef}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={submitLink ?? ''}
-          />
+          <HiddenLink ref={questionLinkRef} href={submitLink ?? ''} />
         </div>
       </form>
       <div>

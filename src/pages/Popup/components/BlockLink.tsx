@@ -1,13 +1,14 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import Nullish from '../types/Nullish'
+import Link from './Link'
 
 const Wrapper = styled.div({
   display: 'inline-block',
   position: 'relative',
 })
 
-const InvisibleLink = styled.a({
+const InvisibleLink = styled(Link)({
   display: 'block',
   position: 'absolute',
   top: 0,
@@ -25,11 +26,7 @@ interface BlockLinkProps {
 export default function BlockLink ({ children, href }: BlockLinkProps) {
   return (
     <Wrapper>
-      <InvisibleLink
-        target="_blank"
-        rel="noopener noreferrer"
-        href={href ?? ''}
-      />
+      <InvisibleLink href={href ?? ''} />
       {children}
     </Wrapper>
   )
