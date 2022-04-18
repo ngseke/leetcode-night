@@ -33,7 +33,7 @@ export default function DailyChallengeQuestionInfo ({ question, link }: Question
     <BlockLink href={link}>
       <div className="ts-box is-collapsed is-positive is-left-indicated">
         <div className="ts-content is-dense">
-          <div className="ts-header"> Daily Coding Challenge</div>
+          <div className="ts-header">Daily Coding Challenge</div>
           <div className="ts-text is-small">{title}</div>
 
           <div className="ts-space is-small" />
