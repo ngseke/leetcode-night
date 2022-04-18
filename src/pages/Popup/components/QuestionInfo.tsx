@@ -1,12 +1,15 @@
 import { useMemo } from 'react'
+import Nullish from '../types/Nullish'
 import Question from '../types/Question'
+import BlockLink from './BlockLink'
 import QuestionMetaChips from './QuestionMetaChips'
 
 interface QuestionInfoProps {
   question: Question,
+  link: Nullish<string>,
 }
 
-export default function QuestionInfo ({ question }: QuestionInfoProps) {
+export default function QuestionInfo ({ question, link }: QuestionInfoProps) {
   const title = useMemo(() => {
     if (!question) return null
     const { stat } = question
@@ -20,22 +23,24 @@ export default function QuestionInfo ({ question }: QuestionInfoProps) {
   }, [question])
 
   return (
-    <div className="ts-conversation">
-      <div className="content">
-        <div className="bubble">
-          <div className="author" style={{ userSelect: 'text' }}>
-            {title}
-          </div>
-          <div className="text">
-            <div className="ts-space is-small" />
-            <QuestionMetaChips
-              status={question.status}
-              level={question.difficulty.level}
-              acceptance={acceptanceText}
-            />
+    <BlockLink href={link}>
+      <div className="ts-conversation">
+        <div className="content">
+          <div className="bubble">
+            <div className="author" style={{ userSelect: 'text' }}>
+              {title}
+            </div>
+            <div className="text">
+              <div className="ts-space is-small" />
+              <QuestionMetaChips
+                status={question.status}
+                level={question.difficulty.level}
+                acceptance={acceptanceText}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </BlockLink>
   )
 }

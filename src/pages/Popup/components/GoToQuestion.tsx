@@ -66,7 +66,13 @@ export default function GoToQuestion () {
               link={dailyChallengeQuestionUrl}
             />
         }
-        {matchedQuestion && <QuestionInfo question={matchedQuestion} />}
+        {
+          matchedQuestion &&
+            <QuestionInfo
+              question={matchedQuestion}
+              link={matchedQuestionUrl}
+            />
+        }
       </div>
     </div>
   )
