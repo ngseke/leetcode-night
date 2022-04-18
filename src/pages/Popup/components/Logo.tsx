@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Link from './Link'
 
 const Wrapper = styled.h1({
   margin: 0,
@@ -13,7 +14,13 @@ const ColoredText = styled.span({
 export default function Logo () {
   return (
     <Wrapper>
-      LeetCode <ColoredText>Night</ColoredText>
+      <Link
+        className="ts-text is-undecorated"
+        href="https://leetcode.com/"
+      >
+        LeetCode
+      </Link>
+      <ColoredText> Night</ColoredText>
     </Wrapper>
   )
 }
