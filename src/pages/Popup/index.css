@@ -1,13 +1,16 @@
 body {
-  width: 380px;
-  height: 180px;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  width: 400px;
+  min-height: 500px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  user-select: 'none';
+  user-select: none;
   overflow: hidden;
+  font-size: 15px;
+  line-height: 1.75;
+  font-family: 'M PLUS Rounded 1c';
+}
+
+#app-container {
+  height: 100%;
 }

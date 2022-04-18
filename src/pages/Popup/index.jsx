@@ -1,9 +1,22 @@
-import React from 'react';
-import { render } from 'react-dom';
+import { render } from 'react-dom'
+import { SWRConfig } from 'swr'
+import App from './App'
+import 'tocas/dist/tocas.min.css'
+import './index.css'
 
-import Popup from './Popup';
-import './index.css';
+function localStorageProvider () {
+  const map = new Map(JSON.parse(localStorage.getItem('app-cache') || '[]'))
+  window.addEventListener('beforeunload', () => {
+    const appCache = JSON.stringify(Array.from(map.entries()))
+    localStorage.setItem('app-cache', appCache)
+  })
+  return map
+}
 
-render(<Popup />, window.document.querySelector('#app-container'));
+render((
+  <SWRConfig value={{ provider: localStorageProvider }}>
+    <App />
+  </SWRConfig>
+), window.document.querySelector('#app-container'))
 
-if (module.hot) module.hot.accept();
+if (module.hot) module.hot.accept()

@@ -57,7 +57,14 @@ var options = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              additionalData: sassAdditionalData
+              additionalData: (content, { rootContext, resourcePath }) => {
+                const relativePath = path.relative(rootContext, resourcePath)
+                if (relativePath === 'src/pages/Content/style/problem.sass') {
+                  return sassAdditionalData + content
+                }
+
+                return content
+              },
             },
           },
         ],
