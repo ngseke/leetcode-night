@@ -6,12 +6,11 @@ interface QuestionNumberInputProps {
 export default function QuestionNumberInput ({ value, onChange }: QuestionNumberInputProps) {
   return (
     <input
-      type="tel"
+      type="number"
       placeholder="Enter Question Number..."
       autoFocus
       value={value}
-      onChange={e => onChange(e.target.value.replace(/\D+/, ''))}
-      maxLength={4}
+      onChange={e => onChange(e.target.value.replace(/\D+/, '').slice(0, 4))}
     />
   )
 }
