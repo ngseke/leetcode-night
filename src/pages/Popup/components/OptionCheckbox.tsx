@@ -1,8 +1,16 @@
 import clsx from 'clsx'
 import styled from 'styled-components'
 
+const Label = styled.label({
+  position: 'relative',
+})
+
 const HiddenInput = styled.input({
-  display: 'none',
+  position: 'absolute',
+  opacity: 0,
+  '&:focus + div': {
+    outline: '5px auto -webkit-focus-ring-color',
+  },
 })
 
 type OptionCheckboxProps = Pick<JSX.IntrinsicElements['input'], 'checked' | 'disabled' | 'onChange'> & {
@@ -12,7 +20,13 @@ type OptionCheckboxProps = Pick<JSX.IntrinsicElements['input'], 'checked' | 'dis
 
 export default function OptionCheckbox ({ title, icon, disabled, checked, ...restProps }: OptionCheckboxProps) {
   return (
-    <label className="ts-box">
+    <Label className="ts-box">
+      <HiddenInput
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+        {...restProps}
+      />
       <div
         className={clsx('ts-content is-interactive is-dense', {
           'is-active': checked,
@@ -29,12 +43,6 @@ export default function OptionCheckbox ({ title, icon, disabled, checked, ...res
           </div>
         </div>
       </div>
-      <HiddenInput
-        type="checkbox"
-        checked={checked}
-        disabled={disabled}
-        {...restProps}
-      />
-    </label>
+    </Label>
   )
 }
