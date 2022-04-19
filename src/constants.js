@@ -19,3 +19,5 @@ $invert-image-color-class-name: ${CLASS_NAMES.INVERT_IMAGE_COLOR}
 $mascot-class-name: ${CLASS_NAMES.MASCOT}
 $hide-logo-class-name: ${CLASS_NAMES.HIDE_LOGO}
 `
+// eslint-disable-next-line no-process-env -- 從 package.json 中取得版本號
+export const VERSION = process.env.VERSION

@@ -109,6 +109,14 @@ var options = {
     new webpack.ProgressPlugin(),
     // expose and write the allowed env vars on the compiled bundle
     new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
+    new webpack.DefinePlugin({
+      'process.env.VERSION': JSON.stringify(
+        process.env.npm_package_version,
+      ),
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {

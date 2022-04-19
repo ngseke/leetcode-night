@@ -1,3 +1,4 @@
+import { VERSION } from '../../../constants'
 import Link from './Link'
 
 const links = [
@@ -8,6 +9,10 @@ const links = [
   {
     title: 'Issues',
     url: 'https://github.com/ngseke/leetcode-night/issues',
+  },
+  {
+    title: `v${VERSION}`,
+    url: 'https://github.com/ngseke/leetcode-night/releases',
   },
 ]
 
