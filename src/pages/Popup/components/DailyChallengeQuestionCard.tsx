@@ -54,10 +54,6 @@ export default function DailyChallengeQuestionCard (
             acceptance={acceptanceText}
           />
         </div>
-
-        <div className="symbol">
-          <span className="ts-icon is-calendar-icon" />
-        </div>
       </div>
     </BlockLink>
   )
