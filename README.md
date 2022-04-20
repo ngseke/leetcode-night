@@ -9,21 +9,24 @@
   <a href="https://github.com/ngseke/leetcode-night/releases">
     <img src="https://img.shields.io/github/v/release/ngseke/leetcode-night?sort=semver" />
   </a>
-  <a href="https://github.com/ngseke/leetcode-night/releases">
-    <img src="https://img.shields.io/github/downloads/ngseke/leetcode-night/total?color=green" />
-  </a>
 </p>
-
 
 # LeetCode Night
 ## Features
 
 - Dark theme for question page
+- Daily LeetCoding challenge shortcut
 - Quick navigation by question number
 - Invert image color
 - Hide logo
 
 ## Installation
+
+### Download Via Chrome Web Store
+
+<a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
+  <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" />
+</a>
 
 ### Manual Download
 
@@ -43,6 +46,12 @@ Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-n
 ---
 
 ## 安裝
+
+### 從 chrome 線上應用程式商店下載
+
+<a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
+  <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" />
+</a>
 
 ### 手動下載
 
