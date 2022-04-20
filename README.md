@@ -4,6 +4,14 @@
 
 A extension that enables dark mode on LeetCode.
 
+<a href="https://github.com/ngseke/leetcode-night/releases">
+  <img src="https://img.shields.io/github/v/release/ngseke/leetcode-night?sort=semver" />
+</a>
+
+<a href="https://github.com/ngseke/leetcode-night/releases">
+  <img src="https://img.shields.io/github/downloads/ngseke/leetcode-night/total?color=green" />
+</a>
+
 ## Features
 
 - Dark theme for question page
