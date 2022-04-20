@@ -3,6 +3,7 @@ import Nullish from '../types/Nullish'
 import Question from '../types/Question'
 import BlockLink from './BlockLink'
 import QuestionMetaChips from './QuestionMetaChips'
+import Spacer from './Spacer'
 
 interface QuestionCardProps {
   question: Question,
@@ -31,7 +32,7 @@ export default function QuestionCard ({ question, link }: QuestionCardProps) {
               {title}
             </div>
             <div className="text">
-              <div className="ts-space is-small" />
+              <Spacer small />
               <QuestionMetaChips
                 status={question.status}
                 level={question.difficulty.level}

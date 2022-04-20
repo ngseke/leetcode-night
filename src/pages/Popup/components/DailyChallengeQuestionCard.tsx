@@ -5,6 +5,7 @@ import BlockLink from './BlockLink'
 import Chip from './Chip'
 import QuestionDateIcon from './QuestionDateIcon'
 import QuestionMetaChips from './QuestionMetaChips'
+import Spacer from './Spacer'
 
 interface DailyChallengeQuestionCardProps {
   question: DailyChallengeQuestion,
@@ -38,7 +39,7 @@ export default function DailyChallengeQuestionCard (
           <div className="ts-header">{title}</div>
           <div className="ts-text is-small">Daily LeetCoding Challenge</div>
 
-          <div className="ts-space is-small" />
+          <Spacer small />
 
           <Chip>
             <QuestionDateIcon isFinished={isFinished}>
@@ -46,7 +47,7 @@ export default function DailyChallengeQuestionCard (
             </QuestionDateIcon>
           </Chip>
 
-          <div className="ts-space is-small" />
+          <Spacer small />
 
           <QuestionMetaChips
             status={question.question.status}

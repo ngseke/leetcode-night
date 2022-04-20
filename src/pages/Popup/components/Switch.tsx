@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import Spacer from './Spacer'
 
 type SwitchProps = JSX.IntrinsicElements['input'] & {
   children: React.ReactNode,
@@ -11,6 +12,6 @@ export default function Switch ({ children, disabled, ...restProps }: SwitchProp
       <input type="checkbox" disabled={disabled} {...restProps} />
       {children}
     </label>
-    <div className="ts-space" />
+    <Spacer />
   </>)
 }
