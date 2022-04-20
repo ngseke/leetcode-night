@@ -19,8 +19,8 @@ export default function QuestionNumberInput (
       <span
         className={clsx(
           'ts-icon',
-          loading ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon')
-        }
+          loading ? 'is-spinning is-circle-notch-icon' : 'is-hashtag-icon'
+        )}
       />
       <input
         type="number"
