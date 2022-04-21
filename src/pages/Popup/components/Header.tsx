@@ -11,10 +11,11 @@ const Moon = styled.span<{ show: boolean }>(({ show }) => ({
   position: 'absolute',
   right: 20,
   top: '50%',
-  transition: 'all .4s .01s',
-  transform: `translateY(${show ? '-50%' : '100%'})`,
   fontSize: '3rem',
   lineHeight: 1,
+  transition: 'transform .4s .1s, text-shadow .6s .1s',
+  transform: `translateY(${show ? '-50%' : '120%'})`,
+  textShadow: `#ffd019 0 0 ${show ? '10px' : 0}`,
 }))
 
 export default function Header () {
