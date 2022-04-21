@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build
+        uses: actions/setup-node@master
+      - run: npm install
+      - run: npm run build
+      - run: zip -r build.zip build
+
+      - name: Get the tag name
+        run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1.10.0
+        with:
+          tag: ${{ github.ref }}
+          name: ${{ env.TAG }}
+          draft: true
+          artifacts: build.zip
