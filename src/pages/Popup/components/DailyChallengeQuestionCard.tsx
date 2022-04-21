@@ -34,7 +34,10 @@ export default function DailyChallengeQuestionCard (
 
   return (
     <BlockLink href={link}>
-      <div className="ts-box is-collapsed is-positive is-left-indicated">
+      <div
+        className="ts-box is-collapsed is-positive is-left-indicated"
+        style={{ opacity: isFinished ? 0.6 : 1 }}
+      >
         <div className="ts-content is-dense">
           <div className="ts-header">{title}</div>
           <div className="ts-text is-small">Daily LeetCoding Challenge</div>

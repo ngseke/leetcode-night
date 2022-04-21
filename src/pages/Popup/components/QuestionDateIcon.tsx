@@ -10,7 +10,7 @@ export default function QuestionDateIcon ({ children, isFinished }: QuestionStat
   return (
     <span>
       <span
-        style={{ color: '#51B5A3' }}
+        style={{ color: isFinished ? '#51B5A3' : '' }}
         className={clsx(
           'ts-icon is-end-spaced',
           isFinished ? 'is-calendar-check-icon' : 'is-calendar-days-icon'
