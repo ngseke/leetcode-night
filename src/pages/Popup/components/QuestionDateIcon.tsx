@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { ReactNode } from 'react'
+import { colors } from '../modules/themes'
 
 interface QuestionStatusIconProps {
   children: ReactNode,
@@ -10,7 +11,7 @@ export default function QuestionDateIcon ({ children, isFinished }: QuestionStat
   return (
     <span>
       <span
-        style={{ color: isFinished ? '#51B5A3' : '' }}
+        style={{ color: isFinished ? colors.green : '' }}
         className={clsx(
           'ts-icon is-end-spaced',
           isFinished ? 'is-calendar-check-icon' : 'is-calendar-days-icon'

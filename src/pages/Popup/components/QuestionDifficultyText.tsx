@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { colors } from '../modules/themes'
 import { Difficulty } from '../types/Question'
 
 interface QuestionDifficultyTextProps {
@@ -8,9 +9,9 @@ interface QuestionDifficultyTextProps {
 export default function QuestionDifficultyText ({ level }: QuestionDifficultyTextProps) {
   const { color, name } = useMemo(() => {
     return {
-      1: { name: 'Easy', color: '#51B5A3' },
-      2: { name: 'Medium', color: '#F6C149' },
-      3: { name: 'Hard', color: '#EB4B63' },
+      1: { name: 'Easy', color: colors.green },
+      2: { name: 'Medium', color: colors.yellow },
+      3: { name: 'Hard', color: colors.red },
     }[level]
   }, [level])
 
