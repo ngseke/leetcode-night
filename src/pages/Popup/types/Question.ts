@@ -24,4 +24,4 @@ export default interface Question {
   status: QuestionStatus,
 }
 
-export type Questions = Record<number, Question>
+export type QuestionMap = Record<number, Question>
