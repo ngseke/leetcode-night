@@ -1,20 +1,24 @@
-import { useMemo } from 'react'
-import useSWR from 'swr'
+import { useCallback, useEffect, useMemo } from 'react'
+import useStorageState from 'react-use-storage-state'
 import Question, { Questions } from '../types/Question'
 
-const fetcher = (url: string) => fetch(url).then(res => res.json())
-
 export default function useQuestions (keyword: string) {
-  const { data } = useSWR<{ stat_status_pairs: Question[] }>(
-    'https://leetcode.com/api/problems/algorithms/',
-    fetcher
-  )
-  const questions = useMemo(() => {
-    return data?.stat_status_pairs.reduce<Questions>((questions, item) => {
-      questions[item.stat.frontend_question_id] = item
-      return questions
-    }, {})
-  }, [data])
+  const [questions, setQuestions] = useStorageState<Questions | null>('questions', null)
+
+  const fetchQuestions = useCallback(async () => {
+    const res = await fetch('https://leetcode.com/api/problems/algorithms/')
+    const data = await res.json()
+    setQuestions(
+      (data?.stat_status_pairs as Question[]).reduce<Questions>((questions, item) => {
+        questions[item.stat.frontend_question_id] = item
+        return questions
+      }, {})
+    )
+  }, [setQuestions])
+
+  useEffect(() => {
+    fetchQuestions()
+  }, [fetchQuestions])
 
   const isLoadingQuestions = !questions
 
