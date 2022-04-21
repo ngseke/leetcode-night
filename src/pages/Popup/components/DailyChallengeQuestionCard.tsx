@@ -39,8 +39,8 @@ export default function DailyChallengeQuestionCard (
         style={{ opacity: isFinished ? 0.6 : 1 }}
       >
         <div className="ts-content is-dense">
-          <div className="ts-header">{title}</div>
-          <div className="ts-text is-small">Daily LeetCoding Challenge</div>
+          <div className="ts-header is-heavy">{title}</div>
+          <div className="ts-text is-description">Daily LeetCoding Challenge</div>
 
           <Spacer small />
 
