@@ -27,7 +27,6 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: ['webpack.config.babel.js'],
   rules: {
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', {
