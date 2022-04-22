@@ -21,7 +21,7 @@ export default function GoToQuestion () {
 
   const questionLinkRef = useRef<HTMLAnchorElement>(null)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
     questionLinkRef.current?.click()
   }
