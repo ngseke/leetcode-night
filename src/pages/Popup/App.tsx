@@ -35,7 +35,7 @@ export default function App () {
         <If is={isTabDarkTheme}>
           <Switch
             checked={isDarkThemeEnabled}
-            onChange={(e) => setIsDarkThemeEnabled(e.target.checked)}
+            onChange={setIsDarkThemeEnabled}
           >Enable Dark Theme</Switch>
           <Options disabled={!isDarkThemeEnabled} />
         </If>
