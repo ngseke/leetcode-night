@@ -1,6 +1,5 @@
 import React from 'react'
 import clsx from 'clsx'
-import Spacer from './Spacer'
 
 type SwitchProps = Omit<JSX.IntrinsicElements['input'], 'onChange'> & {
   children: React.ReactNode,
@@ -10,7 +9,7 @@ type SwitchProps = Omit<JSX.IntrinsicElements['input'], 'onChange'> & {
 export default function Switch (
   { children, disabled, onChange, ...restProps }: SwitchProps
 ) {
-  return (<>
+  return (
     <label className={clsx('ts-switch', { 'is-disabled': disabled })}>
       <input
         type="checkbox"
@@ -20,6 +19,5 @@ export default function Switch (
       />
       {children}
     </label>
-    <Spacer />
-  </>)
+  )
 }

@@ -8,6 +8,7 @@ import Layout from './components/Layout'
 import If from './components/If'
 import Header from './components/Header'
 import Link from './components/Link'
+import Spacer from './components/Spacer'
 
 export default function App () {
   const { tab, setTab, isTabDarkTheme, isTabQuestions } = useTabs()
@@ -39,6 +40,8 @@ export default function App () {
           >
             <span className="ts-header">Enable Dark Theme</span>
           </Switch>
+          <Spacer />
+
           <Options disabled={!isDarkThemeEnabled} />
         </If>
       </>}
