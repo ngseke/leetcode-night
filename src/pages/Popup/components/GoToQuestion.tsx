@@ -21,10 +21,6 @@ export default function GoToQuestion () {
 
   const questionLinkRef = useRef<HTMLAnchorElement>(null)
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault()
-    questionLinkRef.current?.click()
-  }
   const {
     dailyChallengeQuestion,
     dailyChallengeQuestionUrl,
@@ -35,6 +31,11 @@ export default function GoToQuestion () {
   const submitLink = shouldDirectToDailyChallenge
     ? dailyChallengeQuestionUrl
     : matchedQuestionUrl
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+    if (submitLink) questionLinkRef.current?.click()
+  }
 
   return (
     <div className="ts-wrap is-vertical">
