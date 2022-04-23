@@ -17,10 +17,7 @@
       "js": [
         "contentScript.bundle.js"
       ],
-      "css": [
-        "content.styles.css"
-      ],
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [

@@ -43,7 +43,7 @@ export default function App () {
             <span className="ts-header">Enable Dark Theme</span>
           </Switch>
           <Spacer />
-          <Options disabled={!isDarkThemeEnabled} />
+          <Options />
           <div className="ts-divider is-section" />
 
           <Switch
