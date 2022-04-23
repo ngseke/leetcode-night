@@ -20,6 +20,7 @@
 - Dark theme for question page
 - Daily LeetCoding challenge shortcut
 - Quick navigation by question number
+- Reset to default code definition automatically
 - Invert image color
 - Hide logo
 
