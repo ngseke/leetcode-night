@@ -6,9 +6,9 @@ export const tabs = {
     name: 'Questions',
     icon: 'file-lines',
   },
-  darkTheme: {
-    name: 'Dark Theme',
-    icon: 'moon',
+  options: {
+    name: 'Options',
+    icon: 'gear',
   },
 }
 
@@ -22,17 +22,17 @@ type TabsProps = {
 export function useTabs () {
   const [tab, setTab] = useState<TabKey>('questions')
 
-  const isTabDarkTheme = tab === 'darkTheme'
+  const isTabOptions = tab === 'options'
   const isTabQuestions = tab === 'questions'
 
-  return { tab, setTab, isTabDarkTheme, isTabQuestions }
+  return { tab, setTab, isTabOptions, isTabQuestions }
 }
 
 export default function Tabs ({ value, onChange }: TabsProps) {
   return (
     <div className="ts-tab is-fluid">
       {
-        (['questions', 'darkTheme'] as const).map((key) => {
+        (['questions', 'options'] as const).map((key) => {
           const { name, icon } = tabs[key]
           return (
             <a

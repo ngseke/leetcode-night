@@ -17,6 +17,11 @@ export const OPTIONS = {
     icon: 'eye-slash',
     default: false,
   },
+  AUTO_RESET_CODE: {
+    name: 'Auto reset code',
+    key: 'autoResetCode',
+    default: false,
+  },
 } as const
 
 export type OptionKey = typeof OPTIONS[keyof typeof OPTIONS]['key']

@@ -1,5 +1,9 @@
 import { DEFAULT_OPTIONS, OptionsForm } from './options'
-import { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } from './constants'
+import {
+  AUTO_RESET_CODE_ENABLED_STORAGE_KEY,
+  ENABLED_STORAGE_KEY,
+  OPTIONS_STORAGE_KEY,
+} from './constants'
 
 export const loadIsEnabled = (): Promise<boolean> => {
   const key = ENABLED_STORAGE_KEY
@@ -27,4 +31,18 @@ export const loadOptions = (): Promise<OptionsForm> => {
 
 export const saveOptions = (options: OptionsForm) => {
   chrome.storage.sync.set({ [OPTIONS_STORAGE_KEY]: options })
+}
+
+export const loadIsAutoResetCodeEnabled = (): Promise<boolean> => {
+  const key = AUTO_RESET_CODE_ENABLED_STORAGE_KEY
+  return new Promise((resolve) => {
+    chrome.storage.sync.get([key], (items) => {
+      const isEnabled = Boolean(items[key] ?? false)
+      resolve(isEnabled)
+    })
+  })
+}
+
+export const saveIsAutoResetCodeEnabled = (isEnabled: boolean) => {
+  chrome.storage.sync.set({ [AUTO_RESET_CODE_ENABLED_STORAGE_KEY]: isEnabled })
 }
