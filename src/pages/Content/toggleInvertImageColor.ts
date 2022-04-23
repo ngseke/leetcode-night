@@ -1,6 +1,6 @@
-import BodyClassToggler from './BodyClassToggler'
-import { CLASS_NAMES } from '../../constants'
+import styles from './styles/invert-image/style.sass'
+import StyleInjector from './StyleInjector'
 
-const bodyClassToggler = new BodyClassToggler(CLASS_NAMES.INVERT_IMAGE_COLOR)
+const styleInjector = new StyleInjector(styles)
 
-export const toggleInvertImageColor = (value: boolean) => bodyClassToggler.toggle(value)
+export const toggleInvertImageColor = (value: boolean) => styleInjector.toggle(value)

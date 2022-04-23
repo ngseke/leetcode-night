@@ -1,6 +1,6 @@
-import BodyClassToggler from './BodyClassToggler'
-import { CLASS_NAMES } from '../../constants'
+import styles from './styles/loading-mascot/style.sass'
+import StyleInjector from './StyleInjector'
 
-const bodyClassToggler = new BodyClassToggler(CLASS_NAMES.MASCOT)
+const styleInjector = new StyleInjector(styles)
 
-export const toggleEnabledMascot = (value: boolean) => bodyClassToggler.toggle(value)
+export const toggleEnabledMascot = (value: boolean) => styleInjector.toggle(value)

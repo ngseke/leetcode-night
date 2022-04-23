@@ -37,7 +37,7 @@ export default function App () {
             checked={isDarkThemeEnabled}
             onChange={setIsDarkThemeEnabled}
           >Enable Dark Theme</Switch>
-          <Options disabled={!isDarkThemeEnabled} />
+          <Options />
         </If>
       </>}
       footer={<Footer />}

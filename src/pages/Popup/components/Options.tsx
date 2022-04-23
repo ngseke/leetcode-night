@@ -9,11 +9,7 @@ const options = [
   OPTIONS.HIDE_LOGO,
 ]
 
-interface OptionsProps {
-  disabled: boolean,
-}
-
-export default function Options ({ disabled }: OptionsProps) {
+export default function Options () {
   const [form, setForm] = useState<OptionsForm>()
 
   const handleChange = (key: OptionKey) =>
@@ -41,7 +37,6 @@ export default function Options ({ disabled }: OptionsProps) {
           title={name}
           checked={form?.[key] ?? false}
           onChange={handleChange(key)}
-          disabled={disabled}
         />
       ))}
     </div>
