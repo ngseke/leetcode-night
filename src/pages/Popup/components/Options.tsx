@@ -13,10 +13,10 @@ export default function Options () {
   const [form, setForm] = useState<OptionsForm>()
 
   const handleChange = (key: OptionKey) =>
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (checked: boolean) => {
       setForm((form) => {
         if (!form) return form
-        return { ...form, [key]: e.target.checked }
+        return { ...form, [key]: checked }
       })
     }
 

@@ -13,18 +13,20 @@ const HiddenInput = styled.input({
   },
 })
 
-type OptionCheckboxProps = Pick<JSX.IntrinsicElements['input'], 'checked' | 'disabled' | 'onChange'> & {
+type OptionCheckboxProps = Pick<JSX.IntrinsicElements['input'], 'checked' | 'disabled'> & {
   title: string,
   icon: string,
+  onChange (checked: boolean): void,
 }
 
-export default function OptionCheckbox ({ title, icon, disabled, checked, ...restProps }: OptionCheckboxProps) {
+export default function OptionCheckbox ({ title, icon, disabled, checked, onChange, ...restProps }: OptionCheckboxProps) {
   return (
     <Label className="ts-box">
       <HiddenInput
         type="checkbox"
         checked={checked}
         disabled={disabled}
+        onChange={e => onChange(e.target.checked)}
         {...restProps}
       />
       <div
