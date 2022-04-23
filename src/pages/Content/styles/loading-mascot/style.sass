@@ -1,0 +1,14 @@
+@import 'cat'
+
+#initial-loading
+  &::after
+    $scale: .4
+    content: ''
+    background-image: $cat
+    background-size: contain
+    background-repeat: no-repeat
+    position: fixed
+    width: 400px * $scale
+    height: 400px * $scale
+    right: 0
+    bottom: 0

@@ -1,6 +1,6 @@
-import BodyClassToggler from './BodyClassToggler'
-import { CLASS_NAMES } from '../../constants'
+import styles from './styles/dark-theme/style.sass'
+import StyleInjector from './StyleInjector'
 
-const bodyClassToggler = new BodyClassToggler(CLASS_NAMES.BODY)
+const styleInjector = new StyleInjector(styles)
 
-export const toggleEnabled = (value: boolean) => bodyClassToggler.toggle(value)
+export const toggleEnabled = (value: boolean) => styleInjector.toggle(value)

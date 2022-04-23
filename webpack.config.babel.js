@@ -1,7 +1,5 @@
 /* eslint-disable no-process-env */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { sassAdditionalData } from './src/constants'
-
 const webpack = require('webpack')
 const path = require('path')
 const fileSystem = require('fs-extra')
@@ -44,29 +42,25 @@ const options = {
   module: {
     rules: [
       {
-        // look for .css or .scss files
         test: /\.(css|scss|sass)$/,
-        // in the `src` directory
+        exclude: /\/pages\/Content/,
         use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
+          'style-loader',
+          'css-loader',
           {
             loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              additionalData: (content, { rootContext, resourcePath }) => {
-                const relativePath = path.relative(rootContext, resourcePath)
-                if (relativePath === 'src/pages/Content/style/problem.sass') {
-                  return sassAdditionalData + content
-                }
-
-                return content
-              },
-            },
+            options: { sourceMap: true },
+          },
+        ],
+      },
+      {
+        test: /\.(css|scss|sass)$/,
+        include: /\/pages\/Content/,
+        use: [
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true },
           },
         ],
       },
@@ -134,15 +128,6 @@ const options = {
               })
             )
           },
-        },
-      ],
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: 'src/pages/Content/content.styles.css',
-          to: path.join(__dirname, 'build'),
-          force: true,
         },
       ],
     }),

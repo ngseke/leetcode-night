@@ -1,6 +1,6 @@
-import BodyClassToggler from './BodyClassToggler'
-import { CLASS_NAMES } from '../../constants'
+import styles from './styles/hide-logo/style.sass'
+import StyleInjector from './StyleInjector'
 
-const bodyClassToggler = new BodyClassToggler(CLASS_NAMES.HIDE_LOGO)
+const styleInjector = new StyleInjector(styles)
 
-export const toggleHideLogo = (value: boolean) => bodyClassToggler.toggle(value)
+export const toggleHideLogo = (value: boolean) => styleInjector.toggle(value)
