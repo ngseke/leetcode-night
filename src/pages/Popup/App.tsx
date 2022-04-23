@@ -36,7 +36,9 @@ export default function App () {
           <Switch
             checked={isDarkThemeEnabled}
             onChange={setIsDarkThemeEnabled}
-          >Enable Dark Theme</Switch>
+          >
+            <span className="ts-header">Enable Dark Theme</span>
+          </Switch>
           <Options disabled={!isDarkThemeEnabled} />
         </If>
       </>}

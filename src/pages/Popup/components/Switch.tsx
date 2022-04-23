@@ -11,7 +11,7 @@ export default function Switch (
   { children, disabled, onChange, ...restProps }: SwitchProps
 ) {
   return (<>
-    <label className={clsx('ts-switch ts-header', { 'is-disabled': disabled })}>
+    <label className={clsx('ts-switch', { 'is-disabled': disabled })}>
       <input
         type="checkbox"
         disabled={disabled}
