@@ -9,15 +9,19 @@ export default class StyleInjector {
     this.$el.textContent = this.content
   }
 
+  get target () {
+    return document.documentElement
+  }
+
   inject () {
     if (this.isInjected) return
-    document.documentElement.appendChild(this.$el)
+    this.target.appendChild(this.$el)
     this.isInjected = true
   }
 
   eject () {
     if (!this.isInjected) return
-    document.documentElement.removeChild(this.$el)
+    this.target.removeChild(this.$el)
     this.isInjected = false
   }
 
