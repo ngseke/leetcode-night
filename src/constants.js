@@ -1,5 +1,6 @@
 export const ENABLED_STORAGE_KEY = 'enabled'
 export const OPTIONS_STORAGE_KEY = 'options'
+export const AUTO_RESET_CODE_ENABLED_STORAGE_KEY = 'autoResetCodeEnabled'
 
 const getPrefixedClassName = (string) => {
   const CLASS_NAME_PREFIX = 'leetcode-night-chrome-extension'

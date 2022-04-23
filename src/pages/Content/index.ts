@@ -1,4 +1,4 @@
-import { loadIsEnabled, loadOptions } from '../../storage'
+import { loadIsEnabled, loadOptions, loadIsAutoResetCodeEnabled } from '../../storage'
 import './style/problem.sass'
 import { toggleEnabled } from './toggleEnabled'
 import { toggleInvertImageColor } from './toggleInvertImageColor'
@@ -6,6 +6,7 @@ import { toggleEnabledMascot } from './toggleEnabledMascot'
 import { OptionsForm } from '../../options'
 import { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } from '../../constants'
 import { toggleHideLogo } from './toggleHideLogo'
+import resetCode from './resetCode'
 
 const handleOptionsChange = (options: OptionsForm) => {
   toggleInvertImageColor(options?.invertImageColor ?? false)
@@ -16,6 +17,7 @@ const handleOptionsChange = (options: OptionsForm) => {
 async function init () {
   toggleEnabled(await loadIsEnabled())
   handleOptionsChange(await loadOptions())
+  if (await loadIsAutoResetCodeEnabled()) resetCode()
 }
 
 init()
