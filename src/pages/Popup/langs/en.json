@@ -1,0 +1,31 @@
+{
+  "tab": {
+    "questions": "Questions",
+    "options": "Options"
+  },
+  "title": {
+    "questions": "Questions"
+  },
+  "option": {
+    "enableDarkTheme": "Enable Dark Theme",
+    "invertImageColor": "Invert Image Color",
+    "mascot": "Show mascot",
+    "hideLogo": "Hide logo",
+    "autoResetCode": "Auto reset code",
+    "autoResetCodeDescription": "Always reset to default code definition."
+  },
+  "status": {
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "input": {
+    "questionNumber": {
+      "placeholder": "Enter Question Number..."
+    }
+  },
+  "select": {
+    "language": {
+      "label": "Language"
+    }
+  }
+}

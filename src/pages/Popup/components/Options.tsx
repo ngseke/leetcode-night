@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { OptionKey, OPTIONS, OptionsForm } from '../../../options'
 import { loadOptions, saveOptions } from '../../../storage'
 import OptionCheckbox from './OptionCheckbox'
@@ -10,6 +11,8 @@ const options = [
 ]
 
 export default function Options () {
+  const { t } = useTranslation()
+
   const [form, setForm] = useState<OptionsForm>()
 
   const handleChange = (key: OptionKey) =>
@@ -30,11 +33,11 @@ export default function Options () {
 
   return (
     <div className="ts-wrap is-vertical is-compact">
-      {options?.map(({ name, icon, key }) => (
+      {options?.map(({ icon, key }) => (
         <OptionCheckbox
           key={key}
           icon={icon}
-          title={name}
+          title={t(`option.${key}`)}
           checked={form?.[key] ?? false}
           onChange={handleChange(key)}
         />

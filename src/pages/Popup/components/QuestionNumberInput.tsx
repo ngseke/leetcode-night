@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useTranslation } from 'react-i18next'
 
 interface QuestionNumberInputProps {
   value: string,
@@ -10,6 +11,8 @@ interface QuestionNumberInputProps {
 export default function QuestionNumberInput (
   { value, onChange, loading, error }: QuestionNumberInputProps
 ) {
+  const { t } = useTranslation()
+
   return (
     <div
       className={clsx('ts-input is-fluid is-start-icon', {
@@ -24,7 +27,7 @@ export default function QuestionNumberInput (
       />
       <input
         type="number"
-        placeholder="Enter Question Number..."
+        placeholder={t('input.questionNumber.placeholder')}
         autoFocus
         value={value}
         onChange={e => onChange(e.target.value.replace(/\D+/, '').slice(0, 4))}

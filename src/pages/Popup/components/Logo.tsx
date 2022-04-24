@@ -4,6 +4,7 @@ import Link from './Link'
 const Wrapper = styled.h1({
   margin: 0,
   fontSize: 28,
+  fontFamily: '"M PLUS Rounded 1c"',
 })
 
 const ColoredText = styled.span({
