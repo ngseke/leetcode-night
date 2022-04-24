@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "LeetCode Night",
-  "description": "🌕 A extension that enables dark mode on LeetCode 🐱👍",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon-128.png"
