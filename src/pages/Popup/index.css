@@ -8,7 +8,7 @@ body {
   overflow: hidden;
   font-size: 15px;
   line-height: 1.75;
-  font-family: 'M PLUS Rounded 1c';
+  font-family: sans-serif;
 }
 
 #app-container {
