@@ -12,6 +12,9 @@ import Spacer from './components/Spacer'
 import useEnableAutoResetCode from './hooks/useEnableAutoResetCode'
 
 import { useTranslation } from 'react-i18next'
+import LanguageSelect from './components/LanguageSelect'
+
+const Divider = () => <div className="ts-divider is-section" />
 
 export default function App () {
   const { tab, setTab, isTabOptions, isTabQuestions } = useTabs()
@@ -48,7 +51,7 @@ export default function App () {
           </Switch>
           <Spacer />
           <Options />
-          <div className="ts-divider is-section" />
+          <Divider />
 
           <Switch
             checked={isAutoResetCodeEnabled}
@@ -56,7 +59,11 @@ export default function App () {
           >
             <span className="ts-header">{t('option.autoResetCode')}</span>
           </Switch>
-          <div className="ts-text is-description">{t('option.autoResetCodeDescription')}</div>
+          <div className="ts-text is-description">
+            {t('option.autoResetCodeDescription')}
+          </div>
+          <Divider />
+          <LanguageSelect />
         </If>
       </>}
       footer={<Footer />}

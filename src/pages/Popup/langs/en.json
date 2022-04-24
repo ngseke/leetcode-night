@@ -22,5 +22,10 @@
     "questionNumber": {
       "placeholder": "Enter Question Number..."
     }
+  },
+  "select": {
+    "language": {
+      "label": "Language"
+    }
   }
 }

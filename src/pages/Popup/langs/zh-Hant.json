@@ -22,5 +22,10 @@
     "questionNumber": {
       "placeholder": "輸入題目編號..."
     }
+  },
+  "select": {
+    "language": {
+      "label": "語言"
+    }
   }
 }
