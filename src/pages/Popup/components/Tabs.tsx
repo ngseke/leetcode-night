@@ -1,13 +1,12 @@
 import clsx from 'clsx'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const tabs = {
   questions: {
-    name: 'Questions',
     icon: 'file-lines',
   },
   options: {
-    name: 'Options',
     icon: 'gear',
   },
 }
@@ -29,11 +28,13 @@ export function useTabs () {
 }
 
 export default function Tabs ({ value, onChange }: TabsProps) {
+  const { t } = useTranslation()
+
   return (
     <div className="ts-tab is-fluid">
       {
         (['questions', 'options'] as const).map((key) => {
-          const { name, icon } = tabs[key]
+          const { icon } = tabs[key]
           return (
             <a
               key={key}
@@ -42,7 +43,7 @@ export default function Tabs ({ value, onChange }: TabsProps) {
               onClick={() => onChange(key)}
             >
               <span className={clsx('ts-icon', `is-${icon}-icon`)} />
-              {name}
+              {t(`tab.${key}`)}
             </a>
           )
         })

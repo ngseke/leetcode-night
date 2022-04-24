@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
 const Label = styled.label({
@@ -20,6 +21,8 @@ type OptionCheckboxProps = Pick<JSX.IntrinsicElements['input'], 'checked' | 'dis
 }
 
 export default function OptionCheckbox ({ title, icon, disabled, checked, onChange, ...restProps }: OptionCheckboxProps) {
+  const { t } = useTranslation()
+
   return (
     <Label className="ts-box">
       <HiddenInput
@@ -40,7 +43,7 @@ export default function OptionCheckbox ({ title, icon, disabled, checked, onChan
           <div className="content">
             <div className="title">{title}</div>
             <div className="ts-text is-tiny">
-              {checked ? 'Enabled' : 'Disabled'}
+              {checked ? t('status.enabled') : t('status.disabled')}
             </div>
           </div>
         </div>

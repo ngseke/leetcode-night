@@ -11,10 +11,14 @@ import Link from './components/Link'
 import Spacer from './components/Spacer'
 import useEnableAutoResetCode from './hooks/useEnableAutoResetCode'
 
+import { useTranslation } from 'react-i18next'
+
 export default function App () {
   const { tab, setTab, isTabOptions, isTabQuestions } = useTabs()
   const { isDarkThemeEnabled, setIsDarkThemeEnabled } = useEnableDarkTheme()
   const { isAutoResetCodeEnabled, setIsAutoResetCodeEnabled } = useEnableAutoResetCode()
+
+  const { t } = useTranslation()
 
   return (
     <Layout
@@ -29,7 +33,7 @@ export default function App () {
               className="ts-text is-undecorated"
               href="https://leetcode.com/problemset/algorithms/"
             >
-              Questions
+              {t('title.questions')}
             </Link>
           </h2>
           <GoToQuestion />
@@ -40,7 +44,7 @@ export default function App () {
             checked={isDarkThemeEnabled}
             onChange={setIsDarkThemeEnabled}
           >
-            <span className="ts-header">Enable Dark Theme</span>
+            <span className="ts-header">{t('option.enableDarkTheme')}</span>
           </Switch>
           <Spacer />
           <Options />
@@ -50,9 +54,9 @@ export default function App () {
             checked={isAutoResetCodeEnabled}
             onChange={setIsAutoResetCodeEnabled}
           >
-            <span className="ts-header">Auto reset code</span>
+            <span className="ts-header">{t('option.autoResetCode')}</span>
           </Switch>
-          <div className="ts-text is-description">Always reset to default code definition.</div>
+          <div className="ts-text is-description">{t('option.autoResetCodeDescription')}</div>
         </If>
       </>}
       footer={<Footer />}
