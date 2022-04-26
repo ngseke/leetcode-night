@@ -1,50 +1,52 @@
+@use 'colors'
+
 #solution
-  color: rgb(219,219,219)
+  color: colors.$grey-8
   hr
-    background-color: rgb(60,60,60)
+    background-color: colors.$grey-2
   [class*="nav__"]
-    border-color: rgb(60,60,60)
+    border-color: colors.$grey-2
   h2, h4
-    color: #fff
+    color: colors.$grey-9
   *:not(pre) > code
-    color: rgb(179,179,179)
-    background-color: rgba(255,255,255,0.07)
-    border-color: rgb(60,60,60)
+    color: colors.$grey-7
+    background-color: colors.$dsw-fill-quaternary
+    border-color: colors.$grey-2
   .discuss-markdown-container
-    color: rgb(179,179,179)
+    color: colors.$grey-7
   [class*="action__"]
     &, & svg
-      color: rgb(138,138,138)
+      color: colors.$grey-6
       transition: none
     &:hover
       &, & svg
-        color: rgb(92,92,92) !important
+        color: colors.$grey-5 !important
   [class*="read-more__"]
-    background: linear-gradient(rgba(255, 255, 255, 0), rgb(24, 26, 31))
+    background: linear-gradient(transparent, colors.$dsw-paper)
   [class*="pagination-container__"]
     .ant-pagination-item, .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link
-      color: rgb(179,179,179)
-      background-color: rgb(20,20,20)
-      box-shadow: inset 0 0 0 1px rgba(219,219,219,0.2)
+      color: colors.$grey-7
+      background-color: colors.$grey-0
+      box-shadow: inset 0 0 0 1px rgba(colors.$grey-8,0.2)
     .ant-pagination-item-active
-      color: rgba(0,88.328,184.62)
+      color: colors.$primary-4
   [class*="loading-cover__"]
-    background-color: rgb(24, 26, 31)
+    background-color: colors.$dsw-paper
 
   [class*="header__"]
     background-color: rgb(40, 42, 46) !important
-    border-color: rgb(60,60,60)
+    border-color: colors.$grey-2
     label
-      color: rgb(215, 217, 219) !important
+      color: colors.$grey-8 !important
 
   [class*="comment__"], [class*="action-area__"]
-    border-color: rgb(66,66,66)
+    border-color: colors.$grey-3
     textarea
       background-color: transparent
   blockquote
     border: 0
-    border-left: 4px solid rgb(74,74,74)
-    color: rgb(138,138,138)
+    border-left: 4px solid colors.$grey-4
+    color: colors.$grey-6
     background-color: transparent
     border-radius: 0
     padding-top: 8px
