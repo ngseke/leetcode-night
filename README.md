@@ -1,6 +1,7 @@
 <p align=center>
   <img src="src/assets/img/logo-text.png" width="400"/>
 </p>
+
 <p align=center>
   A extension that enables dark mode on LeetCode.
 </p>
@@ -11,6 +12,12 @@
   </a>
   <a href="https://github.com/ngseke/leetcode-night/releases">
     <img src="https://img.shields.io/github/v/release/ngseke/leetcode-night?sort=semver" />
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
+    <img src="https://img.shields.io/chrome-web-store/v/aaokgipfeeeciodnffigjfiafledhcii" />
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
+    <img src="https://img.shields.io/chrome-web-store/users/aaokgipfeeeciodnffigjfiafledhcii" />
   </a>
 </p>
 
@@ -26,7 +33,7 @@
 
 ## Installation
 
-### Download Via Chrome Web Store
+### Download from Chrome Web Store
 
 <a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
   <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" />
