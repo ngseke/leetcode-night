@@ -14,6 +14,8 @@ const confirm = async (message) => {
   if (!ok) exit()
 }
 
+const execWithStdio = (command) => execSync(command, { stdio: 'inherit' })
+
 async function bumpVersion () {
   if (!checkIfGitDirty()) {
     console.log(
@@ -58,21 +60,21 @@ async function bumpVersion () {
   fs.writeFileSync(fileName, newPackage)
 
   await confirm('Run `npm install`? (For updating `package-lock.json`)')
-  execSync('npm install', { stdio: 'inherit' })
+  execWithStdio('npm install')
 
   await confirm('Commit these changes?')
-  execSync('git add package.json package-lock.json', { stdio: 'inherit' })
+  execWithStdio('git add package.json package-lock.json')
 
   const commitMessage = `chore: bump version v${newVersion}`
-  execSync(`git commit -m "${commitMessage}"`, { stdio: 'inherit' })
+  execWithStdio(`git commit -m "${commitMessage}"`)
 
   await confirm('Create a new tag ' + chalk.green.bold(`v${newVersion}`) + ' ?')
   const tagName = `v${newVersion}`
-  execSync(`git tag ${tagName}`, { stdio: 'inherit' })
+  execWithStdio(`git tag ${tagName}`)
 
   await confirm('Git push to origin?')
-  execSync('git push', { stdio: 'inherit' })
-  execSync(`git push origin ${tagName}`, { stdio: 'inherit' })
+  execWithStdio('git push')
+  execWithStdio(`git push origin ${tagName}`)
 
   console.log('\n✅ All Done!')
 }
