@@ -43,7 +43,7 @@ async function bumpVersion () {
     patch += 1
   }
 
-  const newVersion = `${major}.${minor}.${patch}`
+  const newVersion = [major, minor, patch].join('.')
 
   const versionDiff =
     `${chalk(version)} → ✨ ${chalk.green.bold(newVersion)}`
@@ -65,11 +65,11 @@ async function bumpVersion () {
   await confirm('Commit these changes?')
   execWithStdio('git add package.json package-lock.json')
 
-  const commitMessage = `chore: bump version v${newVersion}`
+  const tagName = `v${newVersion}`
+  const commitMessage = `chore: bump version ${tagName}`
   execWithStdio(`git commit -m "${commitMessage}"`)
 
-  await confirm('Create a new tag ' + chalk.green.bold(`v${newVersion}`) + ' ?')
-  const tagName = `v${newVersion}`
+  await confirm('Create a new tag ' + chalk.green.bold(tagName) + ' ?')
   execWithStdio(`git tag ${tagName}`)
 
   await confirm('Git push to origin?')
