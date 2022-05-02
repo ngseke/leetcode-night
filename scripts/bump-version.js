@@ -43,6 +43,8 @@ execSync('git add package.json package-lock.json', { stdio: 'inherit' })
 const commitMessage = `chore: bump version v${newVersion}`
 execSync(`git commit -m "${commitMessage}"`, { stdio: 'inherit' })
 
+execSync(`git tag v${newVersion}`, { stdio: 'inherit' })
+
 console.log(
   '\nBumped version from ' +
   chalk.greenBright(version) +
