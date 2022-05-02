@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
 const path = require('path')
+const chalk = require('chalk')
 
 const fileName = 'package.json'
 const package = require(path.join('..', fileName))
@@ -27,3 +29,10 @@ package.version = newVersion
 const newPackage = JSON.stringify(package, 0, 2) + '\n'
 
 fs.writeFileSync(fileName, newPackage)
+
+console.log(
+  'Bumped version from ' +
+  chalk.greenBright(version) +
+  ' to ' +
+  chalk.green.bold(newVersion)
+)
