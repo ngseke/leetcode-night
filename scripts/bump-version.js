@@ -22,6 +22,35 @@ const confirm = async (message) => {
 
 const execWithStdio = (command) => execSync(command, { stdio: 'inherit' })
 
+const getVersionDiff = (version, newVersion) =>
+  `${chalk(version)} → ${chalk.green.bold(newVersion)}`
+
+const getVersionOptions = (version) => {
+  const [major, minor, patch] = version.split('.').map(Number)
+
+  const nextPatchVersion = [major, minor, patch + 1].join('.')
+  const nextMinorVersion = [major, minor + 1, 0].join('.')
+  const nextMajorVersion = [major + 1, 0, 0].join('.')
+
+  const getName = (type, newVersion) =>
+    `${type} (${getVersionDiff(version, newVersion)})`
+
+  return [
+    {
+      name: getName('Patch', nextPatchVersion),
+      value: nextPatchVersion,
+    },
+    {
+      name: getName('Minor', nextMinorVersion),
+      value: nextMinorVersion,
+    },
+    {
+      name: getName('Major', nextMajorVersion),
+      value: nextMajorVersion,
+    },
+  ]
+}
+
 async function bumpVersion () {
   if (!checkIfGitDirty()) {
     printErrorMessageAndExit(
@@ -37,26 +66,16 @@ async function bumpVersion () {
 
   const fileName = 'package.json'
   const package = require(path.join('..', fileName))
-
-  const type = process.argv[2]
   const { version } = package
-  let [major, minor, patch] = version.split('.').map(Number)
 
-  if (type === 'major') {
-    major += 1
-    minor = 0
-    patch = 0
-  } else if (type === 'minor') {
-    minor += 1
-    patch = 0
-  } else {
-    patch += 1
-  }
+  const { newVersion } = await inquirer.prompt({
+    type: 'list',
+    name: 'newVersion',
+    message: 'Select the new version to bump:',
+    choices: getVersionOptions(version),
+  })
 
-  const newVersion = [major, minor, patch].join('.')
-
-  const versionDiff =
-    `${chalk(version)} → ✨ ${chalk.green.bold(newVersion)}`
+  const versionDiff = getVersionDiff(version, newVersion)
 
   package.version = newVersion
 
