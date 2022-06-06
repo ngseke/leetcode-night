@@ -6,8 +6,14 @@ const chalk = require('chalk')
 const { execSync } = require('child_process')
 const inquirer = require('inquirer')
 const checkIfGitDirty = require('./checkIfGitDirty')
+const checkIfLintPassed = require('./checkIfLintPassed')
 
 const exit = () => process.exit(1)
+
+const printErrorMessageAndExit = (message) => {
+  console.log(chalk.red.bold('Error: ') + message)
+  exit()
+}
 
 const confirm = async (message) => {
   const { ok } = await inquirer.prompt({ type: 'confirm', name: 'ok', message })
@@ -18,11 +24,15 @@ const execWithStdio = (command) => execSync(command, { stdio: 'inherit' })
 
 async function bumpVersion () {
   if (!checkIfGitDirty()) {
-    console.log(
-      chalk.red.bold('Error: ') +
+    printErrorMessageAndExit(
       'There are uncommitted changes. Commit or stash them first.'
     )
-    exit()
+  }
+
+  if (!checkIfLintPassed()) {
+    printErrorMessageAndExit(
+      'There are some lint issues. Please fix them before bumping the version.'
+    )
   }
 
   const fileName = 'package.json'
