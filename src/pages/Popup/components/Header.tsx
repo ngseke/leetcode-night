@@ -7,7 +7,9 @@ const Wrapper = styled.div({
   overflow: 'hidden',
 })
 
-const Moon = styled.span<{ show: boolean }>(({ show }) => ({
+const Moon = styled.span.attrs({
+  children: '🌕',
+})<{ show: boolean }>(({ show }) => ({
   position: 'absolute',
   right: 20,
   top: '50%',
@@ -16,6 +18,7 @@ const Moon = styled.span<{ show: boolean }>(({ show }) => ({
   transition: 'transform .4s .1s, text-shadow .6s .1s',
   transform: `translateY(${show ? '-50%' : '120%'})`,
   textShadow: `#ffd019 0 0 ${show ? '10px' : 0}`,
+  fontFamily: '"Noto Sans TC"',
 }))
 
 export default function Header () {
@@ -25,7 +28,7 @@ export default function Header () {
     <Wrapper>
       <div className="ts-content is-tertiary">
         <Logo />
-        <Moon show={isDarkThemeEnabled}>🌕</Moon>
+        <Moon show={isDarkThemeEnabled} />
       </div>
     </Wrapper>
   )
