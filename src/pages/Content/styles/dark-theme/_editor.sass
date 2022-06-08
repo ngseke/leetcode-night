@@ -56,12 +56,16 @@
 
     // Test case textarea
     #testcase-editor
-      background-color: colors.$grey-0
       color: colors.$grey-9
+      background-color: transparent
       [class*='editor-container']
+        background-color: colors.$grey-0
         border-color: colors.$grey-3
       .ace_cursor
         color: colors.$grey-9
+      // Selected line of tree visualizer
+      .viewer-data-marker
+        background-color: colors.$grey-1
 
     [data-key="runcode-result-content"]
       // Skeleton screen of "Run code result"
@@ -95,3 +99,13 @@
     color: colors.$grey-6
     &:hover
       color: colors.$grey-8 !important
+
+  // Tree visualizer
+  [class*="visualizer__"]
+    background: colors.$grey-0
+    [class*="data-structure-viewer"]
+      circle
+        fill: colors.$grey-0
+        stroke: colors.$grey-6
+      line
+        stroke: colors.$grey-5
