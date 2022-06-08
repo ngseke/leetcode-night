@@ -1,8 +1,13 @@
-@use 'variables' as *
 @use 'colors'
 
 [class*="question-fast-picker-wrapper"]
   background-color: colors.$dsw-layer-2
   border-top-color: colors.$grey-4
   button
-    +btn
+    background-color: transparent !important
+    color: colors.$grey-8 !important
+    box-shadow: inset 0 0 0 1px colors.$grey-4 !important
+    [class*="shuffle-icon"],
+    [class*="handler-icon"],
+    [class*="handler-text"]
+      color: colors.$grey-8 !important
