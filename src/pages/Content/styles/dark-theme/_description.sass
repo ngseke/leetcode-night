@@ -1,24 +1,28 @@
 @use 'variables' as *
+@use 'colors'
 
 [data-cy="description-content"]
-  background-color: rgb(34, 35, 37) !important
+  background-color: colors.$dsw-layer-1
   [class*="question-content"]
-    color: $text-color !important
+    color: colors.$grey-8
     & ~ div > div:nth-child(2)
-      color: $text-color !important
+      color: colors.$grey-8
 
   [class*="question-content"] + div > div > div > div:nth-child(2)
-    color: $text-color !important
+    color: colors.$grey-8
 
   [data-cy="question-title"], [data-cy="question-title"] ~ div
-    color: $text-color !important
+    color: colors.$grey-8
 
   [class*="css-"]
-    border-color: rgb(40,42,46) !important
+    border-color: colors.$grey-3
 
   pre, code
-    background-color: rgba(255, 255, 255, 0.1) !important
-    color: white !important
+    background-color: colors.$dsw-fill-tertiary
+  pre
+    color: colors.$grey-9
+  code
+    color: colors.$grey-7
 
   button
     transition: .2s all
@@ -26,17 +30,26 @@
       color: inherit !important
       opacity: .8
 
-// 選單
+// Menu part (e.g. "Related Topics", "Show Hint")
 [class*="description"]
+  =text-and-icon-except-lock-icon
+    &, svg:not([class*="lock-"])
+      @content
+
   [class*="header"]
-    border-color: rgb(40,42,46) !important
+    border-color: colors.$grey-2
     ~ [class*="css-"]
       background: transparent
-      & > div:hover
-        color: $text-color !important
+      > [class*="css-"]:first-child
+        +text-and-icon-except-lock-icon
+          color: colors.$grey-6
+        &:hover
+          +text-and-icon-except-lock-icon
+            color: colors.$grey-9
+
       [class*="topic-tag"] > span
-        color: rgb(215,217,219)!important
-        background: rgba(255,255,255,0.1) !important
+        color: colors.$grey-8
+        background-color: colors.$dsw-fill-tertiary
 
       [class*="question"] [class*="title"]
-        color: rgb(177,180,186)!important
+        color: colors.$grey-7
