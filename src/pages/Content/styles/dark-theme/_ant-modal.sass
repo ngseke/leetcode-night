@@ -1,0 +1,22 @@
+@use 'colors'
+
+.ant-modal
+  &,
+  .ant-modal-title,
+  [class*="setting-title"]
+    color: colors.$grey-8
+
+  [class*="setting-description"]
+    color: colors.$grey-6
+
+  .ant-modal-content,
+  .ant-modal-header,
+  [class*="lc-modal-footer"],
+  [class*="lc-modal-with-type"],
+  [class*="lc-modal-with-title-header"]
+    background: colors.$dsw-layer-2
+
+  [class*="modal-close-btn"]
+    color: colors.$grey-6
+    &:hover
+      color: colors.$grey-8
