@@ -88,3 +88,10 @@
         opacity: .8
       &:disabled
         opacity: .3
+
+  // "Your previous code was restored from your local storage." buttons
+  [class*="reset-code-btn__"],
+  [class*="header__"] > [class*="icon-wrapper"]
+    color: colors.$grey-6
+    &:hover
+      color: colors.$grey-8 !important
