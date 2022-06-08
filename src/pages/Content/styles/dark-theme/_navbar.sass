@@ -1,7 +1,22 @@
-@use 'variables' as *
+@use 'logo' as *
+@use 'colors'
 
 [class*="navbar__"]
-  background-color: rgb(46,47,49) !important
-  border-color: transparent !important
+  background-color: colors.$dsw-layer-1
+  border-bottom-color: colors.$grey-2
   [class*="nav-item__"]
-    color: $text-color !important
+    &, & > a
+      color: colors.$grey-8 !important
+
+  // Override logo style
+  [class*="navbar-left-container__"]
+    [class*="nav-item-container__"]:first-child
+      > a
+        > img
+          display: none
+        &::after
+          content: ''
+          width: 18px
+          height: 22px
+          background: $logo no-repeat
+          background-size: cover

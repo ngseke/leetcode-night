@@ -1,70 +1,86 @@
-@use 'variables' as *
+@use 'colors'
 
 .CodeMirror-gutters
-  background-color: rgb(24, 26, 31) !important
+  background-color: colors.$dsw-paper !important
 
 [class*="resize-bar__"]
-  background: rgb(40, 42, 46) !important
-  &:hover
-    background: inherit !important
-    opacity: .8
+  color: colors.$grey-5
+  background: colors.$dsw-layer-2
+  &::before
+    background: colors.$grey-4
 
 [class*="code-area"]
-  > [class*="content__"] > [class*="wrapper__"] > [class*="container__"], > [class*="result__"]
-    border-color: rgb(32,35,38) !important
-    box-shadow: inset 0 -1px rgb(32,35,38)
-
-  // 頂部
-  > [class*="content__"] > [class*="wrapper__"] > div:first-child
-    background-color: rgb(40, 42, 46) !important
-    color: rgb(132,136,142) !important
-    .ant-select
-      &, &:hover
-        &, .ant-select-arrow
-          border-color: rgb(132,136,142) !important
-          color: rgb(132,136,142) !important
-      &:hover
-        opacity: .8
-    button:hover
-      color: inherit !important
-      background-color: inherit !important
-      opacity: .8
-
-  // 收合
+  // Top and left border of the code area
+  > [class*="content__"] > [class*="wrapper__"] > [class*="container__"],
   > [class*="result__"]
-    > [class*="panel__"]
-      > [class*="header__"]
-        background-color: #141414 !important
-        border-color: rgb(32,35,38) !important
-        color: $text-color !important
-        .reset-code-btn
-          color: rgb(132,136,142) !important
+    border-color: colors.$grey-2
+    box-shadow: inset 0 -1px colors.$grey-2
 
-        [data-key="custom-testcase-content"]
-          background-color: rgb(24, 26, 31) !important
-        // test case textarea
-        #testcase-editor
-          background-color: rgb(20,20,20) !important
-          color: $text-color !important
-          [class*='editor-container']
-            border-color: rgb(40,42,46) !important
+  // Toolbar
+  > [class*="content__"] > [class*="wrapper__"] > div:first-child
+    background-color: colors.$dsw-layer-2
 
-        [data-key="runcode-result-content"]
-          // skeleton screen
-          svg rect
-            fill: rgb(40,42,46) !important
-          [data-cy="run-code-finished"]
-            [class*='-ValueContainer']
-              background-color: rgb(24,26,31) !important
-              border-color: rgb(40,42,46) !important
-              color: white !important
+    // Right icon buttons
+    button[class*="tool-button"]
+      color: colors.$grey-6
+      &:hover
+        color: colors.$grey-5
+
+    // "Autocomplete" button
+    button[type="ghost"]
+      & > [class*="-StyledSpan"]
+        color: colors.$grey-6
+      &:hover
+        background-color: rgba(colors.$grey-9, 0.04)
+
+    // Language select button
+    [class*="select-container__"]
+      [class*="icon-light__"]
+        color: colors.$grey-4
+      .ant-select
+        border-color: colors.$grey-4
+        .ant-select-arrow
+          color: colors.$grey-4
+        .ant-select-selection-selected-value
+          color: colors.$grey-8
+        &:hover
+          opacity: .8
+
+  // Expanded result
+  > [class*="result__"] > [class*="panel__"] > [class*="header__"]
+    color: colors.$grey-9
+    background-color: colors.$dsw-layer-1
+    border-color: colors.$grey-2
+    .reset-code-btn
+      color: rgb(132,136,142) !important
+
+    // Test case textarea
+    #testcase-editor
+      background-color: colors.$grey-0
+      color: colors.$grey-9
+      [class*='editor-container']
+        border-color: colors.$grey-3
+      .ace_cursor
+        color: colors.$grey-9
+
+    [data-key="runcode-result-content"]
+      // Skeleton screen of "Run code result"
+      svg rect
+        fill: colors.$grey-1 !important
+      [data-cy="run-code-finished"]
+        [class*='-ValueContainer']
+          background-color: colors.$grey-1
+          border-color: colors.$grey-3
+          color: colors.$grey-9
 
   // footer
   > [class*="container__"]
-    border-color: #232e3a !important
-    background-color: rgb(32,35,38) !important
+    background-color: colors.$dsw-layer-2
+    border-top-color: colors.$grey-4
     button
-      color: rgb(215,217,219)!important
+      color: colors.$grey-8 !important
+    [class*="contribute__"]
+      color: colors.$grey-6
     button[data-cy="run-code-btn"]
       &:hover, &:disabled
         background-color: inherit !important
@@ -72,3 +88,10 @@
         opacity: .8
       &:disabled
         opacity: .3
+
+  // "Your previous code was restored from your local storage." buttons
+  [class*="reset-code-btn__"],
+  [class*="header__"] > [class*="icon-wrapper"]
+    color: colors.$grey-6
+    &:hover
+      color: colors.$grey-8 !important
