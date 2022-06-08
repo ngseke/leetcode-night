@@ -26,7 +26,7 @@ export default function GoToQuestion () {
     dailyChallengeQuestionUrl,
   } = useDailyChallengeQuestion()
 
-  const shouldDirectToDailyChallenge = (!keyword && dailyChallengeQuestion)
+  const shouldDirectToDailyChallenge = !!(!keyword && dailyChallengeQuestion)
 
   const submitLink = shouldDirectToDailyChallenge
     ? dailyChallengeQuestionUrl

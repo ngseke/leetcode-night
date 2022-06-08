@@ -28,4 +28,5 @@ jobs:
           tag: ${{ github.ref }}
           name: ${{ env.TAG }}
           draft: true
+          omitDraftDuringUpdate: true
           artifacts: build.zip

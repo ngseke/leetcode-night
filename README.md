@@ -1,6 +1,7 @@
 <p align=center>
   <img src="src/assets/img/logo-text.png" width="400"/>
 </p>
+
 <p align=center>
   A extension that enables dark mode on LeetCode.
 </p>
@@ -11,6 +12,12 @@
   </a>
   <a href="https://github.com/ngseke/leetcode-night/releases">
     <img src="https://img.shields.io/github/v/release/ngseke/leetcode-night?sort=semver" />
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
+    <img src="https://img.shields.io/chrome-web-store/v/aaokgipfeeeciodnffigjfiafledhcii" />
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
+    <img src="https://img.shields.io/chrome-web-store/users/aaokgipfeeeciodnffigjfiafledhcii" />
   </a>
 </p>
 
@@ -26,7 +33,7 @@
 
 ## Installation
 
-### Download Via Chrome Web Store
+### Download from Chrome Web Store
 
 <a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
   <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" />
@@ -51,7 +58,7 @@ Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-n
 
 ## 安裝
 
-### 從 chrome 線上應用程式商店下載
+### 從 Chrome 線上應用程式商店下載
 
 <a href="https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii">
   <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" />
@@ -61,7 +68,7 @@ Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-n
 
 從 [releases](https://github.com/ngseke/leetcode-night/releases) 下載最新版 `build.zip` 並解壓縮。
 
-  1. 進入 [chrome://extensions/](chrome://extensions/)
-  2. 勾選右上角的 `開發人員模式`
-  3. 點擊左上角的 `載入未封裝項目`
-  4. 選擇已解壓縮的 `build/` 目錄
+1. 進入 [chrome://extensions/](chrome://extensions/)
+2. 勾選右上角的 `開發人員模式`
+3. 點擊左上角的 `載入未封裝項目`
+4. 選擇已解壓縮的 `build/` 目錄

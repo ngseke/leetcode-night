@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import { VERSION } from '../../../constants'
 import Link from './Link'
 
@@ -16,9 +17,15 @@ const links = [
   },
 ]
 
+const Wrapper = styled.footer.attrs({
+  className: 'ts-content',
+})({
+  fontFamily: '"Noto Sans TC"',
+})
+
 export default function Footer () {
   return (
-    <footer className="ts-content">
+    <Wrapper>
       <div className="ts-meta is-small is-secondary">
         {
           links.map(({ title, url }, key) => (
@@ -26,6 +33,6 @@ export default function Footer () {
           ))
         }
       </div>
-    </footer>
+    </Wrapper>
   )
 }

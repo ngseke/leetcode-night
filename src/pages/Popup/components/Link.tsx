@@ -1,14 +1,8 @@
-import { forwardRef } from 'react'
+import styled from 'styled-components'
 
-const Link = forwardRef<HTMLAnchorElement, React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>>(function Link (props, ref) {
-  return (
-    <a
-      ref={ref}
-      target="_blank"
-      rel="noopener noreferrer"
-      {...props}
-    />
-  )
-})
+const Link = styled.a.attrs({
+  target: '_blank',
+  rel: 'noopener noreferrer',
+})({})
 
 export default Link
