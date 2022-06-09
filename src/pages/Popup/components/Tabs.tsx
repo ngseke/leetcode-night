@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import useStorageState from 'react-use-storage-state'
 
@@ -14,7 +14,9 @@ export const tabs = {
 
 export type TabKey = keyof typeof tabs
 
-const initialTab: TabKey = 'questions'
+const tabKeys: readonly TabKey[] = ['questions', 'options']
+
+const initialTab = tabKeys[0]
 
 export function useTabs () {
   const [tab, setTab] = useStorageState<TabKey>('tab', initialTab)
@@ -38,17 +40,23 @@ type TabsProps = {
 export default function Tabs ({ value, onChange }: TabsProps) {
   const { t } = useTranslation()
 
+  const handleClick = (key: TabKey) =>
+    (e: React.SyntheticEvent) => {
+      e.preventDefault()
+      onChange(key)
+    }
+
   return (
     <div className="ts-tab is-fluid">
       {
-        (['questions', 'options'] as const).map((key) => {
+        tabKeys.map((key) => {
           const { icon } = tabs[key]
           return (
             <a
               key={key}
               className={clsx('item', { 'is-active': value === key })}
               href="#"
-              onClick={() => onChange(key)}
+              onClick={handleClick(key)}
             >
               <span className={clsx('ts-icon', `is-${icon}-icon`)} />
               {t(`tab.${key}`)}
