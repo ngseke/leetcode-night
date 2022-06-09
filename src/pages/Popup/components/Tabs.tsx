@@ -1,6 +1,7 @@
 import clsx from 'clsx'
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import useStorageState from 'react-use-storage-state'
 
 export const tabs = {
   questions: {
@@ -13,18 +14,25 @@ export const tabs = {
 
 export type TabKey = keyof typeof tabs
 
+const initialTab: TabKey = 'questions'
+
+export function useTabs () {
+  const [tab, setTab] = useStorageState<TabKey>('tab', initialTab)
+
+  const isTabQuestions = tab === 'questions'
+  const isTabOptions = tab === 'options'
+
+  useEffect(function handleInvalidTab () {
+    const isValid = Object.keys(tabs).includes(tab)
+    if (!isValid) setTab(initialTab)
+  }, [setTab, tab])
+
+  return { tab, setTab, isTabOptions, isTabQuestions }
+}
+
 type TabsProps = {
   value: TabKey,
   onChange (value: TabKey): void,
-}
-
-export function useTabs () {
-  const [tab, setTab] = useState<TabKey>('questions')
-
-  const isTabOptions = tab === 'options'
-  const isTabQuestions = tab === 'questions'
-
-  return { tab, setTab, isTabOptions, isTabQuestions }
 }
 
 export default function Tabs ({ value, onChange }: TabsProps) {
