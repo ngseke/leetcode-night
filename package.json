@@ -31,7 +31,8 @@
     "react-i18next": "^11.16.7",
     "react-use-storage-state": "^1.0.3",
     "styled-components": "^5.3.3",
-    "tocas": "^4.0.2"
+    "tocas": "^4.0.2",
+    "url-join": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
