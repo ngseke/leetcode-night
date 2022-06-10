@@ -3,7 +3,7 @@
 .ant-table-body
   table
     th, td
-      border-color: rgb(63,67,71) !important
+      border-color: colors.$grey-3 !important
     th
       color: white !important
       background: black !important
@@ -13,3 +13,10 @@
     tr:nth-child(2n + 1) > td
       color: colors.$grey-7 !important
       background: colors.$dsw-paper !important
+
+// "No Data" placeholder
+.ant-table-placeholder
+  background-color: colors.$dsw-base-grey-1
+  border-color: colors.$grey-3
+  .ant-empty-normal
+    color: colors.$grey-6
