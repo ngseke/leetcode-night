@@ -31,7 +31,8 @@
     "react-i18next": "^11.16.7",
     "react-use-storage-state": "^1.0.3",
     "styled-components": "^5.3.3",
-    "tocas": "^4.0.2"
+    "tocas": "^4.0.2",
+    "url-join": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -65,6 +66,7 @@
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
     "inquirer": "^8.2.4",
+    "open": "^8.4.0",
     "prettier": "^2.5.1",
     "sass": "^1.50.0",
     "sass-loader": "^12.4.0",
