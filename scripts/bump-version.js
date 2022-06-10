@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs')
-const path = require('path')
 const chalk = require('chalk')
 const { execSync } = require('child_process')
 const inquirer = require('inquirer')
 const checkIfGitDirty = require('./checkIfGitDirty')
 const checkIfLintPassed = require('./checkIfLintPassed')
+const openReleasePage = require('./openReleasePage')
+const PackageJsonReaderWriter = require('./PackageJsonReaderWriter')
 
 const exit = () => process.exit(1)
 
@@ -64,8 +64,7 @@ async function bumpVersion () {
     )
   }
 
-  const fileName = 'package.json'
-  const package = require(path.join('..', fileName))
+  const package = PackageJsonReaderWriter.read()
   const { version } = package
 
   const { newVersion } = await inquirer.prompt({
@@ -86,7 +85,7 @@ async function bumpVersion () {
     versionDiff
   )
 
-  fs.writeFileSync(fileName, newPackage)
+  PackageJsonReaderWriter.write(newPackage)
 
   await confirm('Run `npm install`? (For updating `package-lock.json`)')
   execWithStdio('npm install')
@@ -104,6 +103,8 @@ async function bumpVersion () {
   await confirm('Git push to origin?')
   execWithStdio('git push')
   execWithStdio(`git push origin ${tagName}`)
+
+  await openReleasePage()
 
   console.log('\n✅ All Done!')
 }
