@@ -7,6 +7,11 @@
     "type": "git",
     "url": "https://github.com/ngseke/leetcode-night"
   },
+  "engines": {
+    "npm": "*",
+    "yarn": "please-use-npm",
+    "pnpm": "please-use-npm"
+  },
   "scripts": {
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
