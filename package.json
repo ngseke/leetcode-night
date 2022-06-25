@@ -18,8 +18,9 @@
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx,js,jsx}",
     "lint-fix": "eslint --fix src --ext .ts,.tsx,.js,.jsx",
-    "bump-version": "node ./scripts/bump-version.js",
-    "prepare": "husky install"
+    "bump": "node ./scripts/bump.js",
+    "prepare": "husky install",
+    "preversion": "npm run lint"
   },
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.2",
@@ -54,7 +55,6 @@
     "babel-loader": "^8.2.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react-app": "^10.0.1",
-    "chalk": "^4.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^6.6.0",
