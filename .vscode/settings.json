@@ -3,9 +3,16 @@
     "source.fixAll.eslint": true
   },
   "cSpell.words": [
+    "bumpp",
     "clsx",
+    "commitlint",
+    "flowtype",
+    "languagedetector",
     "leetcode",
-    "notac"
+    "notac",
+    "pnpm",
+    "preversion",
+    "tocas"
   ],
   "i18n-ally.dirStructure": "auto",
   "i18n-ally.localesPaths": [
