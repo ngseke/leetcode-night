@@ -43,10 +43,14 @@
 
 Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-night/releases) and unzip.
 
-1. Access [chrome://extensions/](chrome://extensions/)
-2. Check `Developer mode`
-3. Click on `Load unpacked extension`
-4. Select the extracted folder  for use
+<details>
+  <summary>Installation Steps</summary>
+
+  1. Access [chrome://extensions/](chrome://extensions/)
+  2. Check `Developer mode`
+  3. Click on `Load unpacked extension`
+  4. Select the extracted folder  for use
+</details>
 
 
 ## Screenshot
@@ -68,7 +72,11 @@ Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-n
 
 從 [releases](https://github.com/ngseke/leetcode-night/releases) 下載最新版 `build.zip` 並解壓縮。
 
-1. 進入 [chrome://extensions/](chrome://extensions/)
-2. 勾選右上角的 `開發人員模式`
-3. 點擊左上角的 `載入未封裝項目`
-4. 選擇已解壓縮的 `build/` 目錄
+<details>
+  <summary>安裝步驟</summary>
+
+  1. 進入 [chrome://extensions/](chrome://extensions/)
+  2. 勾選右上角的 `開發人員模式`
+  3. 點擊左上角的 `載入未封裝項目`
+  4. 選擇已解壓縮的 `build/` 目錄
+</details>
