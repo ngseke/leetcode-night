@@ -8,6 +8,7 @@
     "url": "https://github.com/ngseke/leetcode-night"
   },
   "engines": {
+    "node": ">=16",
     "npm": "*",
     "yarn": "please-use-npm",
     "pnpm": "please-use-npm"
