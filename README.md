@@ -55,8 +55,9 @@ Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-n
 
 ## Screenshot
 
-<img src="src/assets/img/screenshot1.png"  />
-<img src="src/assets/img/screenshot2.png"  />
+<img src="src/assets/img/screenshot0.png" />
+<img src="src/assets/img/screenshot1.png" />
+<img src="src/assets/img/screenshot2.png" />
 
 ---
 
