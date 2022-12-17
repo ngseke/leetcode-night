@@ -12,11 +12,11 @@ import { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } from '../../constants'
 
 import { resetCode } from './resetCode'
 import { resetCode2023 } from './resetCode2023'
-import { detectVersion } from './version'
+import { detectLeetcodeVersion } from './leetcode-version'
 import { onChangeIsDarkSide2023, setIsDarkSide2023 } from './darkSide2023'
 
 async function toggleInvertImageColorByVersion (value: boolean) {
-  const version = await detectVersion()
+  const version = await detectLeetcodeVersion()
   if (version === 2023) {
     toggleInvertImageColor2023(value)
   } else if (version === 2022) {
@@ -25,7 +25,7 @@ async function toggleInvertImageColorByVersion (value: boolean) {
 }
 
 async function toggleHideLogoByVersion (value: boolean) {
-  const version = await detectVersion()
+  const version = await detectLeetcodeVersion()
   if (version === 2023) {
     toggleHideLogo2023(value)
   } else if (version === 2022) {
@@ -40,7 +40,7 @@ const handleOptionsChange = (options: OptionsForm) => {
 }
 
 async function toggleEnabledByVersion (value: boolean) {
-  const version = await detectVersion()
+  const version = await detectLeetcodeVersion()
   if (version === 2023) {
     setIsDarkSide2023(value)
   } else if (version === 2022) {
@@ -49,7 +49,7 @@ async function toggleEnabledByVersion (value: boolean) {
 }
 
 async function resetCodeByVersion () {
-  const version = await detectVersion()
+  const version = await detectLeetcodeVersion()
   if (version === 2023) {
     resetCode2023()
   } else if (version === 2022) {
