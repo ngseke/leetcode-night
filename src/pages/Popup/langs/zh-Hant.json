@@ -8,6 +8,7 @@
   },
   "option": {
     "enableDarkTheme": "啟用深色主題",
+    "enableDarkTheme2023Description": "新版本 LeetCode 現已官方支援深色主題",
     "invertImageColor": "反轉圖片顏色",
     "mascot": "顯示吉祥物",
     "hideLogo": "隱藏 Logo",

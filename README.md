@@ -8,7 +8,7 @@
 
 <p align=center>
   <a href="https://github.com/ngseke/leetcode-night/actions">
-    <img src="https://img.shields.io/github/workflow/status/ngseke/leetcode-night/Release" />
+    <img src="https://github.com/ngseke/leetcode-night/actions/workflows/release.yml/badge.svg" />
   </a>
   <a href="https://github.com/ngseke/leetcode-night/releases">
     <img src="https://img.shields.io/github/v/release/ngseke/leetcode-night?sort=semver" />

@@ -51,6 +51,11 @@ export default function App () {
             >
               <span className="ts-header">{t('option.enableDarkTheme')}</span>
             </Switch>
+            <div className="ts-text is-description">
+              <span className="ts-icon is-lightbulb-icon is-end-spaced" />
+              {t('option.enableDarkTheme2023Description')}
+            </div>
+
             <Spacer />
             <Options />
             <Divider />

@@ -1,13 +1,21 @@
-import waitForElement from './waitForElement'
+import { waitForElement } from './selector'
 
-export default async function resetCode () {
-  const $reset = await waitForElement(
+async function selectResetButton () {
+  return await waitForElement(
     '[data-cy="code-area"] button[icon="return"]'
   ) as HTMLButtonElement
-  $reset.click()
+}
 
-  const $confirm = await waitForElement(
+async function selectDialogConfirmButton () {
+  return await waitForElement(
     '.ant-modal-body button:nth-child(2)'
   ) as HTMLButtonElement
-  $confirm.click()
+}
+
+export async function resetCode () {
+  const resetButton = await selectResetButton()
+  resetButton.click()
+
+  const confirmButton = await selectDialogConfirmButton()
+  confirmButton.click()
 }
