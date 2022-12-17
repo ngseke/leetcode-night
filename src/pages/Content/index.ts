@@ -5,6 +5,7 @@ import { toggleInvertImageColor } from './toggleInvertImageColor'
 import { toggleInvertImageColor2023 } from './toggleInvertImageColor2023'
 import { toggleEnabledMascot } from './toggleEnabledMascot'
 import { toggleHideLogo } from './toggleHideLogo'
+import { toggleHideLogo2023 } from './toggleHideLogo2023'
 
 import { OptionsForm } from '../../options'
 import { ENABLED_STORAGE_KEY, OPTIONS_STORAGE_KEY } from '../../constants'
@@ -22,10 +23,19 @@ async function toggleInvertImageColorByVersion (value: boolean) {
   }
 }
 
+async function toggleHideLogoByVersion (value: boolean) {
+  const version = await detectVersion()
+  if (version === 2023) {
+    toggleHideLogo2023(value)
+  } else if (version === 2022) {
+    toggleHideLogo(value)
+  }
+}
+
 const handleOptionsChange = (options: OptionsForm) => {
   toggleInvertImageColorByVersion(options?.invertImageColor ?? false)
   toggleEnabledMascot(options?.mascot ?? false)
-  toggleHideLogo(options?.hideLogo ?? false)
+  toggleHideLogoByVersion(options?.hideLogo ?? false)
 }
 
 async function resetCodeByVersion () {
