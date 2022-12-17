@@ -1,4 +1,4 @@
-import waitForElement from './waitForElement'
+import { waitForElement } from './selector'
 
 export default async function getQuestionNumber () {
   const selector = '[data-cy="question-title"]'
