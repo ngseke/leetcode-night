@@ -12,7 +12,7 @@ async function selectDialogConfirmButton () {
   ) as HTMLButtonElement
 }
 
-export default async function resetCode () {
+export async function resetCode () {
   const resetButton = await selectResetButton()
   resetButton.click()
 
