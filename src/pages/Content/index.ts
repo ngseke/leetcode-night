@@ -2,6 +2,7 @@ import { loadIsEnabled, loadOptions, loadIsAutoResetCodeEnabled } from '../../st
 
 import { toggleEnabled } from './toggleEnabled'
 import { toggleInvertImageColor } from './toggleInvertImageColor'
+import { toggleInvertImageColor2023 } from './toggleInvertImageColor2023'
 import { toggleEnabledMascot } from './toggleEnabledMascot'
 import { toggleHideLogo } from './toggleHideLogo'
 
@@ -12,8 +13,17 @@ import { resetCode } from './resetCode'
 import { resetCode2023 } from './resetCode2023'
 import { detectVersion } from './version'
 
+async function toggleInvertImageColorByVersion (value: boolean) {
+  const version = await detectVersion()
+  if (version === 2023) {
+    toggleInvertImageColor2023(value)
+  } else if (version === 2022) {
+    toggleInvertImageColor(value)
+  }
+}
+
 const handleOptionsChange = (options: OptionsForm) => {
-  toggleInvertImageColor(options?.invertImageColor ?? false)
+  toggleInvertImageColorByVersion(options?.invertImageColor ?? false)
   toggleEnabledMascot(options?.mascot ?? false)
   toggleHideLogo(options?.hideLogo ?? false)
 }
