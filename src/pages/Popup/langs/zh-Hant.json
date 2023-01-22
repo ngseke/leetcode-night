@@ -4,7 +4,10 @@
     "options": "設定"
   },
   "title": {
-    "questions": "題目"
+    "questions": "題目",
+    "style": "樣式",
+    "extraFeature": "額外功能",
+    "language": "語言"
   },
   "option": {
     "enableDarkTheme": "啟用深色主題",
@@ -22,11 +25,6 @@
   "input": {
     "questionNumber": {
       "placeholder": "輸入題目編號..."
-    }
-  },
-  "select": {
-    "language": {
-      "label": "語言"
     }
   }
 }

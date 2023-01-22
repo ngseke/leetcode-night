@@ -4,7 +4,10 @@
     "options": "Options"
   },
   "title": {
-    "questions": "Questions"
+    "questions": "Questions",
+    "style": "Style",
+    "extraFeature": "Extra Feature",
+    "language": "Language"
   },
   "option": {
     "enableDarkTheme": "Enable Dark Theme",
@@ -22,11 +25,6 @@
   "input": {
     "questionNumber": {
       "placeholder": "Enter Question Number..."
-    }
-  },
-  "select": {
-    "language": {
-      "label": "Language"
     }
   }
 }

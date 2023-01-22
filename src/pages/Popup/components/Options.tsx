@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { OptionKey, OPTIONS, OptionsForm } from '../../../options'
 import { loadOptions, saveOptions } from '../../../storage'
-import OptionCheckbox from './OptionCheckbox'
+import useEnableDarkTheme from '../hooks/useEnableDarkTheme'
+import Switch from './Switch'
 
 const options = [
   OPTIONS.INVERT_IMAGE_COLOR,
@@ -31,16 +32,32 @@ export default function Options () {
     if (form) saveOptions(form)
   }, [form])
 
+  const { isDarkThemeEnabled, setIsDarkThemeEnabled } = useEnableDarkTheme()
+
   return (
-    <div className="ts-wrap is-vertical is-compact">
-      {options?.map(({ icon, key }) => (
-        <OptionCheckbox
+    <div className="ts-wrap is-vertical is-start-aligned">
+      <div>
+        <Switch
+          checked={isDarkThemeEnabled}
+          onChange={setIsDarkThemeEnabled}
+          icon="moon"
+        >
+          {t('option.enableDarkTheme')}
+        </Switch>
+        <div className="ts-text is-description">
+          {t('option.enableDarkTheme2023Description')}
+        </div>
+      </div>
+
+      {options?.map(({ key, icon }) => (
+        <Switch
           key={key}
-          icon={icon}
-          title={t(`option.${key}`)}
           checked={form?.[key] ?? false}
           onChange={handleChange(key)}
-        />
+          icon={icon}
+        >
+          {t(`option.${key}`)}
+        </Switch>
       ))}
     </div>
   )
