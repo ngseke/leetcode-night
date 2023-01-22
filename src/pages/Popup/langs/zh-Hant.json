@@ -4,14 +4,17 @@
     "options": "設定"
   },
   "title": {
-    "questions": "題目"
+    "questions": "題目",
+    "style": "樣式",
+    "extraFeature": "額外功能",
+    "language": "語言"
   },
   "option": {
     "enableDarkTheme": "啟用深色主題",
     "enableDarkTheme2023Description": "新版本 LeetCode 現已官方支援深色主題",
     "invertImageColor": "反轉圖片顏色",
     "mascot": "顯示吉祥物",
-    "hideLogo": "隱藏 Logo",
+    "hideLogo": "隱藏 LeetCode Logo",
     "autoResetCode": "自動重置程式碼",
     "autoResetCodeDescription": "總是將程式碼重置成初始定義"
   },
@@ -22,11 +25,6 @@
   "input": {
     "questionNumber": {
       "placeholder": "輸入題目編號..."
-    }
-  },
-  "select": {
-    "language": {
-      "label": "語言"
     }
   }
 }
