@@ -16,7 +16,7 @@
         "https://leetcode.com/problems/*"
       ],
       "js": [
-        "contentScript.bundle.js"
+        "content.bundle.js"
       ],
       "run_at": "document_start"
     }

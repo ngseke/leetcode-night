@@ -7,5 +7,3 @@ import './index.css'
 import './i18n'
 
 render(<App />, window.document.querySelector('#app-container'))
-
-if (module.hot) module.hot.accept()

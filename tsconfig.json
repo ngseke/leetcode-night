@@ -18,13 +18,13 @@
     "resolveJsonModule": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "outDir": "build"
+    "outDir": "dist"
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "build",
+    "dist",
     "node_modules"
   ]
 }
