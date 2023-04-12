@@ -22,10 +22,13 @@ export async function selectDialogConfirmButton () {
   return button as HTMLButtonElement
 }
 
+const sleep = (ms = 300) => new Promise((resolve) => setTimeout(resolve, ms))
+
 export async function resetCode2023 () {
   const resetButton = await selectResetButton()
   resetButton.click()
 
+  await sleep()
   const confirmButton = await selectDialogConfirmButton()
   confirmButton.click()
 }
