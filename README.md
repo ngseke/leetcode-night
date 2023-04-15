@@ -3,7 +3,7 @@
 </p>
 
 <p align=center>
-  A extension that enables dark mode on LeetCode.
+  A browser extension that enables dark mode on LeetCode.
 </p>
 
 <p align=center>
