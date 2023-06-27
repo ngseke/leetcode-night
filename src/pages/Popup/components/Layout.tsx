@@ -13,9 +13,7 @@ export default function Layout ({ header, body, footer }: LayoutProps) {
       </div>
 
       <div className="cell is-scrollable" style={{ flex: 1 }}>
-        <main className="ts-content">
-          {body}
-        </main>
+        {body}
       </div>
 
       <div className="cell">

@@ -15,13 +15,18 @@ export interface Difficulty {
 
 export type QuestionStatus = null | 'ac' | 'notac'
 
-export default interface Question {
+export interface RawQuestion {
   difficulty: Difficulty,
   frequency: number,
   paid_only: boolean,
   progress: number,
   stat: Stat,
   status: QuestionStatus,
+}
+
+export interface Question extends RawQuestion {
+  title: string,
+  url: string,
 }
 
 export type QuestionMap = Record<number, Question>

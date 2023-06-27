@@ -1,4 +1,4 @@
-import Question, { Difficulty } from '../types/Question'
+import { Question, Difficulty } from '../types/Question'
 import Chip from './Chip'
 import QuestionDifficultyText from './QuestionDifficultyText'
 import QuestionStatusIcon from './QuestionStatusIcon'

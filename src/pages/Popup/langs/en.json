@@ -23,8 +23,8 @@
     "disabled": "Disabled"
   },
   "input": {
-    "questionNumber": {
-      "placeholder": "Enter Question Number..."
+    "questionKeyword": {
+      "placeholder": "Search by Question Number or Keyword"
     }
   }
 }

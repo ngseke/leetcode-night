@@ -23,8 +23,8 @@
     "disabled": "停用"
   },
   "input": {
-    "questionNumber": {
-      "placeholder": "輸入題目編號..."
+    "questionKeyword": {
+      "placeholder": "以題目編號或關鍵詞搜尋"
     }
   }
 }

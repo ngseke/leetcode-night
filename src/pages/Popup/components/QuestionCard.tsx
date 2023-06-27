@@ -1,47 +1,95 @@
-import { useMemo } from 'react'
-import Nullish from '../types/Nullish'
-import Question from '../types/Question'
-import BlockLink from './BlockLink'
+import { ReactNode, useEffect, useMemo, useRef } from 'react'
+import { Question } from '../types/Question'
 import QuestionMetaChips from './QuestionMetaChips'
-import Spacer from './Spacer'
+import Link from './Link'
+import clsx from 'clsx'
+import HighlightText from './HighlightText'
+import styled from 'styled-components'
+
+const Wrapper = styled.div({
+  display: 'flex',
+})
+
+const IconWrapper = styled.div({
+  flex: 'none',
+  display: 'flex',
+  height: '100%',
+  minWidth: '2.75rem',
+  paddingTop: '0.5rem',
+})
+
+const ContentWrapper = styled.div({
+  flex: '1',
+})
 
 interface QuestionCardProps {
   question: Question,
-  link: Nullish<string>,
+  customTitle?: ReactNode,
+  isMatchedByQuestionId?: boolean,
+  active?: boolean,
 }
 
-export default function QuestionCard ({ question, link }: QuestionCardProps) {
-  const title = useMemo(() => {
-    if (!question) return null
-    const { stat } = question
-    return `${stat.frontend_question_id}. ${stat.question__title}`
-  }, [question])
+const QuestionIdText = ({ children, active }: {
+  children: ReactNode,
+  active?: boolean,
+}) => {
+  if (active) return <HighlightText>{children}</HighlightText>
+  return <span className="ts-text is-secondary"> {children} </span>
+}
 
+export default function QuestionCard ({
+  question,
+  customTitle,
+  isMatchedByQuestionId,
+  active,
+}: QuestionCardProps) {
   const acceptanceText = useMemo(() => {
     const { stat } = question
 
     return `${((stat.total_acs / stat.total_submitted) * 100).toFixed(1)}%`
   }, [question])
 
+  const { url } = question
+
+  const ref = useRef<HTMLAnchorElement | null>(null)
+  useEffect(() => {
+    if (!active) return
+    ref.current?.scrollIntoView({ block: 'nearest' })
+  }, [active])
+
   return (
-    <BlockLink href={link}>
-      <div className="ts-conversation">
-        <div className="content">
-          <div className="bubble">
-            <div className="author" style={{ userSelect: 'text' }}>
-              {title}
-            </div>
-            <div className="text">
-              <Spacer small />
-              <QuestionMetaChips
-                status={question.status}
-                level={question.difficulty.level}
-                acceptance={acceptanceText}
-              />
-            </div>
+    <Link
+      ref={ref}
+      className={clsx(
+        'ts-content is-interactive is-dense is-rounded',
+        { 'is-active': active }
+      )}
+      href={url ?? ''}
+    >
+      <Wrapper>
+        <IconWrapper>
+          <span className="ts-icon is-secondary is-big is-magnifying-glass-icon" />
+        </IconWrapper>
+        <ContentWrapper>
+          <div
+            className="ts-text is-small is-bold"
+            style={{ marginBottom: '.25rem' }}
+          >
+            <QuestionIdText active={isMatchedByQuestionId}>
+              {question.stat.frontend_question_id}.{' '}
+            </QuestionIdText>
+            {customTitle ?? question.title}
           </div>
-        </div>
-      </div>
-    </BlockLink>
+
+          <div>
+            <QuestionMetaChips
+              status={question.status}
+              level={question.difficulty.level}
+              acceptance={acceptanceText}
+            />
+          </div>
+        </ContentWrapper>
+      </Wrapper>
+    </Link>
   )
 }

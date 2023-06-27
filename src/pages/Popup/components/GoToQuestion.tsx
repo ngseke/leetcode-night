@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { SyntheticEvent, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import useDailyChallengeQuestion from '../hooks/useDailyChallengeQuestion'
 
@@ -6,17 +6,38 @@ import useQuestions from '../hooks/useQuestions'
 import DailyChallengeQuestionCard from './DailyChallengeQuestionCard'
 import Link from './Link'
 import QuestionCard from './QuestionCard'
-import QuestionNumberInput from './QuestionNumberInput'
+import QuestionKeywordInput from './QuestionKeywordInput'
+import HighlightText from './HighlightText'
+import fuzzysort from 'fuzzysort'
+import Spacer from './Spacer'
+import useSelectedIndex from '../hooks/useKeyboardSelection'
 
 const HiddenLink = styled(Link)({ display: 'none' })
+
+const Wrapper = styled.div.attrs({
+  className: 'ts-content',
+})({
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  paddingBottom: 0,
+})
+
+const FixedForm = styled.form({
+  flex: 'none',
+})
+
+const ScrollableContent = styled.div({
+  flex: 1,
+  overflow: 'auto',
+})
 
 export default function GoToQuestion () {
   const [keyword, setKeyword] = useState('')
   const {
     isLoadingQuestions,
-    matchedQuestion,
-    matchedQuestionUrl,
-    isNotMatched,
+    matchedQuestionById,
+    matchedQuestionResultsByKeyword,
   } = useQuestions(keyword)
 
   const questionLinkRef = useRef<HTMLAnchorElement>(null)
@@ -28,28 +49,49 @@ export default function GoToQuestion () {
 
   const shouldDirectToDailyChallenge = !!(!keyword && dailyChallengeQuestion)
 
+  const totalLength =
+    (matchedQuestionById ? 1 : 0) +
+    (matchedQuestionResultsByKeyword?.length || 0)
+
+  const {
+    selectedIndex,
+    increaseSelectedIndex,
+    decreaseSelectedIndex,
+  } = useSelectedIndex(totalLength)
+
+  const selectedQuestion = useMemo(() => {
+    if (matchedQuestionById && !selectedIndex) {
+      return matchedQuestionById
+    }
+
+    const keywordResultIndex = selectedIndex + (matchedQuestionById ? -1 : 0)
+    return matchedQuestionResultsByKeyword?.[keywordResultIndex]?.obj
+  }, [matchedQuestionById, matchedQuestionResultsByKeyword, selectedIndex])
+
   const submitLink = shouldDirectToDailyChallenge
     ? dailyChallengeQuestionUrl
-    : matchedQuestionUrl
+    : selectedQuestion?.url
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault()
     if (submitLink) questionLinkRef.current?.click()
   }
 
   return (
-    <div className="ts-wrap is-vertical">
-      <form onSubmit={handleSubmit}>
-        <QuestionNumberInput
+    <Wrapper>
+      <FixedForm onSubmit={handleSubmit}>
+        <HiddenLink ref={questionLinkRef} href={submitLink ?? ''} />
+        <QuestionKeywordInput
           value={keyword}
           onChange={setKeyword}
           loading={isLoadingQuestions}
-          error={isNotMatched}
+          onKeyArrowUp={decreaseSelectedIndex}
+          onKeyArrowDown={increaseSelectedIndex}
         />
-        <HiddenLink ref={questionLinkRef} href={submitLink ?? ''} />
-      </form>
+        <Spacer small />
+      </FixedForm>
 
-      <div>
+      <ScrollableContent>
         {
           shouldDirectToDailyChallenge &&
             <DailyChallengeQuestionCard
@@ -58,13 +100,32 @@ export default function GoToQuestion () {
             />
         }
         {
-          matchedQuestion &&
+          matchedQuestionById &&
             <QuestionCard
-              question={matchedQuestion}
-              link={matchedQuestionUrl}
+              question={matchedQuestionById}
+              isMatchedByQuestionId
+              active={selectedQuestion === matchedQuestionById}
             />
         }
-      </div>
-    </div>
+        {
+          Boolean(matchedQuestionResultsByKeyword?.length) && <>
+            {
+              matchedQuestionResultsByKeyword?.map((result) => (
+                <QuestionCard
+                  key={result.obj.stat.question_id}
+                  question={result.obj}
+                  active={selectedQuestion === result.obj}
+                  customTitle={
+                    fuzzysort.highlight(result, (match, index) => (
+                      <HighlightText key={index}>{match}</HighlightText>
+                    ))
+                  }
+                />
+              ))
+            }
+          </>
+        }
+      </ScrollableContent>
+    </Wrapper>
   )
 }

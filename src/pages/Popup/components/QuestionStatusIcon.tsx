@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { useMemo } from 'react'
 import { colors } from '../modules/themes'
-import Question from '../types/Question'
+import { Question } from '../types/Question'
 
 interface QuestionStatusIconProps {
   status: Question['status'],
