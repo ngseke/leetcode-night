@@ -19,8 +19,7 @@
     "autoResetCodeDescription": "Always reset to default code definition."
   },
   "status": {
-    "enabled": "Enabled",
-    "disabled": "Disabled"
+    "noResult": "No Results Found"
   },
   "input": {
     "questionKeyword": {

@@ -19,8 +19,7 @@
     "autoResetCodeDescription": "總是將程式碼重置成初始定義"
   },
   "status": {
-    "enabled": "啟用",
-    "disabled": "停用"
+    "noResult": "找不到結果"
   },
   "input": {
     "questionKeyword": {

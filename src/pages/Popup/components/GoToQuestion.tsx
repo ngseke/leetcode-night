@@ -11,6 +11,7 @@ import HighlightText from './HighlightText'
 import fuzzysort from 'fuzzysort'
 import Spacer from './Spacer'
 import useSelectedIndex from '../hooks/useKeyboardSelection'
+import NoResult from './NoResult'
 
 const HiddenLink = styled(Link)({ display: 'none' })
 
@@ -38,6 +39,7 @@ export default function GoToQuestion () {
     isLoadingQuestions,
     matchedQuestionById,
     matchedQuestionResultsByKeyword,
+    isNotFound,
   } = useQuestions(keyword)
 
   const questionLinkRef = useRef<HTMLAnchorElement>(null)
@@ -125,6 +127,7 @@ export default function GoToQuestion () {
             }
           </>
         }
+        {isNotFound && <NoResult />}
       </ScrollableContent>
     </Wrapper>
   )
