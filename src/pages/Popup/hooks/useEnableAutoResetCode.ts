@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { loadIsAutoResetCodeEnabled, saveIsAutoResetCodeEnabled } from '../../../storage'
 
-export default function useEnableAutoResetCode () {
+export function useEnableAutoResetCode () {
   const [isReady, setIsReady] = useState(false)
   const [isAutoResetCodeEnabled, setIsAutoResetCodeEnabled] = useState(false)
 

@@ -5,7 +5,7 @@ const Wrapper = styled.div({ height: '100%' })
 
 type LayoutProps = Record<'header' | 'body' | 'footer', ReactNode>
 
-export default function Layout ({ header, body, footer }: LayoutProps) {
+export function Layout ({ header, body, footer }: LayoutProps) {
   return (
     <Wrapper className="ts-app-layout is-vertical">
       <div className="cell">
@@ -13,9 +13,7 @@ export default function Layout ({ header, body, footer }: LayoutProps) {
       </div>
 
       <div className="cell is-scrollable" style={{ flex: 1 }}>
-        <main className="ts-content">
-          {body}
-        </main>
+        {body}
       </div>
 
       <div className="cell">

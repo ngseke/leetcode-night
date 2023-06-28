@@ -2,7 +2,7 @@ import { QuestionStatus } from './Question'
 
 type UserStatus = 'NotStart' | 'Finish'
 
-export default interface DailyChallengeQuestion {
+export interface DailyChallengeQuestion {
   date: string,
   question: {
     acRate: number,

@@ -7,7 +7,7 @@ const Wrapper = styled.div<{ isZh: boolean }>(({ isZh }) => ({
   fontFamily: isZh ? '"Noto Sans TC"' : '"M PLUS Rounded 1c"',
 }))
 
-const LanguageBasedFontFamily: FC = ({ children }) => {
+export const LanguageBasedFontFamily: FC = ({ children }) => {
   const { i18n } = useTranslation()
   const isZh = i18n.resolvedLanguage === 'zh-Hant'
 
@@ -17,4 +17,3 @@ const LanguageBasedFontFamily: FC = ({ children }) => {
     </Wrapper>
   )
 }
-export default LanguageBasedFontFamily

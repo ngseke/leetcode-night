@@ -10,7 +10,7 @@ export interface OptionTitleProps {
   icon: string,
 }
 
-export default function OptionTitle ({ children, icon }: OptionTitleProps) {
+export function OptionTitle ({ children, icon }: OptionTitleProps) {
   return (
     <Title>
       <span className={`ts-icon is-secondary is-${icon}-icon`} />

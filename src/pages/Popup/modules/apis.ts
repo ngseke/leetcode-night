@@ -1,17 +1,25 @@
 import axios from 'axios'
 import { request, gql } from 'graphql-request'
-import DailyChallengeQuestion from '../types/DailyChallengeQuestion'
-import Question, { QuestionMap } from '../types/Question'
+import { DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
+import { Question, RawQuestion } from '../types/Question'
+
+export function getQuestionUrl (titleSlug: string) {
+  return `https://leetcode.com/problems/${titleSlug}`
+}
 
 export async function fetchQuestions () {
-  const { data } = await axios.get<{ stat_status_pairs: Question[]}>(
+  const { data } = await axios.get<{ stat_status_pairs: RawQuestion[]}>(
     'https://leetcode.com/api/problems/algorithms/'
   )
 
-  return data?.stat_status_pairs.reduce<QuestionMap>((questions, item) => {
-    questions[item.stat.frontend_question_id] = item
-    return questions
-  }, {})
+  const extendedQuestions =
+    data?.stat_status_pairs.map<Question>(question => ({
+      ...question,
+      title: question.stat.question__title,
+      url: getQuestionUrl(question.stat.question__title_slug),
+    }))
+
+  return extendedQuestions
 }
 
 export async function fetchDailyChallengeQuestion () {

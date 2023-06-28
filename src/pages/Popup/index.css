@@ -1,6 +1,10 @@
+:root {
+  color-scheme: dark;
+}
+
 body {
-  width: 400px;
-  min-height: 500px;
+  width: 450px;
+  min-height: 550px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;

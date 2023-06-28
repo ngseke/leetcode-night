@@ -1,24 +1,37 @@
 import clsx from 'clsx'
 import { ReactNode } from 'react'
+import styled from 'styled-components'
 
 interface QuestionStatusIconProps {
   children: ReactNode,
   isFinished: boolean,
 }
 
-export default function QuestionDateIcon ({ children, isFinished }: QuestionStatusIconProps) {
+const Wrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+})
+
+const Icon = styled.span({
+  lineHeight: 1,
+  fontSize: '2.5rem',
+  marginBottom: '.5rem',
+})
+
+export function QuestionDateIcon ({ children, isFinished }: QuestionStatusIconProps) {
   return (
-    <span
+    <Wrapper
       className="ts-text is-bold"
       style={{ color: isFinished ? 'var(--ts-static-positive-500)' : '' }}
     >
-      <span
+      <Icon
         className={clsx(
-          'ts-icon is-end-spaced',
+          'ts-icon',
           isFinished ? 'is-check-icon' : 'is-calendar-days-icon'
         )}
       />
-      {children}
-    </span>
+      <span className="ts-text is-small">{children}</span>
+    </Wrapper>
   )
 }

@@ -5,8 +5,8 @@ interface IfProps {
   children: ReactNode,
 }
 
-const If = ({ is, children }: IfProps) => {
+export const If = memo(({ is, children }: IfProps) => {
   return is ? <>{children}</> : null
-}
+})
 
-export default memo(If)
+If.displayName = 'If'

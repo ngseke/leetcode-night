@@ -1,10 +1,25 @@
 import { useEffect, useMemo } from 'react'
 import useStorageState from 'react-use-storage-state'
 import { fetchQuestions } from '../modules/apis'
-import { QuestionMap } from '../types/Question'
+import { Question, QuestionMap } from '../types/Question'
+import fuzzysort from 'fuzzysort'
 
-export default function useQuestions (keyword: string) {
-  const [questions, setQuestions] = useStorageState<QuestionMap | null>('questions', null)
+export function useQuestions (keyword: string) {
+  const [questions, setQuestions] =
+    useStorageState<Question[] | null>('questions', null)
+
+  const questionMap = useMemo(() => {
+    const map: QuestionMap = {}
+
+    // HACK: keeping this array check for backward compatibility
+    if (!Array.isArray(questions)) return null
+
+    questions.forEach((question) => {
+      map[question.stat.frontend_question_id] = question
+    })
+
+    return map
+  }, [questions])
 
   useEffect(() => {
     fetchQuestions().then(setQuestions)
@@ -12,22 +27,32 @@ export default function useQuestions (keyword: string) {
 
   const isLoadingQuestions = !questions
 
-  const matchedQuestion = useMemo(() => {
-    return questions?.[parseInt(keyword)]
+  const matchedQuestionById = useMemo(() => {
+    return questionMap?.[Number(keyword)]
+  }, [keyword, questionMap])
+
+  const matchedQuestionResultsByKeyword = useMemo(() => {
+    if (!questions) return null
+    const results = fuzzysort.go(keyword, questions, {
+      key: 'title',
+      limit: 20,
+    })
+
+    return results
   }, [keyword, questions])
 
-  const matchedQuestionUrl = useMemo(() => {
-    if (!matchedQuestion) return null
-    return `https://leetcode.com/problems/${matchedQuestion.stat.question__title_slug}`
-  }, [matchedQuestion])
-
-  const isNotMatched = Boolean(keyword && questions && !matchedQuestion)
+  const isNotFound = Boolean(
+    keyword &&
+    questions &&
+    !matchedQuestionById &&
+    !matchedQuestionResultsByKeyword?.length
+  )
 
   return {
     questions,
     isLoadingQuestions,
-    matchedQuestion,
-    matchedQuestionUrl,
-    isNotMatched,
+    matchedQuestionById,
+    matchedQuestionResultsByKeyword,
+    isNotFound,
   }
 }

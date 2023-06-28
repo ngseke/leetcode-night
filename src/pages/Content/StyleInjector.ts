@@ -1,4 +1,4 @@
-export default class StyleInjector {
+export class StyleInjector {
   isInjected = false
   content: string
   $el: HTMLStyleElement

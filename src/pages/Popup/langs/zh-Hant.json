@@ -5,6 +5,7 @@
   },
   "title": {
     "questions": "題目",
+    "dailyChallenge": "每日挑戰",
     "style": "樣式",
     "extraFeature": "額外功能",
     "language": "語言"
@@ -19,12 +20,11 @@
     "autoResetCodeDescription": "總是將程式碼重置成初始定義"
   },
   "status": {
-    "enabled": "啟用",
-    "disabled": "停用"
+    "noResult": "找不到結果"
   },
   "input": {
-    "questionNumber": {
-      "placeholder": "輸入題目編號..."
+    "questionKeyword": {
+      "placeholder": "以題目編號或關鍵詞搜尋"
     }
   }
 }

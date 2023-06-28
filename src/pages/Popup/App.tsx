@@ -1,22 +1,21 @@
-import Options from './components/Options'
-import Footer from './components/Footer'
-import Switch from './components/Switch'
-import GoToQuestion from './components/GoToQuestion'
-import Tabs, { useTabs } from './components/Tabs'
-import Layout from './components/Layout'
-import If from './components/If'
-import Header from './components/Header'
-import Link from './components/Link'
-import useEnableAutoResetCode from './hooks/useEnableAutoResetCode'
+import { Options } from './components/Options'
+import { Footer } from './components/Footer'
+import { Switch } from './components/Switch'
+import { SearchQuestion } from './components/SearchQuestion'
+import { useTabs, Tabs } from './components/Tabs'
+import { Layout } from './components/Layout'
+import { If } from './components/If'
+import { Header } from './components/Header'
+import { useEnableAutoResetCode } from './hooks/useEnableAutoResetCode'
 
 import { useTranslation } from 'react-i18next'
-import LanguageSelect from './components/LanguageSelect'
-import LanguageBasedFontFamily from './components/LanguageBasedFontFamily'
-import OptionTitle from './components/OptionTitle'
+import { LanguageSelect } from './components/LanguageSelect'
+import { LanguageBasedFontFamily } from './components/LanguageBasedFontFamily'
+import { OptionTitle } from './components/OptionTitle'
 
 const Divider = () => <div className="ts-divider is-section" />
 
-export default function App () {
+export function App () {
   const { tab, setTab, isTabOptions, isTabQuestions } = useTabs()
   const { isAutoResetCodeEnabled, setIsAutoResetCodeEnabled } = useEnableAutoResetCode()
 
@@ -31,38 +30,32 @@ export default function App () {
         </>}
         body={<>
           <If is={isTabQuestions}>
-            <h2 className="ts-header">
-              <Link
-                className="ts-text is-undecorated"
-                href="https://leetcode.com/problemset/algorithms/"
-              >
-                {t('title.questions')}
-              </Link>
-            </h2>
-            <GoToQuestion />
+            <SearchQuestion />
           </If>
 
           <If is={isTabOptions}>
-            <OptionTitle icon="palette">{t('title.style')}</OptionTitle>
+            <div className="ts-content">
+              <OptionTitle icon="palette">{t('title.style')}</OptionTitle>
 
-            <Options />
-            <Divider />
+              <Options />
+              <Divider />
 
-            <OptionTitle icon="wand-magic-sparkles">{t('title.extraFeature')}</OptionTitle>
-            <Switch
-              checked={isAutoResetCodeEnabled}
-              onChange={setIsAutoResetCodeEnabled}
-              icon="rotate-left"
-            >
-              {t('option.autoResetCode')}
-            </Switch>
-            <div className="ts-text is-description">
-              {t('option.autoResetCodeDescription')}
+              <OptionTitle icon="wand-magic-sparkles">{t('title.extraFeature')}</OptionTitle>
+              <Switch
+                checked={isAutoResetCodeEnabled}
+                onChange={setIsAutoResetCodeEnabled}
+                icon="rotate-left"
+              >
+                {t('option.autoResetCode')}
+              </Switch>
+              <div className="ts-text is-description">
+                {t('option.autoResetCodeDescription')}
+              </div>
+              <Divider />
+
+              <OptionTitle icon="language">{t('title.language')}</OptionTitle>
+              <LanguageSelect />
             </div>
-            <Divider />
-
-            <OptionTitle icon="language">{t('title.language')}</OptionTitle>
-            <LanguageSelect />
           </If>
         </>}
         footer={<Footer />}

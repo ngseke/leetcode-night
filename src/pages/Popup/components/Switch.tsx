@@ -7,7 +7,7 @@ type SwitchProps = Omit<JSX.IntrinsicElements['input'], 'onChange'> & {
   icon?: string,
 }
 
-export default function Switch (
+export function Switch (
   { children, disabled, onChange, icon, ...restProps }: SwitchProps
 ) {
   return (

@@ -37,7 +37,7 @@ type TabsProps = {
   onChange (value: TabKey): void,
 }
 
-export default function Tabs ({ value, onChange }: TabsProps) {
+export function Tabs ({ value, onChange }: TabsProps) {
   const { t } = useTranslation()
 
   const handleClick = (key: TabKey) =>

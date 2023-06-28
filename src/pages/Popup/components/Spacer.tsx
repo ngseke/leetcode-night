@@ -4,7 +4,7 @@ interface SpacerProps {
   small?: boolean,
 }
 
-export default function Spacer ({ small }: SpacerProps) {
+export function Spacer ({ small }: SpacerProps) {
   return (
     <div
       className={clsx('ts-space', {

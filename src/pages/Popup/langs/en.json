@@ -5,6 +5,7 @@
   },
   "title": {
     "questions": "Questions",
+    "dailyChallenge": "Daily Challenge",
     "style": "Style",
     "extraFeature": "Extra Feature",
     "language": "Language"
@@ -19,12 +20,11 @@
     "autoResetCodeDescription": "Always reset to default code definition."
   },
   "status": {
-    "enabled": "Enabled",
-    "disabled": "Disabled"
+    "noResult": "No Results Found"
   },
   "input": {
-    "questionNumber": {
-      "placeholder": "Enter Question Number..."
+    "questionKeyword": {
+      "placeholder": "Search by Question Number or Keyword"
     }
   }
 }

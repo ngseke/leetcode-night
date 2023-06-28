@@ -11,7 +11,7 @@ const languages = [
   },
 ]
 
-export default function LanguageSelect () {
+export function LanguageSelect () {
   const { i18n } = useTranslation()
   const { resolvedLanguage, changeLanguage } = i18n
 

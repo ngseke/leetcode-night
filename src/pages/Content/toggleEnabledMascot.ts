@@ -1,5 +1,5 @@
 import styles from './styles/loading-mascot/style.sass'
-import StyleInjector from './StyleInjector'
+import { StyleInjector } from './StyleInjector'
 
 const styleInjector = new StyleInjector(styles)
 
