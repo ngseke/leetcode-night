@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import useEnableDarkTheme from '../hooks/useEnableDarkTheme'
-import Logo from './Logo'
+import { useEnableDarkTheme } from '../hooks/useEnableDarkTheme'
+import { Logo } from './Logo'
 import { colors } from '../modules/themes'
 
 const Wrapper = styled.div({
@@ -22,7 +22,7 @@ const Moon = styled.span.attrs({
   fontFamily: '"Noto Sans TC"',
 }))
 
-export default function Header () {
+export function Header () {
   const { isDarkThemeEnabled } = useEnableDarkTheme()
 
   return (

@@ -19,7 +19,7 @@ const Icon = styled.span({
   marginBottom: '.5rem',
 })
 
-export default function QuestionDateIcon ({ children, isFinished }: QuestionStatusIconProps) {
+export function QuestionDateIcon ({ children, isFinished }: QuestionStatusIconProps) {
   return (
     <Wrapper
       className="ts-text is-bold"

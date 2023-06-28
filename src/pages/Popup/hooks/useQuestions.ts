@@ -4,7 +4,7 @@ import { fetchQuestions } from '../modules/apis'
 import { Question, QuestionMap } from '../types/Question'
 import fuzzysort from 'fuzzysort'
 
-export default function useQuestions (keyword: string) {
+export function useQuestions (keyword: string) {
   const [questions, setQuestions] =
     useStorageState<Question[] | null>('questions', null)
 

@@ -1,17 +1,17 @@
 import { SyntheticEvent, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
-import useDailyChallengeQuestion from '../hooks/useDailyChallengeQuestion'
+import { useDailyChallengeQuestion } from '../hooks/useDailyChallengeQuestion'
 
-import useQuestions from '../hooks/useQuestions'
-import DailyChallengeQuestionCard from './DailyChallengeQuestionCard'
-import Link from './Link'
-import QuestionCard from './QuestionCard'
-import QuestionKeywordInput from './QuestionKeywordInput'
-import HighlightText from './HighlightText'
+import { useQuestions } from '../hooks/useQuestions'
+import { DailyChallengeQuestionCard } from './DailyChallengeQuestionCard'
+import { Link } from './Link'
+import { QuestionCard } from './QuestionCard'
+import { QuestionKeywordInput } from './QuestionKeywordInput'
+import { HighlightText } from './HighlightText'
 import fuzzysort from 'fuzzysort'
-import Spacer from './Spacer'
-import useSelectedIndex from '../hooks/useKeyboardSelection'
-import NoResult from './NoResult'
+import { Spacer } from './Spacer'
+import { useSelectedIndex } from '../hooks/useKeyboardSelection'
+import { NoResult } from './NoResult'
 
 const HiddenLink = styled(Link)({ display: 'none' })
 
@@ -33,7 +33,7 @@ const ScrollableContent = styled.div({
   overflow: 'auto',
 })
 
-export default function SearchQuestion () {
+export function SearchQuestion () {
   const [keyword, setKeyword] = useState('')
   const {
     isLoadingQuestions,

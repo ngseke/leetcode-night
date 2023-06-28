@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { request, gql } from 'graphql-request'
-import DailyChallengeQuestion from '../types/DailyChallengeQuestion'
+import { DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
 import { Question, RawQuestion } from '../types/Question'
 
 export function getQuestionUrl (titleSlug: string) {

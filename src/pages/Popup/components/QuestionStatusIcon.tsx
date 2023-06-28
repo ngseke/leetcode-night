@@ -7,7 +7,7 @@ interface QuestionStatusIconProps {
   status: Question['status'],
 }
 
-export default function QuestionStatusIcon ({ status }: QuestionStatusIconProps) {
+export function QuestionStatusIcon ({ status }: QuestionStatusIconProps) {
   const { name, icon, color } = useMemo(() => {
     if (!status) return { name: 'Todo', icon: 'minus', color: colors.gray }
 

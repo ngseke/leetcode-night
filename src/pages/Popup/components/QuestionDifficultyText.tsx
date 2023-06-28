@@ -6,7 +6,7 @@ interface QuestionDifficultyTextProps {
   level: Difficulty['level'],
 }
 
-export default function QuestionDifficultyText ({ level }: QuestionDifficultyTextProps) {
+export function QuestionDifficultyText ({ level }: QuestionDifficultyTextProps) {
   const { color, name } = useMemo(() => {
     return {
       1: { name: 'Easy', color: colors.green },

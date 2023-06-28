@@ -1,7 +1,7 @@
 import { Question, Difficulty } from '../types/Question'
-import Chip from './Chip'
-import QuestionDifficultyText from './QuestionDifficultyText'
-import QuestionStatusIcon from './QuestionStatusIcon'
+import { Chip } from './Chip'
+import { QuestionDifficultyText } from './QuestionDifficultyText'
+import { QuestionStatusIcon } from './QuestionStatusIcon'
 
 interface QuestionMetaChipsProps {
   status: Question['status'],
@@ -9,7 +9,7 @@ interface QuestionMetaChipsProps {
   acceptance: string,
 }
 
-export default function QuestionMetaChips (
+export function QuestionMetaChips (
   { status, level, acceptance }: QuestionMetaChipsProps
 ) {
   return (

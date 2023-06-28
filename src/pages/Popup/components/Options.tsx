@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { OptionKey, OPTIONS, OptionsForm } from '../../../options'
 import { loadOptions, saveOptions } from '../../../storage'
-import useEnableDarkTheme from '../hooks/useEnableDarkTheme'
-import Switch from './Switch'
+import { useEnableDarkTheme } from '../hooks/useEnableDarkTheme'
+import { Switch } from './Switch'
 
 const options = [
   OPTIONS.INVERT_IMAGE_COLOR,
@@ -11,7 +11,7 @@ const options = [
   OPTIONS.HIDE_LOGO,
 ]
 
-export default function Options () {
+export function Options () {
   const { t } = useTranslation()
 
   const [form, setForm] = useState<OptionsForm>()

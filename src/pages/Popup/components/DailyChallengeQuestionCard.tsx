@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
-import DailyChallengeQuestion from '../types/DailyChallengeQuestion'
-import Nullish from '../types/Nullish'
-import BlockLink from './BlockLink'
-import QuestionDateIcon from './QuestionDateIcon'
-import QuestionMetaChips from './QuestionMetaChips'
-import Spacer from './Spacer'
+import { DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
+import { Nullish } from '../types/Nullish'
+import { BlockLink } from './BlockLink'
+import { QuestionDateIcon } from './QuestionDateIcon'
+import { QuestionMetaChips } from './QuestionMetaChips'
+import { Spacer } from './Spacer'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
@@ -30,7 +30,7 @@ interface DailyChallengeQuestionCardProps {
   link: Nullish<string>,
 }
 
-export default function DailyChallengeQuestionCard (
+export function DailyChallengeQuestionCard (
   { question, link }: DailyChallengeQuestionCardProps
 ) {
   const { t } = useTranslation()

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
-import Nullish from '../types/Nullish'
+import { Nullish } from '../types/Nullish'
 
-export default function useSelectedIndex (length?: Nullish<number>) {
+export function useSelectedIndex (length?: Nullish<number>) {
   const [selectedIndex, setSelectedIndex] = useState(-1)
 
   const resetSelectedIndex = useCallback(() => {

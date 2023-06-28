@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Link from './Link'
+import { Link } from './Link'
 import { colors } from '../modules/themes'
 
 const Wrapper = styled.h1({
@@ -13,7 +13,7 @@ const ColoredText = styled.span({
   fontWeight: 900,
 })
 
-export default function Logo () {
+export function Logo () {
   return (
     <Wrapper>
       <Link

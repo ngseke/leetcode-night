@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { loadIsEnabled, saveIsEnabled } from '../../../storage'
 
-export default function useEnableDarkTheme () {
+export function useEnableDarkTheme () {
   const [isReady, setIsReady] = useState(false)
   const [isDarkThemeEnabled, setIsDarkThemeEnabled] = useState(false)
 

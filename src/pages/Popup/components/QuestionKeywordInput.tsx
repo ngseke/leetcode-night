@@ -10,7 +10,7 @@ interface QuestionNumberInputProps {
   error?: unknown,
 }
 
-export default function QuestionKeywordInput (
+export function QuestionKeywordInput (
   { value, onChange, onKeyArrowUp, onKeyArrowDown, loading, error }: QuestionNumberInputProps
 ) {
   const { t } = useTranslation()

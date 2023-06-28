@@ -5,7 +5,7 @@ const Wrapper = styled.div({ height: '100%' })
 
 type LayoutProps = Record<'header' | 'body' | 'footer', ReactNode>
 
-export default function Layout ({ header, body, footer }: LayoutProps) {
+export function Layout ({ header, body, footer }: LayoutProps) {
   return (
     <Wrapper className="ts-app-layout is-vertical">
       <div className="cell">

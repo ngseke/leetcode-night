@@ -1,21 +1,21 @@
-import Options from './components/Options'
-import Footer from './components/Footer'
-import Switch from './components/Switch'
-import SearchQuestion from './components/SearchQuestion'
-import Tabs, { useTabs } from './components/Tabs'
-import Layout from './components/Layout'
-import If from './components/If'
-import Header from './components/Header'
-import useEnableAutoResetCode from './hooks/useEnableAutoResetCode'
+import { Options } from './components/Options'
+import { Footer } from './components/Footer'
+import { Switch } from './components/Switch'
+import { SearchQuestion } from './components/SearchQuestion'
+import { useTabs, Tabs } from './components/Tabs'
+import { Layout } from './components/Layout'
+import { If } from './components/If'
+import { Header } from './components/Header'
+import { useEnableAutoResetCode } from './hooks/useEnableAutoResetCode'
 
 import { useTranslation } from 'react-i18next'
-import LanguageSelect from './components/LanguageSelect'
-import LanguageBasedFontFamily from './components/LanguageBasedFontFamily'
-import OptionTitle from './components/OptionTitle'
+import { LanguageSelect } from './components/LanguageSelect'
+import { LanguageBasedFontFamily } from './components/LanguageBasedFontFamily'
+import { OptionTitle } from './components/OptionTitle'
 
 const Divider = () => <div className="ts-divider is-section" />
 
-export default function App () {
+export function App () {
   const { tab, setTab, isTabOptions, isTabQuestions } = useTabs()
   const { isAutoResetCodeEnabled, setIsAutoResetCodeEnabled } = useEnableAutoResetCode()
 

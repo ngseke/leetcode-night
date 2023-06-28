@@ -6,10 +6,8 @@ const AttributedLink = styled.a.attrs({
   rel: 'noopener noreferrer',
 })({})
 
-const Link = forwardRef<HTMLAnchorElement, ComponentProps<typeof AttributedLink>>(
+export const Link = forwardRef<HTMLAnchorElement, ComponentProps<typeof AttributedLink>>(
   (props, ref?) => <AttributedLink {...props} ref={ref} />
 )
 
 Link.displayName = 'Link'
-
-export default Link

@@ -1,9 +1,9 @@
 import { ReactNode, useEffect, useMemo, useRef } from 'react'
 import { Question } from '../types/Question'
-import QuestionMetaChips from './QuestionMetaChips'
-import Link from './Link'
+import { QuestionMetaChips } from './QuestionMetaChips'
+import { Link } from './Link'
 import clsx from 'clsx'
-import HighlightText from './HighlightText'
+import { HighlightText } from './HighlightText'
 import styled from 'styled-components'
 
 const Wrapper = styled.div({
@@ -37,7 +37,7 @@ const QuestionIdText = ({ children, active }: {
   return <span className="ts-text is-secondary"> {children} </span>
 }
 
-export default function QuestionCard ({
+export function QuestionCard ({
   question,
   customTitle,
   isMatchedByQuestionId,

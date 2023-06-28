@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-export default function NoResult () {
+export function NoResult () {
   const { t } = useTranslation()
 
   return (
