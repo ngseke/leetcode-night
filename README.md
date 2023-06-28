@@ -22,12 +22,13 @@
 </p>
 
 # LeetCode Night
+
 ## Features
 
 - Dark theme for question page
-- Daily LeetCoding challenge shortcut
-- Quick navigation by question number
-- Reset to default code definition automatically
+- Shortcut to Daily LeetCoding challenge
+- Quick navigation by question number or keyword
+- Automatically reset to default code definition
 - Invert image color
 - Hide logo
 
@@ -55,9 +56,9 @@ Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-n
 
 ## Screenshot
 
-<img src="src/assets/img/screenshot0.png" />
-<img src="src/assets/img/screenshot1.png" />
-<img src="src/assets/img/screenshot2.png" />
+<img src="src/assets/img/screenshot-1.png" alt="Dark Theme on LeetCode" />
+<img src="src/assets/img/screenshot-2.png" alt="Daily Challenge Shortcut" />
+<img src="src/assets/img/screenshot-3.png" alt="Question Navigation with Instant Search And More Extra Features" />
 
 ---
 
