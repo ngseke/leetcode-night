@@ -1,7 +1,7 @@
 import Options from './components/Options'
 import Footer from './components/Footer'
 import Switch from './components/Switch'
-import GoToQuestion from './components/GoToQuestion'
+import SearchQuestion from './components/SearchQuestion'
 import Tabs, { useTabs } from './components/Tabs'
 import Layout from './components/Layout'
 import If from './components/If'
@@ -30,7 +30,7 @@ export default function App () {
         </>}
         body={<>
           <If is={isTabQuestions}>
-            <GoToQuestion />
+            <SearchQuestion />
           </If>
 
           <If is={isTabOptions}>

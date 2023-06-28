@@ -33,7 +33,7 @@ const ScrollableContent = styled.div({
   overflow: 'auto',
 })
 
-export default function GoToQuestion () {
+export default function SearchQuestion () {
   const [keyword, setKeyword] = useState('')
   const {
     isLoadingQuestions,
