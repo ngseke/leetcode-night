@@ -68,8 +68,14 @@ export function QuestionCard ({
     >
       <Wrapper>
         <IconWrapper>
-          <span className="ts-icon is-secondary is-big is-magnifying-glass-icon" />
+          <span
+            className={clsx(
+              'ts-icon is-secondary is-big',
+              isMatchedByQuestionId ? 'is-hashtag-icon' : 'is-magnifying-glass-icon'
+            )}
+          />
         </IconWrapper>
+
         <ContentWrapper>
           <div
             className="ts-text is-small is-bold"
