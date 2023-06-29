@@ -5,6 +5,7 @@ import { Link } from './Link'
 import clsx from 'clsx'
 import { HighlightText } from './HighlightText'
 import styled from 'styled-components'
+import { PremiumBadge } from './PremiumBadge'
 
 const Wrapper = styled.div({
   display: 'flex',
@@ -57,6 +58,8 @@ export function QuestionCard ({
     ref.current?.scrollIntoView({ block: 'nearest' })
   }, [active])
 
+  const isPremium = question.paid_only
+
   return (
     <Link
       ref={ref}
@@ -85,6 +88,7 @@ export function QuestionCard ({
               {question.stat.frontend_question_id}.{' '}
             </QuestionIdText>
             {customTitle ?? question.title}
+            {isPremium && <PremiumBadge />}
           </div>
 
           <div>
