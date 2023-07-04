@@ -63,7 +63,7 @@ export function DailyChallengeQuestionCard (
               {question.date}
             </QuestionDateIcon>
           </IconWrapper>
-          <ContentWrapper className="ts-content is-dense is-horizontally-fitted">
+          <ContentWrapper className="ts-content is-dense">
             <div className="ts-text is-small is-secondary">
               {t('title.dailyChallenge')}
             </div>
