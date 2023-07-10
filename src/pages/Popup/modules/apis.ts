@@ -9,7 +9,7 @@ export function getQuestionUrl (titleSlug: string) {
 
 export async function fetchQuestions () {
   const { data } = await axios.get<{ stat_status_pairs: RawQuestion[]}>(
-    'https://leetcode.com/api/problems/algorithms/'
+    'https://leetcode.com/api/problems/all/'
   )
 
   const extendedQuestions =
