@@ -1,22 +1,12 @@
 @use 'logo' as *
 @use 'colors'
 
-[class*="navbar__"]
+#leetcode-navbar
   background-color: colors.$dsw-layer-1
   border-bottom-color: colors.$grey-2
-  [class*="nav-item__"]
-    &, & > a
-      color: colors.$grey-8 !important
-
-  // Override logo style
-  [class*="navbar-left-container__"]
-    [class*="nav-item-container__"]:first-child
-      > a
-        > img
-          display: none
-        &::after
-          content: ''
-          width: 18px
-          height: 22px
-          background: $logo no-repeat
-          background-size: cover
+  a
+    color: colors.$grey-8 !important
+    svg
+      fill: colors.$grey-8 !important
+  span
+    color: colors.$grey-8 !important
