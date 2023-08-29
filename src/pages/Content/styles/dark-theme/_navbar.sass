@@ -4,9 +4,11 @@
 #leetcode-navbar
   background-color: colors.$dsw-layer-1
   border-bottom-color: colors.$grey-2
-  a
-    color: colors.$grey-8 !important
+  ul:not(#mobile-nav-links, #mobile-nav-links ~ *)
+    li:not([role="none"], [role="menuitem"])
+      > a, #headlessui-menu-button-1
+        color: colors.$grey-8 !important
+
+  .ant-dropdown-link
     svg
       fill: colors.$grey-8 !important
-  span
-    color: colors.$grey-8 !important
