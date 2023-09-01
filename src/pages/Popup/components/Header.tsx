@@ -4,8 +4,16 @@ import { Logo } from './Logo'
 import { colors } from '../modules/themes'
 
 const Wrapper = styled.div({
-  position: 'relative',
   overflow: 'hidden',
+})
+
+const Content = styled.div.attrs({
+  className: 'ts-content is-tertiary',
+})({
+  position: 'relative',
+  height: '80px',
+  display: 'flex',
+  alignItems: 'center',
 })
 
 const Moon = styled.span.attrs({
@@ -19,7 +27,6 @@ const Moon = styled.span.attrs({
   transition: 'transform .4s .1s, text-shadow .6s .1s',
   transform: `translateY(${show ? '-50%' : '120%'})`,
   textShadow: `${colors.leetcodeNight} 0 0 ${show ? '10px' : 0}`,
-  fontFamily: '"Noto Sans TC"',
 }))
 
 export function Header () {
@@ -27,10 +34,10 @@ export function Header () {
 
   return (
     <Wrapper>
-      <div className="ts-content is-tertiary">
+      <Content>
         <Logo />
         <Moon show={isDarkThemeEnabled} />
-      </div>
+      </Content>
     </Wrapper>
   )
 }

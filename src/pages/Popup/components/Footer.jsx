@@ -19,9 +19,7 @@ const links = [
 
 const Wrapper = styled.footer.attrs({
   className: 'ts-content',
-})({
-  fontFamily: '"Noto Sans TC"',
-})
+})({})
 
 export function Footer () {
   return (
