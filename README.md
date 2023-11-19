@@ -3,7 +3,7 @@
 </p>
 
 <p align=center>
-  A browser extension that enables dark mode on LeetCode.
+  A browser extension that enables dark mode & extra features on LeetCode.
 </p>
 
 <p align=center>
@@ -29,6 +29,7 @@
 - Shortcut to Daily LeetCoding challenge
 - Quick navigation by question number or keyword
 - Automatically reset to default code definition
+- YouTube Link Shortcut
 - Invert image color
 - Hide logo
 

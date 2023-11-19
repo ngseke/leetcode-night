@@ -3,46 +3,45 @@ import {
   AUTO_RESET_CODE_ENABLED_STORAGE_KEY,
   ENABLED_STORAGE_KEY,
   OPTIONS_STORAGE_KEY,
+  INSERT_YOUTUBE_LINK_STORAGE_KEY,
 } from './constants'
 
-export const loadIsEnabled = (): Promise<boolean> => {
-  const key = ENABLED_STORAGE_KEY
-  return new Promise((resolve) => {
-    chrome.storage.sync.get([key], (items) => {
-      const isEnabled = Boolean(items[key] ?? true)
-      resolve(isEnabled)
-    })
-  })
+async function getStorage <T> (key: string, defaultValue: T): Promise<T> {
+  return (await chrome.storage.sync.get(key))[key] ?? defaultValue
+}
+
+async function setStorage <T> (key: string, value: T) {
+  return chrome.storage.sync.set({ [key]: value })
+}
+
+export const loadIsEnabled = () => {
+  return getStorage(ENABLED_STORAGE_KEY, true)
 }
 
 export const saveIsEnabled = (isEnabled: boolean) => {
-  chrome.storage.sync.set({ [ENABLED_STORAGE_KEY]: isEnabled })
+  return setStorage(ENABLED_STORAGE_KEY, isEnabled)
 }
 
-export const loadOptions = (): Promise<OptionsForm> => {
-  const key = OPTIONS_STORAGE_KEY
-  return new Promise((resolve) => {
-    chrome.storage.sync.get([key], (items) => {
-      const options = items[key] ?? DEFAULT_OPTIONS
-      resolve(options)
-    })
-  })
+export const loadOptions = () => {
+  return getStorage(OPTIONS_STORAGE_KEY, DEFAULT_OPTIONS)
 }
 
 export const saveOptions = (options: OptionsForm) => {
-  chrome.storage.sync.set({ [OPTIONS_STORAGE_KEY]: options })
+  return setStorage(OPTIONS_STORAGE_KEY, options)
 }
 
-export const loadIsAutoResetCodeEnabled = (): Promise<boolean> => {
-  const key = AUTO_RESET_CODE_ENABLED_STORAGE_KEY
-  return new Promise((resolve) => {
-    chrome.storage.sync.get([key], (items) => {
-      const isEnabled = Boolean(items[key] ?? false)
-      resolve(isEnabled)
-    })
-  })
+export const loadIsAutoResetCodeEnabled = () => {
+  return getStorage(AUTO_RESET_CODE_ENABLED_STORAGE_KEY, false)
 }
 
 export const saveIsAutoResetCodeEnabled = (isEnabled: boolean) => {
-  chrome.storage.sync.set({ [AUTO_RESET_CODE_ENABLED_STORAGE_KEY]: isEnabled })
+  return setStorage(AUTO_RESET_CODE_ENABLED_STORAGE_KEY, isEnabled)
+}
+
+export const loadIsInsertYoutubeLinkEnabled = () => {
+  return getStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, true)
+}
+
+export const saveIsInsertYoutubeLinkEnabled = (isEnabled: boolean) => {
+  return setStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, isEnabled)
 }
