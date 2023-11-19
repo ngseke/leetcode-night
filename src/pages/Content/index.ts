@@ -1,4 +1,4 @@
-import { loadIsEnabled, loadOptions, loadIsAutoResetCodeEnabled, saveIsEnabled, loadIsInsertYoutubeLinkEnabled } from '../../storage'
+import { loadIsEnabled, loadOptions, loadIsAutoResetCodeEnabled, saveIsEnabled, loadIsInsertYoutubeLinkEnabled, saveLeetcodeVersion } from '../../storage'
 
 import { toggleEnabled } from './toggleEnabled'
 import { toggleInvertImageColor } from './toggleInvertImageColor'
@@ -79,6 +79,7 @@ async function init () {
     resetCodeByVersion()
   }
   startOrStopInsertYoutubeLinkObserver()
+  saveLeetcodeVersion(await detectLeetcodeVersion())
 }
 
 init()
