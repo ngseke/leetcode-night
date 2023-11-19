@@ -17,7 +17,8 @@
     "mascot": "Show mascot",
     "hideLogo": "Hide LeetCode logo",
     "autoResetCode": "Auto reset code",
-    "autoResetCodeDescription": "Always reset to default code definition."
+    "autoResetCodeDescription": "Always reset to default code definition.",
+    "insertYoutubeLink": "Show YouTube Link Shortcut"
   },
   "status": {
     "noResult": "No Results Found"

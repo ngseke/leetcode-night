@@ -3,6 +3,7 @@ import {
   AUTO_RESET_CODE_ENABLED_STORAGE_KEY,
   ENABLED_STORAGE_KEY,
   OPTIONS_STORAGE_KEY,
+  INSERT_YOUTUBE_LINK_STORAGE_KEY,
 } from './constants'
 
 async function getStorage <T> (key: string, defaultValue: T): Promise<T> {
@@ -35,4 +36,12 @@ export const loadIsAutoResetCodeEnabled = () => {
 
 export const saveIsAutoResetCodeEnabled = (isEnabled: boolean) => {
   return setStorage(AUTO_RESET_CODE_ENABLED_STORAGE_KEY, isEnabled)
+}
+
+export const loadIsInsertYoutubeLinkEnabled = () => {
+  return getStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, true)
+}
+
+export const saveIsInsertYoutubeLinkEnabled = (isEnabled: boolean) => {
+  return setStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, isEnabled)
 }
