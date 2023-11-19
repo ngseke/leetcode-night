@@ -16,18 +16,18 @@ import { startInsertYoutubeLinkObserver, stopInsertYoutubeLinkObserver } from '.
 
 async function toggleInvertImageColorByVersion (value: boolean) {
   const version = await detectLeetcodeVersion()
-  if (version === 2023) {
+  if (version === '2023') {
     toggleInvertImageColor2023(value)
-  } else if (version === 2022) {
+  } else if (version === '2022') {
     toggleInvertImageColor(value)
   }
 }
 
 async function toggleHideLogoByVersion (value: boolean) {
   const version = await detectLeetcodeVersion()
-  if (version === 2023) {
+  if (version === '2023') {
     toggleHideLogo2023(value)
-  } else if (version === 2022) {
+  } else if (version === '2022') {
     toggleHideLogo(value)
   }
 }
@@ -40,18 +40,18 @@ const handleOptionsChange = (options: OptionsForm) => {
 
 async function toggleEnabledByVersion (value: boolean) {
   const version = await detectLeetcodeVersion()
-  if (version === 2023) {
+  if (version === '2023') {
     setIsDarkSide2023(value)
-  } else if (version === 2022) {
+  } else if (version === '2022') {
     toggleEnabled(value)
   }
 }
 
 async function resetCodeByVersion () {
   const version = await detectLeetcodeVersion()
-  if (version === 2023) {
+  if (version === '2023') {
     resetCode2023()
-  } else if (version === 2022) {
+  } else if (version === '2022') {
     resetCode()
   }
 }

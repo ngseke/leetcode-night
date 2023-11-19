@@ -1,6 +1,6 @@
 import { waitForElement } from './selector'
 
-export type LeetcodeVersion = 2022 | 2023
+export type LeetcodeVersion = '2022' | '2023'
 
 export async function detectLeetcodeVersion (): Promise<LeetcodeVersion> {
   await waitForElement('body')
@@ -8,6 +8,6 @@ export async function detectLeetcodeVersion (): Promise<LeetcodeVersion> {
     document.querySelector('head meta[name="next-head-count"]')
   )
 
-  if (isNextApp) return 2023
-  return 2022
+  if (isNextApp) return '2023'
+  return '2022'
 }
