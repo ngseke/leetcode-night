@@ -44,3 +44,15 @@ export function waitForElementsByXpath (xpath: string): Promise<Node[]> {
     })
   })
 }
+
+export function waitDOMContentLoaded () {
+  return new Promise<void>((resolve) => {
+    const eventName = 'DOMContentLoaded'
+    const handlerLoaded = () => {
+      document.removeEventListener(eventName, handlerLoaded)
+      resolve()
+    }
+    document.addEventListener(eventName, handlerLoaded)
+    if (document.readyState !== 'loading') handlerLoaded()
+  })
+}
