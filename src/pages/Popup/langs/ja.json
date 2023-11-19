@@ -1,0 +1,33 @@
+{
+  "tab": {
+    "questions": "質問",
+    "options": "オプション"
+  },
+  "title": {
+    "questions": "質問",
+    "dailyChallenge": "デイリーチャレンジ",
+    "style": "スタイル",
+    "extraFeature": "追加機能",
+    "language": "言語"
+  },
+  "option": {
+    "enableDarkTheme": "ダークテーマを有効にする",
+    "enableDarkTheme2023Description": "新バージョンの LeetCode を使用しています。これは公式にダークモードをサポートしています。この拡張機能は追加の操作をせずに内蔵のダークテーマに切り替えます。",
+    "oldVersionLeetcode": "LeetCode 旧バージョン",
+    "newVersionLeetcode": "LeetCode 新バージョン",
+    "invertImageColor": "画像の色を反転",
+    "mascot": "マスコットを表示",
+    "hideLogo": "LeetCode ロゴを隠す",
+    "autoResetCode": "コードの自動リセット",
+    "autoResetCodeDescription": "常にデフォルトのコード定義にリセット。",
+    "insertYoutubeLink": "YouTube リンクショートカットを表示"
+  },
+  "status": {
+    "noResult": "結果が見つかりません"
+  },
+  "input": {
+    "questionKeyword": {
+      "placeholder": "質問番号またはキーワードで検索"
+    }
+  }
+}

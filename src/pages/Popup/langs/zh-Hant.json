@@ -12,7 +12,7 @@
   },
   "option": {
     "enableDarkTheme": "啟用深色主題",
-    "enableDarkTheme2023Description": "你正在使用已官方支援深色模式的新版 LeetCode，這個擴充功能將會直接切換到其內建的深色主題，不會進行額外操作。",
+    "enableDarkTheme2023Description": "你正在使用官方支援深色模式的新版 LeetCode，這個擴充功能將會直接切換到其內建的深色主題，不會進行額外操作。",
     "oldVersionLeetcode": "舊版 LeetCode",
     "newVersionLeetcode": "新版 LeetCode",
     "invertImageColor": "反轉圖片顏色",

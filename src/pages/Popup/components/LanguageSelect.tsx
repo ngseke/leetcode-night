@@ -1,14 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
 const languages = [
-  {
-    name: 'English',
-    value: 'en',
-  },
-  {
-    name: '正體中文',
-    value: 'zh-Hant',
-  },
+  { name: 'English', value: 'en' },
+  { name: '正體中文', value: 'zh-Hant' },
+  { name: '简体中文', value: 'zh-Hans' },
+  { name: '日本語', value: 'ja' },
+  { name: '한국어', value: 'ko' },
 ]
 
 export function LanguageSelect () {
