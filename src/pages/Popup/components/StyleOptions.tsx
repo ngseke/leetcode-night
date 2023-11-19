@@ -4,15 +4,19 @@ import { OptionKey, OPTIONS, OptionsForm } from '../../../options'
 import { loadOptions, saveOptions } from '../../../storage'
 import { useEnableDarkTheme } from '../hooks/useEnableDarkTheme'
 import { Switch } from './Switch'
+import { useLeetCodeVersion } from '../hooks/useLeetCodeVersion'
+import { LeetcodeVersionDescription } from './LeetcodeVersionDescription'
+import { LeetcodeVersionBadge } from './LeetcodeVersionBadge'
 
 const options = [
-  OPTIONS.INVERT_IMAGE_COLOR,
   OPTIONS.MASCOT,
+  OPTIONS.INVERT_IMAGE_COLOR,
   OPTIONS.HIDE_LOGO,
 ]
 
 export function StyleOptions () {
   const { t } = useTranslation()
+  const { leetcodeVersion } = useLeetCodeVersion()
 
   const [form, setForm] = useState<OptionsForm>()
 
@@ -23,6 +27,11 @@ export function StyleOptions () {
         return { ...form, [key]: checked }
       })
     }
+
+  const isHidden = (key: OptionKey) => {
+    if (key === 'mascot') return leetcodeVersion !== '2022'
+    return false
+  }
 
   useEffect(() => {
     loadOptions().then(setForm)
@@ -36,28 +45,29 @@ export function StyleOptions () {
 
   return (
     <div className="ts-wrap is-vertical is-start-aligned">
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '.25rem' }}>
         <Switch
           checked={isDarkThemeEnabled}
           onChange={setIsDarkThemeEnabled}
           icon="moon"
         >
           {t('option.enableDarkTheme')}
+          <LeetcodeVersionBadge version={leetcodeVersion} />
         </Switch>
-        <div className="ts-text is-description">
-          {t('option.enableDarkTheme2023Description')}
-        </div>
+        <LeetcodeVersionDescription version={leetcodeVersion} />
       </div>
 
       {options?.map(({ key, icon }) => (
-        <Switch
-          key={key}
-          checked={form?.[key] ?? false}
-          onChange={handleChange(key)}
-          icon={icon}
-        >
-          {t(`option.${key}`)}
-        </Switch>
+        !isHidden(key) && (
+          <Switch
+            key={key}
+            checked={form?.[key] ?? false}
+            onChange={handleChange(key)}
+            icon={icon}
+          >
+            {t(`option.${key}`)}
+          </Switch>
+        )
       ))}
     </div>
   )

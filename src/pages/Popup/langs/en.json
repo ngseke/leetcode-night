@@ -12,11 +12,13 @@
   },
   "option": {
     "enableDarkTheme": "Enable Dark Theme",
-    "enableDarkTheme2023Description": "Now LeetCode supports dark mode officially in the new version.",
+    "enableDarkTheme2023Description": "You're using the new version of LeetCode, which now officially supports dark mode. This extension will simply switch to its built-in dark theme without performing additional actions.",
+    "oldVersionLeetcode": "LeetCode Old Version",
+    "newVersionLeetcode": "LeetCode New Version ",
     "invertImageColor": "Invert Image Color",
-    "mascot": "Show mascot",
-    "hideLogo": "Hide LeetCode logo",
-    "autoResetCode": "Auto reset code",
+    "mascot": "Show Mascot",
+    "hideLogo": "Hide LeetCode Logo",
+    "autoResetCode": "Auto Reset Code",
     "autoResetCodeDescription": "Always reset to default code definition.",
     "insertYoutubeLink": "Show YouTube Link Shortcut"
   },
