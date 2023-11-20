@@ -1,5 +1,6 @@
 import debounce from 'debounce'
 import { $x } from './xpath'
+import { createElement } from './element'
 
 type SelectContainer = () => Node
 type RenderLink = (href: string) => HTMLAnchorElement
@@ -55,13 +56,6 @@ class InsertYoutubeLink {
     this.containerAndLinkMap = new Map()
     this.insertedLinks.clear()
   }
-}
-
-function createElement (html: string) {
-  const container = document.createElement('div')
-  container.innerHTML = html.trim()
-  if (!container.firstChild) throw new Error()
-  return container.firstChild
 }
 
 function renderLink (attributes: {
