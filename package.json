@@ -16,9 +16,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/removeUnnecessaryAssets.js",
-    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx,js,jsx}",
-    "lint-fix": "eslint --fix src --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint --fix src --ext .ts,.tsx,.js,.jsx",
     "bump": "node ./scripts/bump.js",
     "prepare": "husky install",
     "preversion": "npm run lint"
