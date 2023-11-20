@@ -1,4 +1,4 @@
-import { forwardRef, ComponentProps } from 'react'
+import { forwardRef, type ComponentProps } from 'react'
 import styled from 'styled-components'
 
 const AttributedLink = styled.a.attrs({

@@ -88,7 +88,7 @@ function renderLink (attributes: {
 
   link.append(createYoutubeLinkChildren())
 
-  return link as HTMLAnchorElement
+  return link
 }
 
 const insertYoutubeLink2022 = new InsertYoutubeLink({

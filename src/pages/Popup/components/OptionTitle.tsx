@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import styled from 'styled-components'
 
 const Title = styled.h2.attrs({ className: 'ts-header is-large is-start-icon' })({

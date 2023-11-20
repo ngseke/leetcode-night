@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { loadLeetcodeVersion } from '../../../storage'
-import { Nullish } from '../types/Nullish'
-import { LeetcodeVersion } from '../../Content/leetcode-version'
+import { type Nullish } from '../types/Nullish'
+import { type LeetcodeVersion } from '../../Content/leetcode-version'
 
 export function useLeetCodeVersion () {
   const [leetcodeVersion, setLeetcodeVersion] = useState<Nullish<LeetcodeVersion>>(null)

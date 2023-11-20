@@ -13,13 +13,12 @@ const languages = [
 
 export function LanguageSelect () {
   const { i18n } = useTranslation()
-  const { resolvedLanguage, changeLanguage } = i18n
 
   return (
     <div className="ts-select is-fluid">
       <select
-        value={resolvedLanguage}
-        onChange={e => changeLanguage(e.target.value)}
+        value={i18n.resolvedLanguage}
+        onChange={e => i18n.changeLanguage(e.target.value)}
       >
         {
           languages.map(({ name, value }) => (

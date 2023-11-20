@@ -1,5 +1,6 @@
 import clsx from 'clsx'
-import React, { useEffect } from 'react'
+import type React from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import useStorageState from 'react-use-storage-state'
 
@@ -32,9 +33,9 @@ export function useTabs () {
   return { tab, setTab, isTabOptions, isTabQuestions }
 }
 
-type TabsProps = {
+interface TabsProps {
   value: TabKey,
-  onChange (value: TabKey): void,
+  onChange: (value: TabKey) => void,
 }
 
 export function Tabs ({ value, onChange }: TabsProps) {

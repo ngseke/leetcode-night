@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import styled from 'styled-components'
-import { Nullish } from '../types/Nullish'
+import { type Nullish } from '../types/Nullish'
 import { Link } from './Link'
 
 const Wrapper = styled.div({

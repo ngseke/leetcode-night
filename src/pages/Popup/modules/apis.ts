@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { request, gql } from 'graphql-request'
-import { DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
-import { Question, RawQuestion } from '../types/Question'
+import { type DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
+import { type Question, type RawQuestion } from '../types/Question'
 
 export function getQuestionUrl (titleSlug: string) {
   return `https://leetcode.com/problems/${titleSlug}`
 }
 
 export async function fetchQuestions () {
-  const { data } = await axios.get<{ stat_status_pairs: RawQuestion[]}>(
+  const { data } = await axios.get<{ stat_status_pairs: RawQuestion[] }>(
     'https://leetcode.com/api/problems/all/'
   )
 

@@ -1,4 +1,4 @@
-import { QuestionStatus } from './Question'
+import { type QuestionStatus } from './Question'
 
 type UserStatus = 'NotStart' | 'Finish'
 

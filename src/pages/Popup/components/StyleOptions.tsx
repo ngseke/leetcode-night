@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { OptionKey, OPTIONS, OptionsForm } from '../../../options'
+import { type OptionKey, OPTIONS, type OptionsForm } from '../../../options'
 import { loadOptions, saveOptions } from '../../../storage'
 import { useEnableDarkTheme } from '../hooks/useEnableDarkTheme'
 import { Switch } from './Switch'

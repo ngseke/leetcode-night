@@ -1,9 +1,9 @@
-import React from 'react'
+import type React from 'react'
 import clsx from 'clsx'
 
 type SwitchProps = Omit<JSX.IntrinsicElements['input'], 'onChange'> & {
   children: React.ReactNode,
-  onChange (checked: boolean): void,
+  onChange: (checked: boolean) => void,
   icon?: string,
 }
 

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { LeetcodeVersion } from '../../Content/leetcode-version'
-import { Nullish } from '../types/Nullish'
+import { type LeetcodeVersion } from '../../Content/leetcode-version'
+import { type Nullish } from '../types/Nullish'
 
 export function LeetcodeVersionBadge ({ version }: {
   version: Nullish<LeetcodeVersion>,

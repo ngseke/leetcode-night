@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { colors } from '../modules/themes'
-import { Difficulty } from '../types/Question'
+import { type Difficulty } from '../types/Question'
 
 interface QuestionDifficultyTextProps {
   level: Difficulty['level'],
