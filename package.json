@@ -1,6 +1,6 @@
 {
   "name": "leetcode-night",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A browser extension that enables dark mode & extra features on LeetCode",
   "license": "MIT",
   "repository": {
