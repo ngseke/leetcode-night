@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useStorageState } from 'react-use-storage-state'
 import { fetchDailyChallengeQuestion } from '../modules/apis'
-import { DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
+import { type DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
 
 export function useDailyChallengeQuestion () {
   const [dailyChallengeQuestion, setDailyChallengeQuestion] =

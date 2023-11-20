@@ -1,5 +1,5 @@
-import { ReactNode, useEffect, useMemo, useRef } from 'react'
-import { Question } from '../types/Question'
+import { type ReactNode, useEffect, useMemo, useRef } from 'react'
+import { type Question } from '../types/Question'
 import { QuestionMetaChips } from './QuestionMetaChips'
 import { Link } from './Link'
 import clsx from 'clsx'

@@ -1,4 +1,4 @@
-import { DEFAULT_OPTIONS, OptionsForm } from './options'
+import { DEFAULT_OPTIONS, type OptionsForm } from './options'
 import {
   AUTO_RESET_CODE_ENABLED_STORAGE_KEY,
   ENABLED_STORAGE_KEY,
@@ -6,15 +6,15 @@ import {
   INSERT_YOUTUBE_LINK_STORAGE_KEY,
   LEETCODE_VERSION_STORAGE_KEY,
 } from './constants'
-import { LeetcodeVersion } from './pages/Content/leetcode-version'
-import { Nullish } from './pages/Popup/types/Nullish'
+import { type LeetcodeVersion } from './pages/Content/leetcode-version'
+import { type Nullish } from './pages/Popup/types/Nullish'
 
 async function getSyncStorage <T> (key: string, defaultValue: T): Promise<T> {
   return (await chrome.storage.sync.get(key))[key] ?? defaultValue
 }
 
 async function setSyncStorage <T> (key: string, value: T) {
-  return chrome.storage.sync.set({ [key]: value })
+  return await chrome.storage.sync.set({ [key]: value })
 }
 
 async function getLocalStorage <T> (key: string, defaultValue: T): Promise<T> {
@@ -22,7 +22,7 @@ async function getLocalStorage <T> (key: string, defaultValue: T): Promise<T> {
 }
 
 async function setLocalStorage <T> (key: string, value: T) {
-  return chrome.storage.local.set({ [key]: value })
+  return await chrome.storage.local.set({ [key]: value })
 }
 
 export const loadIsEnabled = () => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 const Wrapper = styled.div({ height: '100%' })
 

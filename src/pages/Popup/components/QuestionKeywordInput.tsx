@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 
 interface QuestionNumberInputProps {
   value: string,
-  onChange (value: string): void,
-  onKeyArrowUp? (): void,
-  onKeyArrowDown? (): void,
+  onChange: (value: string) => void,
+  onKeyArrowUp?: () => void,
+  onKeyArrowDown?: () => void,
   loading: boolean,
   error?: unknown,
 }

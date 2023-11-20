@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
-import { Nullish } from '../types/Nullish'
+import { type DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
+import { type Nullish } from '../types/Nullish'
 import { BlockLink } from './BlockLink'
 import { QuestionDateIcon } from './QuestionDateIcon'
 import { QuestionMetaChips } from './QuestionMetaChips'

@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import useStorageState from 'react-use-storage-state'
 import { fetchQuestions } from '../modules/apis'
-import { Question, QuestionMap } from '../types/Question'
+import { type Question, type QuestionMap } from '../types/Question'
 import fuzzysort from 'fuzzysort'
 
 export function useQuestions (keyword: string) {

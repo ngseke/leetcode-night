@@ -1,4 +1,4 @@
-import { SyntheticEvent, useMemo, useRef, useState } from 'react'
+import { type SyntheticEvent, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useDailyChallengeQuestion } from '../hooks/useDailyChallengeQuestion'
 
@@ -53,7 +53,7 @@ export function SearchQuestion () {
 
   const totalLength =
     (matchedQuestionById ? 1 : 0) +
-    (matchedQuestionResultsByKeyword?.length || 0)
+    (matchedQuestionResultsByKeyword?.length ?? 0)
 
   const {
     selectedIndex,

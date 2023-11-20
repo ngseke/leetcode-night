@@ -1,4 +1,4 @@
-import styles from './styles/dark-theme/style.sass'
+import styles from './styles/dark-theme/style.module.sass?inline'
 import { StyleInjector } from './StyleInjector'
 
 const styleInjector = new StyleInjector(styles)

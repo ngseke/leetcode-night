@@ -7,7 +7,7 @@ import { toggleEnabledMascot } from './toggleEnabledMascot'
 import { toggleHideLogo } from './toggleHideLogo'
 import { toggleHideLogo2023 } from './toggleHideLogo2023'
 
-import { OptionsForm } from '../../options'
+import { type OptionsForm } from '../../options'
 import { resetCode } from './resetCode'
 import { resetCode2023 } from './resetCode2023'
 import { detectLeetcodeVersion } from './leetcode-version'

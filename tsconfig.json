@@ -18,13 +18,19 @@
     "resolveJsonModule": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "outDir": "build"
+    "outDir": "dist"
   },
   "include": [
-    "src"
+    "scripts/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".eslintrc.cjs",
+    "vite.config.ts",
+    "manifest.config.ts",
+    "commitlint.config.js"
   ],
   "exclude": [
-    "build",
+    "dist",
     "node_modules"
   ]
 }
