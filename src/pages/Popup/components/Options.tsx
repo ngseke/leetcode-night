@@ -3,6 +3,7 @@ import { ExtraFeatureOptions } from './ExtraFeatureOptions'
 import { LanguageSelect } from './LanguageSelect'
 import { OptionTitle } from './OptionTitle'
 import { StyleOptions } from './StyleOptions'
+import { KofiLink } from './KofiLink'
 
 const Divider = () => <div className="ts-divider is-section" />
 
@@ -21,6 +22,9 @@ export function Options () {
 
       <OptionTitle icon="language">{t('title.language')}</OptionTitle>
       <LanguageSelect />
+
+      <Divider />
+      <KofiLink />
     </div>
   )
 }
