@@ -1,0 +1,33 @@
+{
+  "tab": {
+    "questions": "문제",
+    "options": "옵션"
+  },
+  "title": {
+    "questions": "문제",
+    "dailyChallenge": "일일 챌린지",
+    "style": "스타일",
+    "extraFeature": "추가 기능",
+    "language": "언어"
+  },
+  "option": {
+    "enableDarkTheme": "다크 테마 사용",
+    "enableDarkTheme2023Description": "새로운 버전의 LeetCode를 사용 중입니다. 이제 공식적으로 다크 모드를 지원합니다. 이 확장 프로그램은 추가 작업 없이 내장된 다크 테마로 전환됩니다.",
+    "oldVersionLeetcode": "LeetCode 구버전",
+    "newVersionLeetcode": "LeetCode 신버전",
+    "invertImageColor": "이미지 색상 반전",
+    "mascot": "마스코트 표시",
+    "hideLogo": "LeetCode 로고 숨기기",
+    "autoResetCode": "자동 코드 리셋",
+    "autoResetCodeDescription": "항상 기본 코드 정의로 리셋합니다.",
+    "insertYoutubeLink": "YouTube 링크 바로가기 표시"
+  },
+  "status": {
+    "noResult": "결과를 찾을 수 없음"
+  },
+  "input": {
+    "questionKeyword": {
+      "placeholder": "문제 번호나 키워드로 검색"
+    }
+  }
+}

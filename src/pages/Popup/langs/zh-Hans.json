@@ -1,0 +1,33 @@
+{
+  "tab": {
+    "questions": "题目",
+    "options": "设置"
+  },
+  "title": {
+    "questions": "题目",
+    "dailyChallenge": "每日挑战",
+    "style": "样式",
+    "extraFeature": "额外功能",
+    "language": "语言"
+  },
+  "option": {
+    "enableDarkTheme": "启用深色主题",
+    "enableDarkTheme2023Description": "你正在使用官方支持深色模式的新版 LeetCode，这个扩展功能将会直接切换到其内建的深色主题，不会进行额外操作。",
+    "oldVersionLeetcode": "旧版 LeetCode",
+    "newVersionLeetcode": "新版 LeetCode",
+    "invertImageColor": "反转图片颜色",
+    "mascot": "显示吉祥物",
+    "hideLogo": "隐藏 LeetCode Logo",
+    "autoResetCode": "自动重置代码",
+    "autoResetCodeDescription": "总是将代码重置成初始定义",
+    "insertYoutubeLink": "显示 YouTube 链接快捷方式"
+  },
+  "status": {
+    "noResult": "找不到结果"
+  },
+  "input": {
+    "questionKeyword": {
+      "placeholder": "以题目编号或关键词搜索"
+    }
+  }
+}
