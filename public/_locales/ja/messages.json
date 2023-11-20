@@ -1,8 +1,8 @@
 {
   "appName": {
-    "message": "LeetCode Night"
+    "message": "LeetCode Night リートコードナイト"
   },
   "appDesc": {
-    "message": "LeetCode でダークモードと追加機能を有効にしましょう。"
+    "message": "LeetCode でダークモードと追加機能を有効にしましょう。追加機能には、デイリーチャレンジショートカット、即時問題ナビゲーション、YouTube リンクショートカット、コード自動リセットが含まれます。"
   }
 }
