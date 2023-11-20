@@ -12,13 +12,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Build
-        uses: actions/setup-node@master
-      - run: npm install --force
-      - run: npm run build
-      - run: zip -r build.zip build
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 8.6.10
 
-      - name: Get the tag name
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Run Lints
+        run: pnpm run lint
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Compress Dist Folder
+        run: zip -r build.zip dist
+
+      - name: Get Tag Name
         run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
       - name: Create Release

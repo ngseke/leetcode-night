@@ -15,7 +15,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run lint && vite build && node scripts/removeUnnecessaryAssets.js",
+    "build": "vite build && node scripts/removeUnnecessaryAssets.js",
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx,js,jsx}",
     "lint-fix": "eslint --fix src --ext .ts,.tsx,.js,.jsx",
