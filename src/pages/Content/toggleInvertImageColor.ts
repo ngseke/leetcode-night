@@ -1,4 +1,4 @@
-import styles from './styles/invert-image/style.sass'
+import styles from './styles/invert-image/style.module.sass?inline'
 import { StyleInjector } from './StyleInjector'
 
 const styleInjector = new StyleInjector(styles)
