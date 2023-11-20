@@ -29,7 +29,7 @@
 - Shortcut to Daily LeetCoding challenge
 - Quick navigation by question number or keyword
 - Automatically reset to default code definition
-- YouTube Link Shortcut
+- Show YouTube link shortcut
 - Invert image color
 - Hide logo
 
