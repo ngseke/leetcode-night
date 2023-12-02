@@ -1,5 +1,5 @@
 <p align=center>
-  <img src="src/assets/img/logo-text.png" width="400"/>
+  <img src="illustration/1x/logo-text.png" width="400"/>
 </p>
 
 <p align=center>
@@ -57,9 +57,10 @@ Download latest `build.zip` from [releases](https://github.com/ngseke/leetcode-n
 
 ## Screenshot
 
-<img src="src/assets/img/screenshot-1.png" alt="Dark Theme on LeetCode" />
-<img src="src/assets/img/screenshot-2.png" alt="Daily Challenge Shortcut" />
-<img src="src/assets/img/screenshot-3.png" alt="Question Navigation with Instant Search And More Extra Features" />
+<img src="illustration/1x/screenshot-1.png" alt="Dark Theme on LeetCode" />
+<img src="illustration/1x/screenshot-2.png" alt="Daily Challenge Shortcut" />
+<img src="illustration/1x/screenshot-3.png" alt="Question Navigation with Instant Search And More Extra Features" />
+<img src="illustration/1x/screenshot-4.png" alt="Question Navigation with Instant Search And More Extra Features" />
 
 ---
 
