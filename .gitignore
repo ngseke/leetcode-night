@@ -20,3 +20,5 @@ dist
 
 # secrets
 secrets.*.js
+
+.vscode/settings.json
