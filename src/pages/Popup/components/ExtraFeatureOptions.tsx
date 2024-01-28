@@ -24,7 +24,6 @@ export function ExtraFeatureOptions () {
         icon="youtube"
       >
         {t('option.insertYoutubeLink')}
-        <span className="ts-badge is-small is-start-spaced">BETA</span>
       </Switch>
     </div>
   )
