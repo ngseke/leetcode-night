@@ -55,6 +55,7 @@ module.exports = {
     }],
     '@typescript-eslint/no-confusing-void-expression': ['off'],
     '@typescript-eslint/no-extraneous-class': ['off'],
+    '@typescript-eslint/no-dynamic-delete': ['off'],
 
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
