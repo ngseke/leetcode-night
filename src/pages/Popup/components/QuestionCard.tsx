@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useMemo, useRef } from 'react'
+import { type ReactNode, useEffect, useMemo, useRef, type PropsWithChildren } from 'react'
 import { type Question } from '../types/Question'
 import { QuestionMetaChips } from './QuestionMetaChips'
 import { Link } from './Link'
@@ -30,10 +30,9 @@ interface QuestionCardProps {
   active?: boolean,
 }
 
-const QuestionIdText = ({ children, active }: {
-  children: ReactNode,
+const QuestionIdText = ({ children, active }: PropsWithChildren<{
   active?: boolean,
-}) => {
+}>) => {
   if (active) return <HighlightText>{children}</HighlightText>
   return <span className="ts-text is-secondary"> {children} </span>
 }

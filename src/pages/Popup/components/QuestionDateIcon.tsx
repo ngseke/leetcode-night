@@ -1,11 +1,10 @@
 import clsx from 'clsx'
-import { type ReactNode } from 'react'
+import { type PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
-interface QuestionStatusIconProps {
-  children: ReactNode,
+type QuestionStatusIconProps = PropsWithChildren<{
   isFinished: boolean,
-}
+}>
 
 const Wrapper = styled.div({
   display: 'flex',

@@ -18,11 +18,7 @@ export function OptionSwitch (
   }
 
   return (
-    <Switch
-      checked={value ?? false}
-      onChange={setValue}
-      icon={icon}
-    >
+    <Switch checked={value} onChange={setValue} icon={icon}>
       {children}
     </Switch>
   )

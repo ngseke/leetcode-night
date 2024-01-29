@@ -1,7 +1,6 @@
 import { type SyntheticEvent, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useDailyChallengeQuestion } from '../hooks/useDailyChallengeQuestion'
-
 import { useQuestions } from '../hooks/useQuestions'
 import { DailyChallengeQuestionCard } from './DailyChallengeQuestionCard'
 import { Link } from './Link'

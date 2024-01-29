@@ -1,23 +1,28 @@
-import type React from 'react'
 import clsx from 'clsx'
+import { type Nullish } from '../types/Nullish'
+import { type PropsWithChildren } from 'react'
 
-type SwitchProps = Omit<JSX.IntrinsicElements['input'], 'onChange'> & {
-  children: React.ReactNode,
+type SwitchProps = PropsWithChildren<{
+  checked: Nullish<boolean>,
   onChange: (checked: boolean) => void,
   icon?: string,
-}
+  disabled?: boolean,
+}>
 
 export function Switch (
-  { children, disabled, onChange, icon, ...restProps }: SwitchProps
+  { children, disabled, checked, onChange, icon }: SwitchProps
 ) {
   return (
     <label className={clsx('ts-switch', { 'is-disabled': disabled })}>
-      <input
-        type="checkbox"
-        disabled={disabled}
-        onChange={e => onChange(e.target.checked)}
-        {...restProps}
-      />
+      {
+        checked != null &&
+          <input
+            type="checkbox"
+            disabled={disabled}
+            checked={checked}
+            onChange={e => onChange(e.target.checked)}
+          />
+      }
       {
         icon &&
           <span className={`ts-icon is-secondary is-end-spaced is-${icon}-icon`} />

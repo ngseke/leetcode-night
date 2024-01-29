@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import { type Nullish } from '../types/Nullish'
 import { Link } from './Link'
@@ -18,10 +18,9 @@ const InvisibleLink = styled(Link)({
   zIndex: 2,
 })
 
-interface BlockLinkProps {
-  children: ReactNode,
+type BlockLinkProps = PropsWithChildren<{
   href: Nullish<string>,
-}
+}>
 
 export function BlockLink ({ children, href }: BlockLinkProps) {
   return (

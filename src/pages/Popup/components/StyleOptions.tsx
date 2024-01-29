@@ -47,7 +47,7 @@ export function StyleOptions () {
     <div className="ts-wrap is-vertical is-start-aligned">
       <div style={{ display: 'flex', flexDirection: 'column', gap: '.25rem' }}>
         <Switch
-          checked={isDarkThemeEnabled ?? false}
+          checked={isDarkThemeEnabled}
           onChange={setIsDarkThemeEnabled}
           icon="moon"
         >
@@ -61,7 +61,7 @@ export function StyleOptions () {
         !isHidden(key) && (
           <Switch
             key={key}
-            checked={form?.[key] ?? false}
+            checked={form?.[key]}
             onChange={handleChange(key)}
             icon={icon}
           >
