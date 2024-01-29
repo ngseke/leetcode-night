@@ -11,5 +11,13 @@ export function $x (xpath: string) {
     XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
   )
   return [...Array(snapshot.snapshotLength)]
-    .map((_, i) => snapshot.snapshotItem(i) as Node)
+    .map((_, i) => snapshot.snapshotItem(i) as HTMLElement)
+}
+
+export function $ (selector: string): HTMLElement | null {
+  return document.querySelector(selector)
+}
+
+export function $$ (selector: string) {
+  return [...document.querySelectorAll(selector)] as HTMLElement[]
 }
