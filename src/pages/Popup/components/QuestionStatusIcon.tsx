@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import { useMemo } from 'react'
 import { colors } from '../modules/themes'
 import { type Question } from '../types/Question'
 
@@ -8,14 +7,14 @@ interface QuestionStatusIconProps {
 }
 
 export function QuestionStatusIcon ({ status }: QuestionStatusIconProps) {
-  const { name, icon, color } = useMemo(() => {
+  const { name, icon, color } = (() => {
     if (!status) return { name: 'Todo', icon: 'minus', color: colors.gray }
 
     return {
       ac: { name: 'Solved', icon: 'check', color: colors.green },
       notac: { name: 'Attempted', icon: 'wave-square', color: colors.yellow },
     }[status]
-  }, [status])
+  })()
 
   return (
     <span>

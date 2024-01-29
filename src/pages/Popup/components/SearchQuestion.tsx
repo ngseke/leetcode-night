@@ -1,4 +1,4 @@
-import { type SyntheticEvent, useMemo, useRef, useState } from 'react'
+import { type SyntheticEvent, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useDailyChallengeQuestion } from '../hooks/useDailyChallengeQuestion'
 import { useQuestions } from '../hooks/useQuestions'
@@ -60,14 +60,14 @@ export function SearchQuestion () {
     decreaseSelectedIndex,
   } = useSelectedIndex(totalLength)
 
-  const selectedQuestion = useMemo(() => {
+  const selectedQuestion = (() => {
     if (matchedQuestionById && !selectedIndex) {
       return matchedQuestionById
     }
 
     const keywordResultIndex = selectedIndex + (matchedQuestionById ? -1 : 0)
     return matchedQuestionResultsByKeyword?.[keywordResultIndex]?.obj
-  }, [matchedQuestionById, matchedQuestionResultsByKeyword, selectedIndex])
+  })()
 
   const submitLink = shouldDirectToDailyChallenge
     ? dailyChallengeQuestionUrl

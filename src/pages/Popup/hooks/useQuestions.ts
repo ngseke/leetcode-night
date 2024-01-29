@@ -27,9 +27,7 @@ export function useQuestions (keyword: string) {
 
   const isLoadingQuestions = !questions
 
-  const matchedQuestionById = useMemo(() => {
-    return questionMap?.[Number(keyword)]
-  }, [keyword, questionMap])
+  const matchedQuestionById = questionMap?.[Number(keyword)]
 
   const matchedQuestionResultsByKeyword = useMemo(() => {
     if (!questions) return null

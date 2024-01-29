@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { type DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
 import { type Nullish } from '../types/Nullish'
 import { BlockLink } from './BlockLink'
@@ -35,22 +34,20 @@ export function DailyChallengeQuestionCard (
 ) {
   const { t } = useTranslation()
 
-  const title = useMemo(() => {
+  const title = (() => {
     if (!question) return null
     const { frontendQuestionId: id, title } = question.question
 
     return `${id}. ${title}`
-  }, [question])
+  })()
 
-  const acceptanceText = useMemo(() => {
-    return `${question.question.acRate.toFixed(1)}%`
-  }, [question])
+  const acceptanceText = `${question.question.acRate.toFixed(1)}%`
 
-  const level = useMemo(() => ({
+  const level = ({
     Easy: 1,
     Medium: 2,
     Hard: 3,
-  } as const)[question.question.difficulty], [question.question.difficulty])
+  } as const)[question.question.difficulty]
 
   const isFinished = question.userStatus === 'Finish'
 

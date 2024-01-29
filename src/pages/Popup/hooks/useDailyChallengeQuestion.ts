@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 import { useStorageState } from 'react-use-storage-state'
 import { fetchDailyChallengeQuestion } from '../modules/apis'
 import { type DailyChallengeQuestion } from '../types/DailyChallengeQuestion'
@@ -11,10 +11,9 @@ export function useDailyChallengeQuestion () {
     fetchDailyChallengeQuestion().then(setDailyChallengeQuestion)
   }, [setDailyChallengeQuestion])
 
-  const dailyChallengeQuestionUrl = useMemo(() => {
-    if (!dailyChallengeQuestion) return null
-    return `https://leetcode.com/problems/${dailyChallengeQuestion.question.titleSlug}`
-  }, [dailyChallengeQuestion])
+  const dailyChallengeQuestionUrl = dailyChallengeQuestion
+    ? `https://leetcode.com/problems/${dailyChallengeQuestion.question.titleSlug}`
+    : null
 
   return {
     dailyChallengeQuestion,

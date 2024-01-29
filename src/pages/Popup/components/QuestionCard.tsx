@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useMemo, useRef, type PropsWithChildren } from 'react'
+import { type ReactNode, useEffect, useRef, type PropsWithChildren } from 'react'
 import { type Question } from '../types/Question'
 import { QuestionMetaChips } from './QuestionMetaChips'
 import { Link } from './Link'
@@ -43,11 +43,10 @@ export function QuestionCard ({
   isMatchedByQuestionId,
   active,
 }: QuestionCardProps) {
-  const acceptanceText = useMemo(() => {
+  const acceptanceText = (() => {
     const { stat } = question
-
     return `${((stat.total_acs / stat.total_submitted) * 100).toFixed(1)}%`
-  }, [question])
+  })()
 
   const { url } = question
 
