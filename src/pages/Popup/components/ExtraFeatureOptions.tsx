@@ -32,7 +32,7 @@ export function ExtraFeatureOptions () {
         onChange={setIsInsertDislikeCountEnabled}
         icon="thumbs-down"
       >
-        Show Dislike Count
+        {t('option.insertDislikeCount')}
         <span className="ts-badge is-small is-start-spaced">BETA</span>
       </Switch>
     </div>
