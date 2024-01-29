@@ -1,5 +1,6 @@
 import debounce from 'debounce'
-import { $x } from './xpath'
+import { $x, createElement } from './dom'
+import { POWERED_BY_TEXT } from '../../constants'
 
 type SelectContainer = () => Node
 type RenderLink = (href: string) => HTMLAnchorElement
@@ -57,13 +58,6 @@ class InsertYoutubeLink {
   }
 }
 
-function createElement (html: string) {
-  const container = document.createElement('div')
-  container.innerHTML = html.trim()
-  if (!container.firstChild) throw new Error()
-  return container.firstChild
-}
-
 function renderLink (attributes: {
   className?: string,
   style?: string,
@@ -84,7 +78,11 @@ function renderLink (attributes: {
   }
 
   const link = document.createElement('a')
-  Object.assign(link, { target: '_blank', ...attributes })
+  Object.assign(link, {
+    target: '_blank',
+    title: POWERED_BY_TEXT,
+    ...attributes,
+  })
 
   link.append(createYoutubeLinkChildren())
 

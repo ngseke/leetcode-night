@@ -20,7 +20,8 @@
     "hideLogo": "LeetCode 로고 숨기기",
     "autoResetCode": "자동 코드 리셋",
     "autoResetCodeDescription": "항상 기본 코드 정의로 리셋합니다.",
-    "insertYoutubeLink": "YouTube 링크 바로가기 표시"
+    "insertYoutubeLink": "YouTube 링크 바로가기 표시",
+    "insertDislikeCount": "싫어요 카운트 표시"
   },
   "status": {
     "noResult": "결과를 찾을 수 없음"

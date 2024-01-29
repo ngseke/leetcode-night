@@ -1,4 +1,4 @@
-import { loadIsEnabled, loadOptions, loadIsAutoResetCodeEnabled, saveIsEnabled, loadIsInsertYoutubeLinkEnabled, saveLeetcodeVersion } from '../../storage'
+import { loadIsEnabled, loadOptions, loadIsAutoResetCodeEnabled, saveIsEnabled, loadIsInsertYoutubeLinkEnabled, saveLeetcodeVersion, loadIsInsertDislikeCountEnabled } from '../../storage'
 
 import { toggleEnabled } from './toggleEnabled'
 import { toggleInvertImageColor } from './toggleInvertImageColor'
@@ -13,6 +13,7 @@ import { resetCode2023 } from './resetCode2023'
 import { detectLeetcodeVersion } from './leetcode-version'
 import { onChangeIsDarkSide2023, setIsDarkSide2023 } from './darkSide2023'
 import { startInsertYoutubeLinkObserver, stopInsertYoutubeLinkObserver } from './InsertYoutubeLink'
+import { startInsertDislikeCountObserver, stopInsertDislikeCountObserver } from './InsertDislikeCount'
 
 async function toggleInvertImageColorByVersion (value: boolean) {
   const version = await detectLeetcodeVersion()
@@ -63,11 +64,19 @@ async function startOrStopInsertYoutubeLinkObserver () {
   else stopInsertYoutubeLinkObserver()
 }
 
+async function startOrStopInsertDislikeCountObserver () {
+  const isEnabled = await loadIsInsertDislikeCountEnabled()
+
+  if (isEnabled) startInsertDislikeCountObserver()
+  else stopInsertDislikeCountObserver()
+}
+
 async function init () {
   chrome.storage.onChanged.addListener(async () => {
     toggleEnabledByVersion(await loadIsEnabled())
     handleOptionsChange(await loadOptions())
     startOrStopInsertYoutubeLinkObserver()
+    startOrStopInsertDislikeCountObserver()
   })
 
   toggleEnabledByVersion(await loadIsEnabled())
@@ -79,6 +88,7 @@ async function init () {
     resetCodeByVersion()
   }
   startOrStopInsertYoutubeLinkObserver()
+  startOrStopInsertDislikeCountObserver()
   saveLeetcodeVersion(await detectLeetcodeVersion())
 }
 

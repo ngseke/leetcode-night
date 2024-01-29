@@ -1,4 +1,4 @@
-import { $x } from './xpath'
+import { $x } from './dom'
 
 export function waitForElement (selector: string): Promise<Element> {
   return new Promise(resolve => {

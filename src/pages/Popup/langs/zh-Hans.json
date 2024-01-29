@@ -20,7 +20,8 @@
     "hideLogo": "隐藏 LeetCode Logo",
     "autoResetCode": "自动重置代码",
     "autoResetCodeDescription": "总是将代码重置成初始定义",
-    "insertYoutubeLink": "显示 YouTube 链接快捷方式"
+    "insertYoutubeLink": "显示 YouTube 链接快捷方式",
+    "insertDislikeCount": "显示不喜欢计数器"
   },
   "status": {
     "noResult": "找不到结果"

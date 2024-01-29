@@ -15,12 +15,13 @@
     "enableDarkTheme2023Description": "新バージョンの LeetCode を使用しています。これは公式にダークモードをサポートしています。この拡張機能は追加の操作をせずに内蔵のダークテーマに切り替えます。",
     "oldVersionLeetcode": "LeetCode 旧バージョン",
     "newVersionLeetcode": "LeetCode 新バージョン",
-    "invertImageColor": "画像の色を反転",
-    "mascot": "マスコットを表示",
+    "invertImageColor": "画像の色を反転する",
+    "mascot": "マスコットを表示する",
     "hideLogo": "LeetCode ロゴを隠す",
     "autoResetCode": "コードの自動リセット",
     "autoResetCodeDescription": "常にデフォルトのコード定義にリセット。",
-    "insertYoutubeLink": "YouTube リンクショートカットを表示"
+    "insertYoutubeLink": "YouTube リンクショートカットを表示する",
+    "insertDislikeCount": "低く評価カウンターを表示する"
   },
   "status": {
     "noResult": "結果が見つかりません"
