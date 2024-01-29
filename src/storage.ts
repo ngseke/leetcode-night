@@ -1,75 +1,102 @@
 import { DEFAULT_OPTIONS, type OptionsForm } from './options'
-import {
-  AUTO_RESET_CODE_ENABLED_STORAGE_KEY,
-  ENABLED_STORAGE_KEY,
-  OPTIONS_STORAGE_KEY,
-  INSERT_YOUTUBE_LINK_STORAGE_KEY,
-  LEETCODE_VERSION_STORAGE_KEY,
-  INSERT_DISLIKE_COUNT_STORAGE_KEY,
-} from './constants'
 import { type LeetcodeVersion } from './pages/Content/leetcode-version'
 import { type Nullish } from './pages/Popup/types/Nullish'
 
-async function getSyncStorage <T> (key: string, defaultValue: T): Promise<T> {
-  return (await chrome.storage.sync.get(key))[key] ?? defaultValue
+const ENABLED_STORAGE_KEY = 'enabled'
+const LEETCODE_VERSION_STORAGE_KEY = 'leetcodeVersion'
+const OPTIONS_STORAGE_KEY = 'options'
+const AUTO_RESET_CODE_ENABLED_STORAGE_KEY = 'autoResetCodeEnabled'
+const INSERT_YOUTUBE_LINK_STORAGE_KEY = 'insertYoutubeLinkEnabled'
+const INSERT_DISLIKE_COUNT_STORAGE_KEY = 'insertDislikeCountEnabled'
+
+export interface StorageSchema {
+  [ENABLED_STORAGE_KEY]: boolean,
+  [LEETCODE_VERSION_STORAGE_KEY]: Nullish<LeetcodeVersion>,
+  [OPTIONS_STORAGE_KEY]: OptionsForm,
+  [AUTO_RESET_CODE_ENABLED_STORAGE_KEY]: boolean,
+  [INSERT_YOUTUBE_LINK_STORAGE_KEY]: boolean,
+  [INSERT_DISLIKE_COUNT_STORAGE_KEY]: boolean,
 }
 
-async function setSyncStorage <T> (key: string, value: T) {
-  return await chrome.storage.sync.set({ [key]: value })
+export const storageDefaultValues: StorageSchema = {
+  [ENABLED_STORAGE_KEY]: true,
+  [LEETCODE_VERSION_STORAGE_KEY]: null,
+  [OPTIONS_STORAGE_KEY]: DEFAULT_OPTIONS,
+  [AUTO_RESET_CODE_ENABLED_STORAGE_KEY]: false,
+  [INSERT_YOUTUBE_LINK_STORAGE_KEY]: true,
+  [INSERT_DISLIKE_COUNT_STORAGE_KEY]: true,
 }
 
-async function getLocalStorage <T> (key: string, defaultValue: T): Promise<T> {
-  return (await chrome.storage.local.get(key))[key] ?? defaultValue
+export type StorageKey = keyof StorageSchema
+
+const localStorageKeys = new Set<StorageKey>([
+  LEETCODE_VERSION_STORAGE_KEY,
+])
+
+export async function getStorage <
+  Key extends StorageKey
+> (key: Key): Promise<StorageSchema[Key]> {
+  const value = localStorageKeys.has(key)
+    ? (await chrome.storage.local.get(key))[key]
+    : (await chrome.storage.sync.get(key))[key]
+
+  return value ?? structuredClone(storageDefaultValues[key])
 }
 
-async function setLocalStorage <T> (key: string, value: T) {
-  return await chrome.storage.local.set({ [key]: value })
+export async function setStorage<
+  Key extends StorageKey
+> (key: Key, value: StorageSchema[Key]) {
+  if (localStorageKeys.has(key)) {
+    await chrome.storage.local.set({ [key]: value })
+  } else {
+    await chrome.storage.sync.set({ [key]: value })
+  }
 }
 
 export const loadIsEnabled = () => {
-  return getSyncStorage(ENABLED_STORAGE_KEY, true)
+  return getStorage(ENABLED_STORAGE_KEY)
 }
 
 export const saveIsEnabled = (isEnabled: boolean) => {
-  return setSyncStorage(ENABLED_STORAGE_KEY, isEnabled)
+  return setStorage(ENABLED_STORAGE_KEY, isEnabled)
 }
 
 export const loadLeetcodeVersion = () => {
-  return getLocalStorage<Nullish<LeetcodeVersion>>(LEETCODE_VERSION_STORAGE_KEY, null)
+  return getStorage(LEETCODE_VERSION_STORAGE_KEY)
 }
 
 export const saveLeetcodeVersion = (version: LeetcodeVersion) => {
-  return setLocalStorage(LEETCODE_VERSION_STORAGE_KEY, version)
+  return setStorage(LEETCODE_VERSION_STORAGE_KEY, version)
 }
 
 export const loadOptions = () => {
-  return getSyncStorage(OPTIONS_STORAGE_KEY, DEFAULT_OPTIONS)
+  return getStorage(OPTIONS_STORAGE_KEY)
 }
 
 export const saveOptions = (options: OptionsForm) => {
-  return setSyncStorage(OPTIONS_STORAGE_KEY, options)
+  return setStorage(OPTIONS_STORAGE_KEY, options)
 }
 
 export const loadIsAutoResetCodeEnabled = () => {
-  return getSyncStorage(AUTO_RESET_CODE_ENABLED_STORAGE_KEY, false)
+  return getStorage(AUTO_RESET_CODE_ENABLED_STORAGE_KEY)
 }
 
 export const saveIsAutoResetCodeEnabled = (isEnabled: boolean) => {
-  return setSyncStorage(AUTO_RESET_CODE_ENABLED_STORAGE_KEY, isEnabled)
+  return setStorage(AUTO_RESET_CODE_ENABLED_STORAGE_KEY, isEnabled)
 }
 
 export const loadIsInsertYoutubeLinkEnabled = () => {
-  return getSyncStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, true)
+  return getStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY)
 }
 
 export const saveIsInsertYoutubeLinkEnabled = (isEnabled: boolean) => {
-  return setSyncStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, isEnabled)
+  return setStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, isEnabled)
 }
 
 export const loadIsInsertDislikeCountEnabled = () => {
-  return getSyncStorage(INSERT_DISLIKE_COUNT_STORAGE_KEY, true)
+  return getStorage(INSERT_DISLIKE_COUNT_STORAGE_KEY)
 }
 
 export const saveIsInsertDislikeCountEnabled = (isEnabled: boolean) => {
-  return setSyncStorage(INSERT_DISLIKE_COUNT_STORAGE_KEY, isEnabled)
+  return setStorage(INSERT_DISLIKE_COUNT_STORAGE_KEY, isEnabled)
 }
