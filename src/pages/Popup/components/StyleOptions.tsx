@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { type OptionKey, OPTIONS, type OptionsForm } from '../../../options'
-import { loadOptions, saveOptions } from '../../../storage'
+import { type OptionKey, OPTIONS } from '../../../options'
+import { OPTIONS_STORAGE_KEY } from '../../../storage'
 import { useEnableDarkTheme } from '../hooks/useEnableDarkTheme'
 import { Switch } from './Switch'
 import { useLeetCodeVersion } from '../hooks/useLeetCodeVersion'
 import { LeetcodeVersionDescription } from './LeetcodeVersionDescription'
 import { LeetcodeVersionBadge } from './LeetcodeVersionBadge'
+import { useChromeStorage } from '../hooks/useChromeStorage'
 
 const options = [
   OPTIONS.MASCOT,
@@ -18,30 +18,20 @@ export function StyleOptions () {
   const { t } = useTranslation()
   const [leetcodeVersion] = useLeetCodeVersion()
 
-  const [form, setForm] = useState<OptionsForm>()
+  const [isDarkThemeEnabled, setIsDarkThemeEnabled] = useEnableDarkTheme()
+  const [storageOptions, setStorageOptions] =
+    useChromeStorage(OPTIONS_STORAGE_KEY)
 
   const handleChange = (key: OptionKey) =>
     (checked: boolean) => {
-      setForm((form) => {
-        if (!form) return form
-        return { ...form, [key]: checked }
-      })
+      if (!storageOptions) return
+      setStorageOptions({ ...storageOptions, [key]: checked })
     }
 
   const isHidden = (key: OptionKey) => {
     if (key === 'mascot') return leetcodeVersion !== '2022'
     return false
   }
-
-  useEffect(() => {
-    loadOptions().then(setForm)
-  }, [])
-
-  useEffect(() => {
-    if (form) saveOptions(form)
-  }, [form])
-
-  const [isDarkThemeEnabled, setIsDarkThemeEnabled] = useEnableDarkTheme()
 
   return (
     <div className="ts-wrap is-vertical is-start-aligned">
@@ -61,7 +51,7 @@ export function StyleOptions () {
         !isHidden(key) && (
           <Switch
             key={key}
-            checked={form?.[key]}
+            checked={storageOptions?.[key]}
             onChange={handleChange(key)}
             icon={icon}
           >
