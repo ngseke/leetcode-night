@@ -142,6 +142,8 @@ const destroyAll = () => {
 const observer = new MutationObserver(() => debouncedTryInsertAll())
 
 export async function startInsertDislikeCountObserver () {
+  if (isStarted) return
+
   isStarted = true
   debouncedTryInsertAll()
   observer.observe(document.documentElement, {

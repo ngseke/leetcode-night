@@ -172,6 +172,8 @@ const removeAll = () => {
 const observer = new MutationObserver(() => debouncedTryInsertAll())
 
 export async function startInsertYoutubeLinkObserver () {
+  if (isStarted) return
+
   isStarted = true
   debouncedTryInsertAll()
   observer.observe(document.documentElement, {

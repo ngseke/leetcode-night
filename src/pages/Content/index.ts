@@ -7,7 +7,6 @@ import { toggleEnabledMascot } from './toggleEnabledMascot'
 import { toggleHideLogo } from './toggleHideLogo'
 import { toggleHideLogo2023 } from './toggleHideLogo2023'
 
-import { type OptionsForm } from '../../options'
 import { resetCode } from './resetCode'
 import { resetCode2023 } from './resetCode2023'
 import { detectLeetcodeVersion } from './leetcode-version'
@@ -33,22 +32,28 @@ async function toggleHideLogoByVersion (value: boolean) {
   }
 }
 
-const handleOptionsChange = (options: OptionsForm) => {
+async function applyOptions () {
+  const options = await loadOptions()
   toggleInvertImageColorByVersion(options?.invertImageColor ?? false)
   toggleEnabledMascot(options?.mascot ?? false)
   toggleHideLogoByVersion(options?.hideLogo ?? false)
 }
 
-async function toggleEnabledByVersion (value: boolean) {
+async function toggleEnabledByVersion () {
+  const isEnabled = await loadIsEnabled()
   const version = await detectLeetcodeVersion()
+
   if (version === '2022') {
-    toggleEnabled(value)
+    toggleEnabled(isEnabled)
   } else {
-    setIsDarkSide2023(value)
+    setIsDarkSide2023(isEnabled)
   }
 }
 
-async function resetCodeByVersion () {
+async function tryResetCodeByVersion () {
+  const isEnabled = await loadIsAutoResetCodeEnabled()
+  if (!isEnabled) return
+
   const version = await detectLeetcodeVersion()
   if (version === '2022') {
     resetCode()
@@ -58,9 +63,9 @@ async function resetCodeByVersion () {
 }
 
 async function startOrStopInsertYoutubeLinkObserver () {
-  const isInsertYoutubeLinkEnabled = await loadIsInsertYoutubeLinkEnabled()
+  const isEnabled = await loadIsInsertYoutubeLinkEnabled()
 
-  if (isInsertYoutubeLinkEnabled) startInsertYoutubeLinkObserver()
+  if (isEnabled) startInsertYoutubeLinkObserver()
   else stopInsertYoutubeLinkObserver()
 }
 
@@ -72,23 +77,18 @@ async function startOrStopInsertDislikeCountObserver () {
 }
 
 async function init () {
-  chrome.storage.onChanged.addListener(async () => {
-    toggleEnabledByVersion(await loadIsEnabled())
-    handleOptionsChange(await loadOptions())
+  async function startOrStopTasks () {
+    toggleEnabledByVersion()
+    applyOptions()
     startOrStopInsertYoutubeLinkObserver()
     startOrStopInsertDislikeCountObserver()
-  })
-
-  toggleEnabledByVersion(await loadIsEnabled())
-  onChangeIsDarkSide2023(saveIsEnabled)
-
-  handleOptionsChange(await loadOptions())
-
-  if (await loadIsAutoResetCodeEnabled()) {
-    resetCodeByVersion()
   }
-  startOrStopInsertYoutubeLinkObserver()
-  startOrStopInsertDislikeCountObserver()
+
+  chrome.storage.onChanged.addListener(startOrStopTasks)
+  startOrStopTasks()
+
+  tryResetCodeByVersion()
+  onChangeIsDarkSide2023(saveIsEnabled)
   saveLeetcodeVersion(await detectLeetcodeVersion())
 }
 
