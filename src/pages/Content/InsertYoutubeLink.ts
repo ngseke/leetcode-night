@@ -1,5 +1,6 @@
 import debounce from 'debounce'
 import { $x, createElement } from './dom'
+import { POWERED_BY_TEXT } from '../../constants'
 
 type SelectContainer = () => Node
 type RenderLink = (href: string) => HTMLAnchorElement
@@ -79,7 +80,7 @@ function renderLink (attributes: {
   const link = document.createElement('a')
   Object.assign(link, {
     target: '_blank',
-    title: '🪄 Powered by LeetCode Night',
+    title: POWERED_BY_TEXT,
     ...attributes,
   })
 

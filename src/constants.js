@@ -9,3 +9,5 @@ export const INSERT_YOUTUBE_LINK_STORAGE_KEY = 'insertYoutubeLinkEnabled'
 export const INSERT_DISLIKE_COUNT_STORAGE_KEY = 'insertDislikeCountEnabled'
 
 export const VERSION = packageJson.version
+
+export const POWERED_BY_TEXT = '🪄 Powered by LeetCode Night'
