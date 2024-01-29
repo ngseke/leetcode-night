@@ -5,6 +5,7 @@ import {
   OPTIONS_STORAGE_KEY,
   INSERT_YOUTUBE_LINK_STORAGE_KEY,
   LEETCODE_VERSION_STORAGE_KEY,
+  INSERT_DISLIKE_COUNT_STORAGE_KEY,
 } from './constants'
 import { type LeetcodeVersion } from './pages/Content/leetcode-version'
 import { type Nullish } from './pages/Popup/types/Nullish'
@@ -63,4 +64,12 @@ export const loadIsInsertYoutubeLinkEnabled = () => {
 
 export const saveIsInsertYoutubeLinkEnabled = (isEnabled: boolean) => {
   return setSyncStorage(INSERT_YOUTUBE_LINK_STORAGE_KEY, isEnabled)
+}
+
+export const loadIsInsertDislikeCountEnabled = () => {
+  return getSyncStorage(INSERT_DISLIKE_COUNT_STORAGE_KEY, true)
+}
+
+export const saveIsInsertDislikeCountEnabled = (isEnabled: boolean) => {
+  return setSyncStorage(INSERT_DISLIKE_COUNT_STORAGE_KEY, isEnabled)
 }
