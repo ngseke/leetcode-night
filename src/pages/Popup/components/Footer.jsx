@@ -12,6 +12,10 @@ const links = [
     url: 'https://github.com/ngseke/leetcode-night/issues',
   },
   {
+    title: 'Chrome Web Store',
+    url: 'https://chromewebstore.google.com/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii',
+  },
+  {
     title: `v${VERSION}`,
     url: 'https://github.com/ngseke/leetcode-night/releases',
   },
