@@ -77,7 +77,11 @@ function renderLink (attributes: {
   }
 
   const link = document.createElement('a')
-  Object.assign(link, { target: '_blank', ...attributes })
+  Object.assign(link, {
+    target: '_blank',
+    title: '🪄 Powered by LeetCode Night',
+    ...attributes,
+  })
 
   link.append(createYoutubeLinkChildren())
 
