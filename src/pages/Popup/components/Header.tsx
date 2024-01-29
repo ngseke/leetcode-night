@@ -30,13 +30,13 @@ const Moon = styled.span.attrs({
 }))
 
 export function Header () {
-  const { isDarkThemeEnabled } = useEnableDarkTheme()
+  const [isDarkThemeEnabled] = useEnableDarkTheme()
 
   return (
     <Wrapper>
       <Content>
         <Logo />
-        <Moon show={isDarkThemeEnabled} />
+        <Moon show={isDarkThemeEnabled ?? false} />
       </Content>
     </Wrapper>
   )

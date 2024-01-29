@@ -2,12 +2,12 @@ import { DEFAULT_OPTIONS, type OptionsForm } from './options'
 import { type LeetcodeVersion } from './pages/Content/leetcode-version'
 import { type Nullish } from './pages/Popup/types/Nullish'
 
-const ENABLED_STORAGE_KEY = 'enabled'
-const LEETCODE_VERSION_STORAGE_KEY = 'leetcodeVersion'
-const OPTIONS_STORAGE_KEY = 'options'
-const AUTO_RESET_CODE_ENABLED_STORAGE_KEY = 'autoResetCodeEnabled'
-const INSERT_YOUTUBE_LINK_STORAGE_KEY = 'insertYoutubeLinkEnabled'
-const INSERT_DISLIKE_COUNT_STORAGE_KEY = 'insertDislikeCountEnabled'
+export const ENABLED_STORAGE_KEY = 'enabled'
+export const LEETCODE_VERSION_STORAGE_KEY = 'leetcodeVersion'
+export const OPTIONS_STORAGE_KEY = 'options'
+export const AUTO_RESET_CODE_ENABLED_STORAGE_KEY = 'autoResetCodeEnabled'
+export const INSERT_YOUTUBE_LINK_STORAGE_KEY = 'insertYoutubeLinkEnabled'
+export const INSERT_DISLIKE_COUNT_STORAGE_KEY = 'insertDislikeCountEnabled'
 
 export interface StorageSchema {
   [ENABLED_STORAGE_KEY]: boolean,

@@ -16,7 +16,7 @@ const options = [
 
 export function StyleOptions () {
   const { t } = useTranslation()
-  const { leetcodeVersion } = useLeetCodeVersion()
+  const [leetcodeVersion] = useLeetCodeVersion()
 
   const [form, setForm] = useState<OptionsForm>()
 
@@ -41,13 +41,13 @@ export function StyleOptions () {
     if (form) saveOptions(form)
   }, [form])
 
-  const { isDarkThemeEnabled, setIsDarkThemeEnabled } = useEnableDarkTheme()
+  const [isDarkThemeEnabled, setIsDarkThemeEnabled] = useEnableDarkTheme()
 
   return (
     <div className="ts-wrap is-vertical is-start-aligned">
       <div style={{ display: 'flex', flexDirection: 'column', gap: '.25rem' }}>
         <Switch
-          checked={isDarkThemeEnabled}
+          checked={isDarkThemeEnabled ?? false}
           onChange={setIsDarkThemeEnabled}
           icon="moon"
         >
