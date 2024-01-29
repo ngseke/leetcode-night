@@ -30,6 +30,7 @@
 - Quick navigation by question number or keyword
 - Automatically reset to default code definition
 - Show YouTube link shortcut
+- Show Dislike Count
 - Invert image color
 - Hide logo
 
