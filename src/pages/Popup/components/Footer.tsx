@@ -22,6 +22,7 @@ const links = [
 ]
 
 const Wrapper = styled.footer.attrs({
+
   className: 'ts-content',
 })({})
 
