@@ -11,4 +11,5 @@ export const INSERT_YOUTUBE_LINK_DEBOUNCE_DELAY = 300
 export const TEST_IDS = {
   questionsTab: 'questionsTab',
   optionsTab: 'optionsTab',
+  dailyChallengeQuestionCard: 'dailyChallengeQuestionCard',
 } as const

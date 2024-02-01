@@ -20,11 +20,14 @@ const InvisibleLink = styled(Link)({
 
 type BlockLinkProps = PropsWithChildren<{
   href: Nullish<string>,
+  'data-testid'?: string,
 }>
 
-export function BlockLink ({ children, href }: BlockLinkProps) {
+export function BlockLink (props: BlockLinkProps) {
+  const { children, href } = props
+
   return (
-    <Wrapper>
+    <Wrapper data-testid={props['data-testid']}>
       <InvisibleLink href={href ?? ''} />
       {children}
     </Wrapper>
