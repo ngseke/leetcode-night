@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true
+  },
+  "include": [
+    ".eslintrc.cjs",
+    "vite.config.ts",
+    "manifest.config.ts",
+    "vitest.config.ts",
+    "commitlint.config.js",
+    "package.json",
+    "scripts/**/*.js"
+  ]
+}

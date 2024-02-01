@@ -18,19 +18,20 @@
     "resolveJsonModule": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": [
+      "vitest/globals",
+      "@types/chrome"
+    ]
   },
   "include": [
-    "scripts/**/*.js",
     "src/**/*.ts",
     "src/**/*.tsx",
-    ".eslintrc.cjs",
-    "vite.config.ts",
-    "manifest.config.ts",
-    "commitlint.config.js"
+    "__tests__/**/*.ts"
   ],
   "exclude": [
     "dist",
     "node_modules"
-  ]
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
