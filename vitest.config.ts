@@ -10,5 +10,9 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     testTimeout: 10000,
+    sequence: {
+      hooks: 'list',
+    },
+    singleThread: true,
   },
 })

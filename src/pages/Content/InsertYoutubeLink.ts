@@ -1,6 +1,6 @@
 import debounce from 'debounce'
 import { $x, createElement } from './dom'
-import { POWERED_BY_TEXT } from '../../constants'
+import { INSERT_YOUTUBE_LINK_DEBOUNCE_DELAY, POWERED_BY_TEXT } from '../../constants'
 
 type SelectContainer = () => Node
 type RenderLink = (href: string) => HTMLAnchorElement
@@ -162,7 +162,7 @@ const debouncedTryInsertAll = debounce(() => {
   if (!isStarted) return
   insertYoutubeLinkInstances
     .forEach(instance => instance.tryInsert())
-}, 300)
+}, INSERT_YOUTUBE_LINK_DEBOUNCE_DELAY)
 
 const removeAll = () => {
   insertYoutubeLinkInstances
