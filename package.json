@@ -19,6 +19,7 @@
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx,.js,.cjs,.jsx",
     "lint:fix": "eslint --fix . --ext .ts,.tsx,.js,.cjs,.jsx",
     "bump": "npm run lint && node ./scripts/bump.js",
+    "test": "vitest",
     "prepare": "husky install",
     "preversion": "npm run lint"
   },
