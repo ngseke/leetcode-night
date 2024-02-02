@@ -3,7 +3,7 @@ import { useBrowserAndPages } from '../helpers/puppeteer'
 import { useOptions } from '../helpers/useOptions'
 import { usePagination2023 } from '../helpers/usePagination2023'
 import { customDislikeTextDatasetValue, customLikeTextDatasetValue, datasetKey, likeTextDatasetValue } from '../../pages/Content/InsertDislikeCount'
-import { sleep } from '../helpers/sleep'
+import { waitFor } from '../helpers/waitFor'
 
 describe('[2023 Dynamic Layout] Insert dislike count', () => {
   const optionLabel = 'Show Dislike Count'
@@ -62,7 +62,7 @@ describe('[2023 Dynamic Layout] Insert dislike count', () => {
     await toggleOptionSwitch(optionLabel, false)
     expect(await getIsOriginalLikeCountVisible()).toBe(true)
     expect(await getDislikeCount()).toBeFalsy()
-  }, 20000)
+  })
 
   test('update like and dislike count after navigation', async () => {
     await toggleOptionSwitch(optionLabel, true)
@@ -73,10 +73,10 @@ describe('[2023 Dynamic Layout] Insert dislike count', () => {
     expect(dislikeCount).toBeGreaterThan(0)
 
     await goToNextPage()
-    while (
+    await waitFor(async () => (
       await getLikeCount() === likeCount &&
       await getDislikeCount() === dislikeCount
-    ) { await sleep(300) }
+    ))
 
     const anotherLikeCount = await getLikeCount()
     const anotherDislikeCount = await getDislikeCount()
@@ -86,12 +86,12 @@ describe('[2023 Dynamic Layout] Insert dislike count', () => {
     expect(anotherDislikeCount).not.toBe(dislikeCount)
 
     await goToPreviousPage()
-    while (
+    await waitFor(async () => (
       await getLikeCount() === anotherLikeCount &&
       await getDislikeCount() === anotherDislikeCount
-    ) { await sleep(300) }
+    ))
 
     expect(await getLikeCount()).toBe(likeCount)
     expect(await getDislikeCount()).toBe(dislikeCount)
-  }, 30000)
+  })
 })

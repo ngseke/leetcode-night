@@ -49,7 +49,7 @@ describe('[2023 Dynamic Layout] Insert YouTube Link', () => {
 
     await toggleOptionSwitch(optionLabel, false)
     expect(await selectLinks()).toHaveLength(0)
-  }, 20000)
+  })
 
   test('insert YouTube link after navigation', async () => {
     await toggleOptionSwitch(optionLabel, true)
@@ -60,5 +60,5 @@ describe('[2023 Dynamic Layout] Insert YouTube Link', () => {
 
     await goToPreviousPage()
     await assertLink()
-  }, 30000)
+  })
 })
