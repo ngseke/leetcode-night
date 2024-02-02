@@ -29,7 +29,7 @@ export function usePagination2023 ({ getPage }: {
     while (await page.evaluate(() => document.title) !== currentTitle) {
       await sleep(300)
     }
-    await sleep(500)
+    await sleep(1000)
   }
 
   async function goToNextPage () {
