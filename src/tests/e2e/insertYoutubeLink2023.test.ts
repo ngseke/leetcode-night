@@ -1,5 +1,5 @@
 import { useBrowserAndPages } from '../helpers/puppeteer'
-import { toggleOptionSwitch } from '../helpers/options'
+import { useOptions } from '../helpers/useOptions'
 import { useYoutubeLink } from '../helpers/useYoutubeLink'
 import { usePagination2023 } from '../helpers/usePagination2023'
 
@@ -8,6 +8,8 @@ describe('[2023 Split View] Insert YouTube Link', () => {
 
   const { getBrowser, getPage, getPageQuestionTitle, getPopupPage } =
     useBrowserAndPages({ leetcodeVersion: '2023' })
+
+  const { toggleOptionSwitch } = useOptions({ getPopupPage })
 
   const { assertLink } = useYoutubeLink({
     getBrowser,
@@ -37,23 +39,20 @@ describe('[2023 Split View] Insert YouTube Link', () => {
   }
 
   test('disable and enable insert YouTube link', async () => {
-    const popupPage = await getPopupPage()
     expect(await selectLinks()).toHaveLength(1)
 
-    await toggleOptionSwitch(popupPage, optionLabel, false)
+    await toggleOptionSwitch(optionLabel, false)
     expect(await selectLinks()).toHaveLength(0)
 
-    await toggleOptionSwitch(popupPage, optionLabel, true)
+    await toggleOptionSwitch(optionLabel, true)
     expect(await selectLinks()).toHaveLength(1)
 
-    await toggleOptionSwitch(popupPage, optionLabel, false)
+    await toggleOptionSwitch(optionLabel, false)
     expect(await selectLinks()).toHaveLength(0)
   }, 20000)
 
   test('insert YouTube link after navigation', async () => {
-    const popupPage = await getPopupPage()
-
-    await toggleOptionSwitch(popupPage, optionLabel, true)
+    await toggleOptionSwitch(optionLabel, true)
     await assertLink()
 
     await goToNextPage()
