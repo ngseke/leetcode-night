@@ -1,5 +1,6 @@
 import { type ElementHandle, type Page } from 'puppeteer'
 import { TEST_IDS } from '../../constants'
+import { sleep } from './sleep'
 
 export function useOptions ({ getPopupPage }: {
   getPopupPage: () => Promise<Page>,
@@ -21,6 +22,7 @@ export function useOptions ({ getPopupPage }: {
     if (isChecked === value) return
 
     await checkbox.click()
+    await sleep(300)
   }
 
   return {
