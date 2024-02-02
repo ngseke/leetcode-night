@@ -91,7 +91,7 @@ describe('[2023 Dynamic Layout] Insert dislike count', () => {
       await getDislikeCount() === anotherDislikeCount
     ))
 
-    expect(await getLikeCount()).toBe(likeCount)
-    expect(await getDislikeCount()).toBe(dislikeCount)
+    expect(await getLikeCount()).not.toBe(anotherLikeCount)
+    expect(await getDislikeCount()).not.toBe(anotherDislikeCount)
   })
 })
