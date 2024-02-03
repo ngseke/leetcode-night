@@ -1,5 +1,5 @@
 import { type Page } from 'puppeteer'
-import { waitFor } from './waitFor'
+import { waitUntil } from './waitUntil'
 import { sleep } from './sleep'
 
 export function useResetCode ({
@@ -16,8 +16,8 @@ export function useResetCode ({
     const page = await getPage()
 
     async function selectFirstLine () {
-      await waitFor(async () => (
-        !(await page.$x('//*[@class="line-numbers" and contains(., "6")]'))[0]
+      await waitUntil(async () => (
+        (await page.$x('//*[@class="line-numbers" and contains(., "6")]'))[0]
       ))
 
       const firstLine = await page.waitForSelector('.view-line')

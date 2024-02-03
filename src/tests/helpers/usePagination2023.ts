@@ -1,6 +1,6 @@
 import { type ElementHandle, type Page } from 'puppeteer'
 import { sleep } from './sleep'
-import { waitFor } from './waitFor'
+import { waitUntil } from './waitUntil'
 
 export function usePagination2023 ({ getPage }: {
   getPage: () => Promise<Page>,
@@ -21,13 +21,13 @@ export function usePagination2023 ({ getPage }: {
 
     // Need to hover first so it can fetch necessary data before clicking
     await link.hover()
-    await waitFor(async () => (
-      await link.evaluate((link) => !link.getAttribute('href'))
+    await waitUntil(async () => (
+      await link.evaluate((link) => link.getAttribute('href'))
     ))
     const currentTitle = await page.evaluate(() => document.title)
 
     await link.click()
-    await waitFor(async () => (
+    await waitUntil(async () => (
       await page.evaluate(() => document.title) !== currentTitle
     ))
     await sleep(1000)

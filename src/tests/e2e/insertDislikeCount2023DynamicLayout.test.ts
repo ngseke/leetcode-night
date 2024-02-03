@@ -3,7 +3,7 @@ import { useBrowserAndPages } from '../helpers/puppeteer'
 import { useOptions } from '../helpers/useOptions'
 import { usePagination2023 } from '../helpers/usePagination2023'
 import { customDislikeTextDatasetValue, customLikeTextDatasetValue, datasetKey, likeTextDatasetValue } from '../../pages/Content/InsertDislikeCount'
-import { waitFor } from '../helpers/waitFor'
+import { waitUntil } from '../helpers/waitUntil'
 
 describe('[2023 Dynamic Layout] Insert dislike count', () => {
   const optionLabel = 'Show Dislike Count'
@@ -73,8 +73,8 @@ describe('[2023 Dynamic Layout] Insert dislike count', () => {
     expect(dislikeCount).toBeGreaterThan(0)
 
     await goToNextPage()
-    await waitFor(async () => (
-      await getLikeCount() === likeCount &&
+    await waitUntil(async () => !(
+      await getLikeCount() === likeCount ||
       await getDislikeCount() === dislikeCount
     ))
 
@@ -86,8 +86,8 @@ describe('[2023 Dynamic Layout] Insert dislike count', () => {
     expect(anotherDislikeCount).not.toBe(dislikeCount)
 
     await goToPreviousPage()
-    await waitFor(async () => (
-      await getLikeCount() === anotherLikeCount &&
+    await waitUntil(async () => !(
+      await getLikeCount() === anotherLikeCount ||
       await getDislikeCount() === anotherDislikeCount
     ))
 
