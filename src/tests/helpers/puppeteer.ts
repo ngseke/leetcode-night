@@ -48,8 +48,7 @@ export async function createPopupPage (browser: Browser) {
 
   const page = await browser.newPage()
   await page.setViewport({ width: 1400, height: 900 })
-  await page.goto(url)
-  await page.waitForNetworkIdle()
+  await page.goto(url, { waitUntil: 'networkidle2' })
 
   return page
 }
