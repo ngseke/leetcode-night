@@ -1,18 +1,18 @@
-import debounce from 'debounce'
-import { $x, createElement } from './dom'
+import { $$, $x, createElement } from './dom'
 import { POWERED_BY_TEXT } from '../../constants'
 
 type SelectContainer = () => Node
 type RenderLink = (href: string) => HTMLAnchorElement
 type GetTitle = () => string | null
 
+export const insertYoutubeLinkDatasetKey = 'leetcode_night_insert_youtube_link'
+
 class InsertYoutubeLink {
   selectContainer: SelectContainer
   renderLink: RenderLink
   getTitle: GetTitle
 
-  containerAndLinkMap = new WeakMap<Node, HTMLAnchorElement>()
-  insertedLinks = new Set<Node>()
+  currentTitle: string | undefined
 
   constructor (dependencies: {
     selectContainer: SelectContainer,
@@ -28,6 +28,10 @@ class InsertYoutubeLink {
     return `https://www.youtube.com/results?search_query=${encodeURIComponent(keyword)}`
   }
 
+  selectLinks () {
+    return $$(`[data-${insertYoutubeLinkDatasetKey}]`)
+  }
+
   tryInsert () {
     const title = this.getTitle()
     if (!title) return
@@ -35,26 +39,24 @@ class InsertYoutubeLink {
     const container = this.selectContainer()
     if (!container) return
 
+    if (title === this.currentTitle) return
+    this.currentTitle = title
+
+    this.removeAll()
     const url = this.generateYoutubeUrl(title)
-    const existedLink = this.containerAndLinkMap.get(container)
-
-    if (existedLink) {
-      existedLink.href = url
-    } else {
-      const newLink = this.renderLink(url)
-
-      this.containerAndLinkMap.set(container, newLink)
-      this.insertedLinks.add(newLink)
-      container.appendChild(newLink)
-    }
+    const newLink = this.renderLink(url)
+    newLink.dataset[insertYoutubeLinkDatasetKey] = ''
+    container.appendChild(newLink)
   }
 
   removeAll () {
-    this.insertedLinks.forEach(link => {
-      if (link instanceof Element) link.remove()
-    })
-    this.containerAndLinkMap = new Map()
-    this.insertedLinks.clear()
+    const existedLink = this.selectLinks()
+    existedLink.forEach(link => link.remove())
+  }
+
+  destroy () {
+    this.currentTitle = undefined
+    this.removeAll()
   }
 }
 
@@ -83,6 +85,7 @@ function renderLink (attributes: {
     title: POWERED_BY_TEXT,
     ...attributes,
   })
+  link.style.order = '99'
 
   link.append(createYoutubeLinkChildren())
 
@@ -158,24 +161,23 @@ const insertYoutubeLinkInstances = [
   insertYoutubeLink2023DynamicLayout,
 ]
 
-const debouncedTryInsertAll = debounce(() => {
-  if (!isStarted) return
+const destroyAll = () => {
   insertYoutubeLinkInstances
-    .forEach(instance => instance.tryInsert())
-}, 300)
-
-const removeAll = () => {
-  insertYoutubeLinkInstances
-    .forEach(instance => instance.removeAll())
+    .forEach(instance => instance.destroy())
 }
 
-const observer = new MutationObserver(() => debouncedTryInsertAll())
+function handleMutation () {
+  insertYoutubeLinkInstances
+    .forEach(instance => instance.tryInsert())
+}
+
+const observer = new MutationObserver(handleMutation)
 
 export async function startInsertYoutubeLinkObserver () {
   if (isStarted) return
-
   isStarted = true
-  debouncedTryInsertAll()
+
+  handleMutation()
   observer.observe(document.documentElement, {
     subtree: true,
     childList: true,
@@ -185,5 +187,5 @@ export async function startInsertYoutubeLinkObserver () {
 export async function stopInsertYoutubeLinkObserver () {
   isStarted = false
   observer.disconnect()
-  removeAll()
+  destroyAll()
 }

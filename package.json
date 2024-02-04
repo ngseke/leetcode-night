@@ -19,6 +19,7 @@
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx,.js,.cjs,.jsx",
     "lint:fix": "eslint --fix . --ext .ts,.tsx,.js,.cjs,.jsx",
     "bump": "npm run lint && node ./scripts/bump.js",
+    "test": "vitest",
     "prepare": "husky install",
     "preversion": "npm run lint"
   },
@@ -65,9 +66,12 @@
     "fs-extra": "^10.0.0",
     "husky": "^8.0.1",
     "inquirer": "^8.2.4",
+    "jsdom": "^24.0.0",
     "open": "^8.4.0",
+    "puppeteer": "^21.10.0",
     "sass": "^1.50.0",
     "typescript": "^5.2.2",
-    "vite": "^4.2.0"
+    "vite": "^4.2.0",
+    "vitest": "^0.34.6"
   }
 }

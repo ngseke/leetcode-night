@@ -6,6 +6,7 @@ import { QuestionMetaChips } from './QuestionMetaChips'
 import { Spacer } from './Spacer'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
+import { TEST_IDS } from '../../../constants'
 
 const Wrapper = styled.div({
   display: 'flex',
@@ -52,7 +53,7 @@ export function DailyChallengeQuestionCard (
   const isFinished = question.userStatus === 'Finish'
 
   return (
-    <BlockLink href={link}>
+    <BlockLink href={link} data-testid={TEST_IDS.dailyChallengeQuestionCard}>
       <div className="ts-box">
         <Wrapper>
           <IconWrapper>

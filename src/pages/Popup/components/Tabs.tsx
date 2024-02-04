@@ -3,13 +3,16 @@ import type React from 'react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import useStorageState from 'react-use-storage-state'
+import { TEST_IDS } from '../../../constants'
 
 export const tabs = {
   questions: {
     icon: 'file-lines',
+    testId: TEST_IDS.questionsTab,
   },
   options: {
     icon: 'gear',
+    testId: TEST_IDS.optionsTab,
   },
 }
 
@@ -58,6 +61,7 @@ export function Tabs ({ value, onChange }: TabsProps) {
               className={clsx('item', { 'is-active': value === key })}
               href="#"
               onClick={handleClick(key)}
+              data-testid={tabs[key].testId}
             >
               <span className={clsx('ts-icon', `is-${icon}-icon`)} />
               {t(`tab.${key}`)}

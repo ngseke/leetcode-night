@@ -1,4 +1,3 @@
-import debounce from 'debounce'
 import { $, $x } from './dom'
 import { getSlug } from './slug'
 import { type LikesAndDislikes, fetchLikesAndDislikes } from './fetchLikesAndDislikes'
@@ -8,24 +7,49 @@ function formatNumber (value: number) {
   return new Intl.NumberFormat('en-US').format(value)
 }
 
+export const datasetKey = 'leetcode_night_insert_dislike_count'
+
+export const containerDatasetValue = 'container'
+export const likeTextDatasetValue = 'likeText'
+export const customLikeTextDatasetValue = 'customLikeText'
+export const customDislikeTextDatasetValue = 'customDislikeText'
+
 class InsertDislikeCount2023DynamicLayout {
-  containerDatasetKey = 'leetcode_night_dislike_container'
-
-  likeTextDatasetKey = `${this.containerDatasetKey}_like_text`
-  customLikeTextDatasetKey = `${this.containerDatasetKey}_custom_like_text`
-  customDislikeTextDatasetKey = `${this.containerDatasetKey}_custom_dislike_text`
-
   slug: string | null = null
 
+  selectElement (datasetValue: string, parent?: Element) {
+    const selector = `[data-${datasetKey}=${datasetValue}]`
+    return (
+      parent
+        ? parent.querySelector(selector)
+        : $(selector)
+    ) as HTMLElement
+  }
+
   selectHandledContainer () {
-    return $(`[data-${this.containerDatasetKey}]`)
+    return this.selectElement(containerDatasetValue)
+  }
+
+  selectLikeText () {
+    const container = this.selectHandledContainer()
+    return this.selectElement(likeTextDatasetValue, container)
+  }
+
+  selectCustomLikeText () {
+    const container = this.selectHandledContainer()
+    return this.selectElement(customLikeTextDatasetValue, container)
+  }
+
+  selectCustomDislikeText () {
+    const container = this.selectHandledContainer()
+    return this.selectElement(customDislikeTextDatasetValue, container)
   }
 
   handle ({ likes, dislikes }: LikesAndDislikes) {
     const container = selectLikeDislikeContainer()
     if (!container) return
 
-    container.dataset[this.containerDatasetKey] = 'true'
+    container.dataset[datasetKey] = containerDatasetValue
 
     const [likeButton, dislikeButton] = container.querySelectorAll('button')
     if (!(likeButton && dislikeButton)) return
@@ -40,21 +64,21 @@ class InsertDislikeCount2023DynamicLayout {
     likeText.after(customLikeText)
 
     // Insert the "custom dislike text"
-    const dislikeText = likeText.cloneNode(true) as HTMLElement
-    dislikeText.textContent = formatNumber(dislikes)
-    dislikeText.title = POWERED_BY_TEXT
-    dislikeText.style.lineHeight = '0' // Adjust the style so it won't expand the height of the button
+    const customDislikeText = likeText.cloneNode(true) as HTMLElement
+    customDislikeText.textContent = formatNumber(dislikes)
+    customDislikeText.title = POWERED_BY_TEXT
+    customDislikeText.style.lineHeight = '0' // Adjust the style so it won't expand the height of the button
 
     const dislikeIcon = dislikeButton.querySelector(iconSelector) as HTMLElement
-    dislikeIcon?.after(dislikeText)
+    dislikeIcon?.after(customDislikeText)
 
     // Hide the "original like text"
     likeText.style.display = 'none'
 
     // Mark modified elements with dataset
-    likeText.dataset[this.likeTextDatasetKey] = 'true'
-    customLikeText.dataset[this.customLikeTextDatasetKey] = 'true'
-    dislikeText.dataset[this.customDislikeTextDatasetKey] = 'true'
+    likeText.dataset[datasetKey] = likeTextDatasetValue
+    customLikeText.dataset[datasetKey] = customLikeTextDatasetValue
+    customDislikeText.dataset[datasetKey] = customDislikeTextDatasetValue
   }
 
   /**
@@ -66,8 +90,8 @@ class InsertDislikeCount2023DynamicLayout {
     const container = this.selectHandledContainer()
     if (!container) return
 
-    const customLikeText = container.querySelector(`[data-${this.customLikeTextDatasetKey}]`)
-    const customDislikeText = container.querySelector(`[data-${this.customDislikeTextDatasetKey}]`)
+    const customLikeText = this.selectCustomLikeText()
+    const customDislikeText = this.selectCustomDislikeText()
     if (!(customLikeText && customDislikeText)) return
 
     customLikeText.textContent = formatNumber(likes)
@@ -98,18 +122,18 @@ class InsertDislikeCount2023DynamicLayout {
     if (!container) return
 
     // Restore the display of  "original like text"
-    const likeText = container.querySelector(`[data-${this.likeTextDatasetKey}]`) as HTMLElement
+    const likeText = this.selectLikeText()
     if (likeText) likeText.style.display = ''
 
     // Remove custom elements
-    const customLikeText = container.querySelector(`[data-${this.customLikeTextDatasetKey}]`)
+    const customLikeText = this.selectCustomLikeText()
     customLikeText?.remove()
 
-    const customDislikeText = container.querySelector(`[data-${this.customDislikeTextDatasetKey}]`)
+    const customDislikeText = this.selectCustomDislikeText()
     customDislikeText?.remove()
 
     // Un-mark the container
-    delete container.dataset[this.containerDatasetKey]
+    delete container.dataset[datasetKey]
   }
 }
 
@@ -130,22 +154,22 @@ const instances = [
   new InsertDislikeCount2023DynamicLayout(),
 ]
 
-const debouncedTryInsertAll = debounce(() => {
+const handleMutation = () => {
   if (!isStarted) return
   instances.forEach(instance => instance.tryHandle())
-}, 300)
+}
 
 const destroyAll = () => {
   instances.forEach(instance => instance.destroy())
 }
 
-const observer = new MutationObserver(() => debouncedTryInsertAll())
+const observer = new MutationObserver(() => handleMutation())
 
 export async function startInsertDislikeCountObserver () {
   if (isStarted) return
 
   isStarted = true
-  debouncedTryInsertAll()
+  handleMutation()
   observer.observe(document.documentElement, {
     subtree: true,
     childList: true,
