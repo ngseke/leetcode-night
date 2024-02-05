@@ -87,5 +87,6 @@ module.exports = {
     'react/self-closing-comp': 'warn',
     'react/jsx-fragments': 'warn',
     'react/jsx-equals-spacing': [2, 'never'],
+    'testing-library/no-node-access': ['error', { allowContainerFirstChild: true }],
   },
 }
