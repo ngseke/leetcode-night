@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react() as any],
   test: {
     setupFiles: [
       './__tests__/setup.ts',
@@ -13,6 +13,5 @@ export default defineConfig({
     sequence: {
       hooks: 'list',
     },
-    singleThread: true,
   },
 })

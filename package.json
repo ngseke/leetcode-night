@@ -19,7 +19,8 @@
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx,.js,.cjs,.jsx",
     "lint:fix": "eslint --fix . --ext .ts,.tsx,.js,.cjs,.jsx",
     "bump": "npm run lint && node ./scripts/bump.js",
-    "test": "vitest",
+    "test": "vitest --exclude=src/tests/e2e",
+    "test:e2e": "vitest src/tests/e2e",
     "prepare": "husky install",
     "preversion": "npm run lint"
   },
@@ -76,6 +77,6 @@
     "sass": "^1.50.0",
     "typescript": "^5.2.2",
     "vite": "^4.2.0",
-    "vitest": "^0.34.6"
+    "vitest": "^1.2.2"
   }
 }
