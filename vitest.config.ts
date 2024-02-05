@@ -10,7 +10,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     testTimeout: 30000,
-    retry: 3,
+    retry: 2,
     sequence: {
       hooks: 'list',
     },
