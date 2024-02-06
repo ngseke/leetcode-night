@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { TEST_IDS } from '../../../constants'
 
 const languages = [
   { name: 'English', value: 'en' },
@@ -14,6 +15,7 @@ export function LanguageSelect () {
   return (
     <div className="ts-select is-fluid">
       <select
+        data-testid={TEST_IDS.languageSelect}
         value={i18n.resolvedLanguage}
         onChange={e => i18n.changeLanguage(e.target.value)}
       >
