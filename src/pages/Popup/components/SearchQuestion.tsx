@@ -9,7 +9,7 @@ import { QuestionKeywordInput } from './QuestionKeywordInput'
 import { HighlightText } from './HighlightText'
 import fuzzysort from 'fuzzysort'
 import { Spacer } from './Spacer'
-import { useSelectedIndex } from '../hooks/useKeyboardSelection'
+import { useSelectedIndex } from '../hooks/useSelectedIndex'
 import { NoResult } from './NoResult'
 
 const HiddenLink = styled(Link)({ display: 'none' })
