@@ -53,7 +53,11 @@ export function DailyChallengeQuestionCard (
   const isFinished = question.userStatus === 'Finish'
 
   return (
-    <BlockLink href={link} data-testid={TEST_IDS.dailyChallengeQuestionCard}>
+    <BlockLink
+      href={link}
+      data-testid={TEST_IDS.dailyChallengeQuestionCard}
+      aria-label="Daily Challenge Question"
+    >
       <div className="ts-box">
         <Wrapper>
           <IconWrapper>
