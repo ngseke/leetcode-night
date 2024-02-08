@@ -8,11 +8,11 @@ import { TEST_IDS } from '../../../constants'
 export const tabs = {
   questions: {
     icon: 'file-lines',
-    testId: TEST_IDS.questionsTab,
+    testId: TEST_IDS.questionsTabButton,
   },
   options: {
     icon: 'gear',
-    testId: TEST_IDS.optionsTab,
+    testId: TEST_IDS.optionsTabButton,
   },
 }
 
