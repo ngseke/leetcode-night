@@ -13,4 +13,6 @@ export const TEST_IDS = {
   optionsTab: 'optionsTab',
   dailyChallengeQuestionCard: 'dailyChallengeQuestionCard',
   languageSelect: 'languageSelect',
+  questionCard: 'questionCard',
+  questionCardHiddenLink: 'questionCardHiddenLink',
 } as const

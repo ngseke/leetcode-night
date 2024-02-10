@@ -82,7 +82,11 @@ export function SearchQuestion () {
   return (
     <Wrapper data-testid={TEST_IDS.questionsTab}>
       <FixedForm onSubmit={handleSubmit}>
-        <HiddenLink ref={questionLinkRef} href={submitLink ?? ''} />
+        <HiddenLink
+          ref={questionLinkRef}
+          href={submitLink ?? ''}
+          data-testid={TEST_IDS.questionCardHiddenLink}
+        />
         <QuestionKeywordInput
           value={keyword}
           onChange={setKeyword}
