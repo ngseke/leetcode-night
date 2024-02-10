@@ -52,6 +52,7 @@
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/chrome": "^0.0.177",
+    "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.18",
