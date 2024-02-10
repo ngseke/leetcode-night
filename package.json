@@ -21,7 +21,7 @@
     "bump": "npm run lint && node ./scripts/bump.js",
     "test": "vitest",
     "test:unit": "vitest --exclude=src/tests/e2e",
-    "test:e2e": "vitest src/tests/e2e",
+    "test:e2e": "vitest --poolOptions.threads.singleThread=true src/tests/e2e",
     "prepare": "husky install",
     "preversion": "npm run lint"
   },
