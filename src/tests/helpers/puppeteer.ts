@@ -1,6 +1,15 @@
 import puppeteer, { type Page, type Browser } from 'puppeteer'
 import { EXTENSION_ID } from '../../constants'
 import { type LeetcodeVersion } from '../../pages/Content/leetcode-version'
+import fs from 'fs-extra'
+
+function getMockCookie () {
+  try {
+    return fs.readJsonSync('./src/tests/e2e/cookie.json')
+  } catch (err) {
+    return []
+  }
+}
 
 const extensionPath = 'dist'
 
@@ -29,8 +38,10 @@ export async function createPage (
   const page = await browser.newPage()
   await page.setViewport({ width: 1400, height: 900 })
   await page.goto(url)
+  await page.setCookie(...getMockCookie())
   await page.evaluate(function skipGuide () {
     localStorage.setItem('dynamicIdeLayoutGuide', 'true')
+    localStorage.setItem('QD_SHOWN_DYNAMIC_LAYOUT_MODAL', 'true')
   })
   if (leetcodeVersion === '2023') {
     await page.evaluate(() => {

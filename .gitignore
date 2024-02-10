@@ -22,3 +22,4 @@ dist
 secrets.*.js
 
 .vscode/settings.json
+src/tests/e2e/cookie.json
