@@ -9,8 +9,9 @@ import { QuestionKeywordInput } from './QuestionKeywordInput'
 import { HighlightText } from './HighlightText'
 import fuzzysort from 'fuzzysort'
 import { Spacer } from './Spacer'
-import { useSelectedIndex } from '../hooks/useKeyboardSelection'
+import { useSelectedIndex } from '../hooks/useSelectedIndex'
 import { NoResult } from './NoResult'
+import { TEST_IDS } from '../../../constants'
 
 const HiddenLink = styled(Link)({ display: 'none' })
 
@@ -79,9 +80,13 @@ export function SearchQuestion () {
   }
 
   return (
-    <Wrapper>
+    <Wrapper data-testid={TEST_IDS.questionsTab}>
       <FixedForm onSubmit={handleSubmit}>
-        <HiddenLink ref={questionLinkRef} href={submitLink ?? ''} />
+        <HiddenLink
+          ref={questionLinkRef}
+          href={submitLink ?? ''}
+          data-testid={TEST_IDS.questionCardHiddenLink}
+        />
         <QuestionKeywordInput
           value={keyword}
           onChange={setKeyword}

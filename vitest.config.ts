@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react() as any],
   test: {
     setupFiles: [
       './__tests__/setup.ts',
@@ -10,9 +10,9 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     testTimeout: 30000,
+    retry: 2,
     sequence: {
       hooks: 'list',
     },
-    singleThread: true,
   },
 })

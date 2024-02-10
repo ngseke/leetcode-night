@@ -6,7 +6,7 @@ import fuzzysort from 'fuzzysort'
 
 export function useQuestions (keyword: string) {
   const [questions, setQuestions] =
-    useStorageState<Question[] | null>('questions', null)
+    useStorageState<Readonly<Question[]> | null>('questions', null)
 
   const questionMap = useMemo(() => {
     const map: QuestionMap = {}

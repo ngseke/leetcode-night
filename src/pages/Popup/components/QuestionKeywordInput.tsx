@@ -28,6 +28,7 @@ export function QuestionKeywordInput (
         )}
       />
       <input
+        aria-label={t('input.questionKeyword.placeholder')}
         placeholder={t('input.questionKeyword.placeholder')}
         autoFocus
         value={value}

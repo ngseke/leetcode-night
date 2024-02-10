@@ -8,6 +8,12 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
   ],
+  overrides: [
+    {
+      files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
+    },
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: { jsx: true },
@@ -81,5 +87,6 @@ module.exports = {
     'react/self-closing-comp': 'warn',
     'react/jsx-fragments': 'warn',
     'react/jsx-equals-spacing': [2, 'never'],
+    'testing-library/no-node-access': ['error', { allowContainerFirstChild: true }],
   },
 }

@@ -19,7 +19,7 @@ export async function fetchQuestions () {
       url: getQuestionUrl(question.stat.question__title_slug),
     }))
 
-  return extendedQuestions
+  return extendedQuestions as readonly Question[]
 }
 
 export async function fetchDailyChallengeQuestion () {

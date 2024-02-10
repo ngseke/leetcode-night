@@ -8,7 +8,7 @@ export function useOptions ({ getPopupPage }: {
   async function toggleOptionSwitch (label: string, value: boolean) {
     const popupPage = await getPopupPage()
 
-    const optionsTab = await popupPage.$(`[data-testid=${TEST_IDS.optionsTab}]`)
+    const optionsTab = await popupPage.$(`[data-testid=${TEST_IDS.optionsTabButton}]`)
     await optionsTab?.click()
 
     const checkbox = await popupPage.waitForXPath(

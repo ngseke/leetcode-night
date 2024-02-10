@@ -20,11 +20,12 @@
     "lint:fix": "eslint --fix . --ext .ts,.tsx,.js,.cjs,.jsx",
     "bump": "npm run lint && node ./scripts/bump.js",
     "test": "vitest",
+    "test:unit": "vitest --exclude=src/tests/e2e",
+    "test:e2e": "vitest --poolOptions.threads.singleThread=true src/tests/e2e",
     "prepare": "husky install",
     "preversion": "npm run lint"
   },
   "dependencies": {
-    "@hot-loader/react-dom": "^17.0.2",
     "@types/styled-components": "^5.1.23",
     "axios": "^0.26.1",
     "clsx": "^1.1.1",
@@ -35,12 +36,11 @@
     "i18next": "^21.6.16",
     "i18next-browser-languagedetector": "^6.1.4",
     "lodash-es": "^4.17.21",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-hot-loader": "^4.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^11.16.7",
     "react-use-storage-state": "^1.0.3",
-    "styled-components": "^5.3.3",
+    "styled-components": "^6.1.8",
     "tocas": "^4.0.2",
     "url-join": "^5.0.0"
   },
@@ -48,10 +48,14 @@
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
     "@crxjs/vite-plugin": "^1.0.14",
+    "@testing-library/jest-dom": "^6.4.1",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/chrome": "^0.0.177",
+    "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@vitejs/plugin-react": "^4.2.0",
     "eslint": "^8.8.0",
@@ -63,6 +67,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-testing-library": "^6.2.0",
     "fs-extra": "^10.0.0",
     "husky": "^8.0.1",
     "inquirer": "^8.2.4",
@@ -72,6 +77,6 @@
     "sass": "^1.50.0",
     "typescript": "^5.2.2",
     "vite": "^4.2.0",
-    "vitest": "^0.34.6"
+    "vitest": "^1.2.2"
   }
 }

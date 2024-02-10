@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import { HighlightText } from './HighlightText'
 import styled from 'styled-components'
 import { PremiumBadge } from './PremiumBadge'
+import { TEST_IDS } from '../../../constants'
 
 const Wrapper = styled.div({
   display: 'flex',
@@ -66,6 +67,7 @@ export function QuestionCard ({
         { 'is-active': active }
       )}
       href={url ?? ''}
+      data-testid={TEST_IDS.questionCard}
     >
       <Wrapper>
         <IconWrapper>

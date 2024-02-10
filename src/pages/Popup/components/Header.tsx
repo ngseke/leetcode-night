@@ -18,7 +18,7 @@ const Content = styled.div.attrs({
 
 const Moon = styled.span.attrs({
   children: '🌕',
-})<{ show: boolean }>(({ show }) => ({
+})<{ $show: boolean }>(({ $show: show }) => ({
   position: 'absolute',
   right: 20,
   top: '50%',
@@ -36,7 +36,7 @@ export function Header () {
     <Wrapper>
       <Content>
         <Logo />
-        <Moon show={isDarkThemeEnabled ?? false} />
+        <Moon $show={isDarkThemeEnabled ?? false} />
       </Content>
     </Wrapper>
   )
