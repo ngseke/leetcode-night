@@ -8,11 +8,13 @@ export const getIsDarkSide2023 = async () => {
 }
 
 export const setIsDarkSide2023 = async (isDark: boolean) => {
-  const key = 'lc-dark-side'
+  const possibleKeys = ['lc-dark-side', 'lc-theme']
   const newValue = isDark ? 'dark' : 'light'
 
-  const event = new StorageEvent('storage', { key, newValue })
-  window.dispatchEvent(event)
+  possibleKeys.forEach(key => {
+    const event = new StorageEvent('storage', { key, newValue })
+    window.dispatchEvent(event)
+  })
 }
 
 export const onChangeIsDarkSide2023 = (
