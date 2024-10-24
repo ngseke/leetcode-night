@@ -9,7 +9,7 @@
   },
   "include": [
     ".eslintrc.cjs",
-    "vite.config.ts",
+    "vite.config.mts",
     "manifest.config.ts",
     "vitest.config.ts",
     "commitlint.config.js",
