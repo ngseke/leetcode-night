@@ -10,7 +10,7 @@ export async function detectLeetcodeVersion (): Promise<LeetcodeVersion> {
   await waitDOMContentLoaded()
 
   const isNextApp = Boolean(
-    document.querySelector('head meta[name="next-head-count"]')
+    document.querySelector('head meta[data-next-head]')
   )
 
   if (isNextApp) {
